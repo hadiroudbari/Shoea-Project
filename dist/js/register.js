@@ -1,5 +1,5 @@
 const form = document.querySelector('#form');
-const formBtn = form.querySelector('#submit');
+const formBtn = form.querySelector('#register');
 const inputs = document.querySelectorAll('.input__box input');
 const inputUsername = document.querySelector('#username');
 const inputFirstname = document.querySelector('#firstname');
@@ -7,7 +7,7 @@ const inputLastname = document.querySelector('#lastname');
 const inputEmail = document.querySelector('#email');
 const inputPassword = document.querySelector('#password');
 const inputPasswordRepeat = document.querySelector('#password__second');
-const checkBoxRemember = document.querySelector('#remember');
+const checkBoxRemember = document.querySelector('#conditions');
 const registerWarningPass = document.querySelector(
   '.warning__register--password'
 );
@@ -52,7 +52,7 @@ checkBoxRemember.addEventListener('change', () => {
 });
 
 form.addEventListener('click', e => {
-  const currentInput = e.target.closest('.input__box').querySelector('input');
+  const currentInput = e.target.closest('.input__box')?.querySelector('input');
 
   if (e.target.classList.contains('show')) {
     currentInput.type = 'text';
