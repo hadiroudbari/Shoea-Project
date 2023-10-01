@@ -13,6 +13,7 @@ nextBtn.addEventListener('click', e => {
     onboardingSecond.style.transform = `translateX(0)`;
     onboardingThird.style.transform = 'translateX(100%)';
     indicatorFirst.classList.remove('bg-gray-800');
+    indicatorFirst.classList.add('bg-gray-400');
     indicatorSecond.classList.add('bg-gray-800');
   }
   if (index === 1) {
