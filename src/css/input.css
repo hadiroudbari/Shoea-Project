@@ -4,9 +4,6 @@
 @tailwind utilities;
 
 @layer components {
-  .onboarding__active--indicator {
-    @apply bg-gray-800;
-  }
   .register__input--focus {
     @apply border-2 border-black !important;
   }
