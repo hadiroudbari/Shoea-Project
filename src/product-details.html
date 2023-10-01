@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo/logo.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link href="/dist/css/output.css" rel="stylesheet" />
+    <script src="../dist/js/productDetails.js" defer></script>
+    <title>Shopping Project</title>
+    <style>
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .swiper-pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .swiper-pagination span {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .swiper-pagination span.swiper-pagination-bullet-active {
+        background: #000;
+        width: 25px;
+        height: 6px;
+        border-radius: 30px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container p-0">
+      <header class="bg-gray-100 py-3 px-5 w-full">
+        <ion-icon class="text-xl" name="arrow-back-outline"></ion-icon>
+
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper h-72">
+            <div class="swiper-slide h-48">
+              <img
+                src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3b1c0c7f-a895-49e2-bbaa-7ded55eaa2ee/free-metcon-5-training-shoes-G8gfw6.png"
+                alt="nike"
+              />
+            </div>
+            <div class="swiper-slide h-48">
+              <img
+                src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/ce901ca6-5cb0-45f0-980e-3d80b8ced632/free-metcon-5-workout-shoes-G8gfw6.png"
+                alt="nike"
+              />
+            </div>
+            <div class="swiper-slide h-48">
+              <img
+                src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/097b0879-0181-4ac6-b77d-46ea3073e796/free-metcon-5-workout-shoes-G8gfw6.png"
+                alt="nike"
+              />
+            </div>
+            <div class="swiper-slide h-48">
+              <img
+                src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b7ae3496-4007-45b5-b5ad-1824af4cd88f/free-metcon-5-workout-shoes-G8gfw6.png"
+                alt="nike"
+              />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </header>
+      <div class="py-3 px-5">
+        <aside class="flex flex-col pt-2 pb-8 gap-2 border-b border-gray-200">
+          <div class="flex items-center justify-between">
+            <h2 class="text-2xl font-bold">Running Sportwear</h2>
+            <ion-icon
+              class="text-2xl cursor-pointer"
+              name="heart-outline"
+            ></ion-icon>
+          </div>
+          <div class="flex items-center gap-3 text-xs">
+            <span class="bg-gray-200 py-1 px-2 rounded-md">5,371 sold</span>
+            <span class="flex items-center gap-1"
+              ><ion-icon class="text-sm" name="star-half-outline"></ion-icon>
+              4.3(5,389 reviews)</span
+            >
+          </div>
+        </aside>
+        <main
+          class="pt-4 pb-8 text-sm flex flex-col gap-6 border-b border-gray-200"
+        >
+          <h4 class="font-bold">Description</h4>
+          <p class="text-gray-600 text-xs">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. At et,
+            amet quia tempore quod deleniti explicabo
+            <a class="font-bold" href="#">view more...</a>
+          </p>
+          <div class="flex gap-10 overflow-x-scroll">
+            <div class="flex flex-col gap-1">
+              <h4 class="font-bold">Size</h4>
+              <ul class="flex gap-2 text-xs">
+                <li>
+                  <a
+                    class="w-8 h-8 flex justify-center items-center border-2 border-black rounded-full font-bold"
+                    href="#"
+                    >40</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="w-8 h-8 flex justify-center items-center border-2 border-black rounded-full font-bold"
+                    href="#"
+                    >41</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="w-8 h-8 flex justify-center items-center border-2 border-black rounded-full font-bold bg-black text-white"
+                    href="#"
+                    >42</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h4 class="font-bold">Color</h4>
+              <ul class="flex justify-center items-center gap-2">
+                <li>
+                  <a
+                    class="w-8 h-8 rounded-full flex justify-center items-center bg-gray-200"
+                    href="#"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="20"
+                      viewBox="0 -960 960 960"
+                      width="20"
+                    >
+                      <path
+                        d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="w-8 h-8 rounded-full flex justify-center items-center bg-sneaker_1"
+                    href="#"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    class="w-8 h-8 rounded-full flex justify-center items-center bg-sneaker_2"
+                    href="#"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    class="w-8 h-8 rounded-full flex justify-center items-center bg-sneaker_3"
+                    href="#"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    class="w-8 h-8 rounded-full flex justify-center items-center bg-sneaker_4"
+                    href="#"
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 pt-4">
+            <h4 class="font-bold">Quantity</h4>
+            <div
+              class="flex items-center justify-center gap-3 text-black font-bold bg-gray-200 rounded-full py-2 px-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20"
+                viewBox="0 -960 960 960"
+                width="20"
+              >
+                <path d="M191.869-434.5v-91h576.262v91H191.869Z" />
+              </svg>
+              <span>2</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20"
+                viewBox="0 -960 960 960"
+                width="20"
+              >
+                <path
+                  d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </main>
+        <footer class="flex justify-between items-center py-4">
+          <div class="flex flex-col gap-1">
+            <h6 class="text-[.7rem] text-gray-600">Total Price</h6>
+            <span class="text-xl font-extrabold">$240.00</span>
+          </div>
+          <div>
+            <button
+              class="bg-black text-white rounded-full py-3 px-16 flex items-center justify-center gap-3 text-sm font-extrabold"
+            >
+              <ion-icon name="bag-handle"></ion-icon>
+              Add to Cart
+            </button>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      let swiper = new Swiper('.mySwiper', {
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      });
+    </script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

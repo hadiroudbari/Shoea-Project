@@ -6,6 +6,10 @@ module.exports = {
       colors: {
         brand: '#e9e9e9',
         tag: '#343a40',
+        sneaker_1: '#607d8a',
+        sneaker_2: '#9d28ac',
+        sneaker_3: '#7a5448',
+        sneaker_4: '#1a96f0',
       },
     },
   },
