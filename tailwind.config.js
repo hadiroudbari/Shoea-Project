@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // 'dark-gary-bg': '#374151',
+        brand: '#e9e9e9',
+        tag: '#343a40',
       },
     },
   },
