@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo/logo.svg" />
+    <link href="/dist/css/output.css" rel="stylesheet" />
+    <script src="../dist/js/register.js" defer></script>
+    <title>Shopping Project</title>
+    <style>
+      .warning__register {
+        display: none;
+        position: absolute;
+        border-radius: 4px;
+        padding: 1rem 1.5rem;
+        white-space: nowrap;
+        font-weight: 700;
+        transition: all 0.5s;
+        text-align: left;
+      }
+      .warning__register::after {
+        content: '';
+        position: absolute;
+        top: -4%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+        border: 6px solid #000;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-left-color: transparent;
+      }
+
+      .warning__register--password {
+        font-size: 0.85rem;
+        display: none;
+        top: 325%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #000;
+        color: #fff;
+        border: 4px solid #000;
+        z-index: 1000;
+      }
+
+      #message h3 {
+        margin-left: -0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      #message .invalid {
+        margin-top: 0.5rem;
+      }
+
+      #message .invalid::before {
+        position: relative;
+        left: -10px;
+        content: '✖';
+      }
+
+      #message .valid {
+        color: rgb(27, 161, 0);
+      }
+
+      #message .valid::before {
+        position: relative;
+        left: -10px;
+        content: '✔';
+      }
+
+      .Done {
+        border-color: green !important;
+      }
+
+      .Done::after {
+        border-color: green;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-left-color: transparent;
+      }
+
+      .Wrong {
+        border-color: red !important;
+      }
+
+      .Wrong::after {
+        border-color: red;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-left-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container flex flex-col items-center py-2 px-5">
+      <ion-icon
+        class="self-start text-4xl"
+        name="arrow-back-outline"
+      ></ion-icon>
+      <svg
+        class="my-20"
+        width="100"
+        height="120"
+        viewBox="0 0 28 41"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5.49997 9.50003C11.9 5.9 17.5 2.5 20.5 1C23 -0.500001 24.1159 5.19132 22 9.00003C19.884 12.8087 14 15 14 15C14 15 27 12 27.5 23.5C27.6304 26.5 25.5 30 24 31C22.5 32 9.5 39.75 8 40.5C6.24174 41.3792 5.49999 39 5.49999 36C5.49999 29 13.5 26.5 13.5 26.5C6.49999 27.5 1.99999 25 0.999988 17.5C0.666658 15 2.5 11.1875 5.49997 9.50003Z"
+          fill="black"
+        />
+      </svg>
+      <h1 class="text-3xl font-bold mb-10">Create a new Account</h1>
+      <form
+        id="form"
+        class="w-full h-[100vh] flex flex-col justify-between px-2"
+      >
+        <div class="flex flex-col items-center">
+          <div
+            class="input__box mb-6 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent"
+          >
+            <ion-icon class="text-gray-500" name="person"></ion-icon>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="text-sm bg-gray-100 rounded-md p-2 w-full"
+              placeholder="Username"
+              minlength="4"
+              maxlength="30"
+              required
+            />
+          </div>
+          <div
+            class="input__box mb-6 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent"
+          >
+            <ion-icon
+              class="text-gray-500"
+              name="information-circle"
+            ></ion-icon>
+            <input
+              type="text"
+              id="firstname"
+              name="firstname"
+              class="text-sm bg-gray-100 rounded-md p-2 w-full"
+              placeholder="Firstname"
+              minlength="4"
+              maxlength="30"
+              required
+            />
+          </div>
+          <div
+            class="input__box mb-6 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent"
+          >
+            <ion-icon
+              class="text-gray-500"
+              name="information-circle"
+            ></ion-icon>
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              class="text-sm bg-gray-100 rounded-md p-2 w-full"
+              placeholder="Lastname"
+              minlength="4"
+              maxlength="30"
+              required
+            />
+          </div>
+          <div
+            class="input__box mb-6 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent"
+          >
+            <ion-icon class="text-gray-500" name="mail"></ion-icon>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="text-sm bg-gray-100 rounded-md p-2 w-full"
+              placeholder="Email Address"
+              minlength="10"
+              maxlength="50"
+              required
+            />
+          </div>
+          <div
+            class="input__box mb-6 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent relative"
+          >
+            <ion-icon class="text-gray-500" name="lock-closed"></ion-icon>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="text-sm bg-gray-100 rounded-md w-full p-2"
+              placeholder="Password"
+              minlength="8"
+              maxlength="30"
+              required
+            />
+            <ion-icon
+              class="show text-gray-500 mr-3 cursor-pointer"
+              name="eye"
+            ></ion-icon>
+            <span class="warning__register warning__register--password"></span>
+          </div>
+          <div
+            class="input__box mb-6 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent"
+          >
+            <ion-icon class="text-gray-500" name="lock-closed"></ion-icon>
+            <input
+              type="password"
+              id="password__second"
+              name="password__second"
+              class="text-sm bg-gray-100 rounded-md w-full p-2"
+              placeholder="Repeat Password"
+              minlength="8"
+              maxlength="30"
+              required
+            />
+            <ion-icon
+              class="show text-gray-500 mr-3 cursor-pointer"
+              name="eye"
+            ></ion-icon>
+          </div>
+          <div class="flex items-start mb-6">
+            <div class="flex items-center h-5">
+              <input
+                id="remember"
+                type="checkbox"
+                class="w-4 h-4 rounded border-gray-200 text-gray-900 bg-gray-200 cursor-pointer"
+                required
+              />
+            </div>
+            <label for="remember" class="ml-2 text-sm cursor-pointer"
+              >Agree to Terms and Conditions</label
+            >
+          </div>
+        </div>
+        <button
+          type="submit"
+          id="submit"
+          name="submit"
+          class="text-white bg-gray-500 font-semibold rounded-full text-sm w-full px-5 py-2 text-center"
+        >
+          Register
+        </button>
+      </form>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

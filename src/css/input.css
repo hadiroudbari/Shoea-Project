@@ -4,9 +4,12 @@
 @tailwind utilities;
 
 @layer components {
-  /* .btn-active {
-    @apply bg-white text-black !important;
-  } */
+  .onboarding__active--indicator {
+    @apply bg-gray-800;
+  }
+  .register__input--focus {
+    @apply border-2 border-black !important;
+  }
 }
 
 @layer base {
@@ -66,9 +69,6 @@
     transform: translateX(-400px);
     visibility: hidden;
     opacity: 0;
-  }
-  .onboarding__active--indicator {
-    @apply bg-gray-800;
   }
 
   .centered {

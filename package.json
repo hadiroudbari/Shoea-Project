@@ -5,7 +5,7 @@
     "tailwindcss": "^3.3.3"
   },
   "scripts": {
-    "tailwind": "npx tailwindcss -i ./src/css/input.css -o ./dist/output.css --watch"
+    "tailwind": "npx tailwindcss -i ./src/css/input.css -o ./dist/css/output.css --watch"
   },
   "name": "shopping-store",
   "version": "1.0.0",
