@@ -7,7 +7,85 @@
     <link href="/dist/css/output.css" rel="stylesheet" />
     <title>Shopping Project</title>
   </head>
-  <body class="bg-gray-50">
+  <body id="body" class="bg-gray-50 relative">
+    <!-- <div class="overlay z-0"></div>
+    <section
+      class="w-full fixed pt-2 pb-5 bottom-0 z-10 rounded-tl-3xl rounded-tr-3xl flex flex-col items-center justify-center bg-gray-50"
+      id="modal"
+    >
+      <header
+        class="flex flex-col items-center gap-5 border-b border-gray-200 w-3/4 pb-5"
+      >
+        <span class="w-7 h-[2px] rounded-full bg-gray-400 block"></span>
+        <h3 class="font-extrabold">Remove From Cart?</h3>
+      </header>
+      <main class="w-3/4 border-b border-gray-200">
+        <article class="flex items-center gap-3 p-3 bg-white rounded-xl my-5">
+          <div
+            class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+          >
+            <img
+              class="w-24 h-16 rounded-xl"
+              src="../assets/img/sneakers/sneakers-3.png"
+              alt="nike"
+            />
+          </div>
+          <div class="flex flex-col gap-2 w-3/4">
+            <div class="flex justify-between">
+              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+            </div>
+            <div>
+              <ul class="flex items-center gap-2 text-[.6rem]">
+                <li
+                  class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                ></li>
+                <li>Brown</li>
+                <li>|</li>
+                <li>Size = 42</li>
+              </ul>
+            </div>
+            <div class="flex justify-between items-center font-semibold">
+              <span class="font-bold">$105.00</span>
+              <div
+                class="flex items-center justify-center gap-3 text-black bg-gray-100 rounded-full py-1.5 px-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="10"
+                  viewBox="0 -960 960 960"
+                  width="10"
+                >
+                  <path d="M191.869-434.5v-91h576.262v91H191.869Z" />
+                </svg>
+                <span class="text-xs">1</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="10"
+                  viewBox="0 -960 960 960"
+                  width="10"
+                >
+                  <path
+                    d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </article>
+      </main>
+      <footer class="w-3/4 flex justify-between items-center py-4 gap-3">
+        <button
+          class="bg-gray-200 text-black py-3 w-1/2 text-sm font-bold rounded-full"
+        >
+          Cancel
+        </button>
+        <button
+          class="bg-black text-white py-3 w-1/2 text-sm font-bold rounded-full"
+        >
+          Yes, Remove
+        </button>
+      </footer>
+    </section> -->
     <div class="container py-3 px-5">
       <header class="flex justify-between items-center">
         <div class="flex items-center gap-3">
@@ -27,7 +105,135 @@
         </div>
         <ion-icon class="text-2xl" name="search-outline"></ion-icon>
       </header>
-      <main>
+      <main class="pb-32">
+        <article class="flex items-center gap-3 p-3 bg-white rounded-xl my-5">
+          <div
+            class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+          >
+            <img
+              class="w-24 h-16 rounded-xl"
+              src="../assets/img/sneakers/sneakers-3.png"
+              alt="nike"
+            />
+          </div>
+          <div class="flex flex-col gap-2 w-3/4">
+            <div class="flex justify-between">
+              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+              <svg
+                class="w-7 h-7"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 100 125"
+              >
+                <g>
+                  <path
+                    d="M66,21.2c0-5-4-9-9-9H43c-5,0-9,4-9,9V26H15c-1.1,0-2,0.9-2,2s0.9,2,2,2h9v43.8c0,7.7,6.3,14,14,14h24c7.7,0,14-6.3,14-14   V30h9c1.1,0,2-0.9,2-2s-0.9-2-2-2H66V21.2z M38,21.2c0-2.8,2.2-5,5-5h14c2.8,0,5,2.2,5,5V26H38V21.2z M72,73.8c0,5.5-4.5,10-10,10   H38c-5.5,0-10-4.5-10-10V30h44V73.8z"
+                  />
+                </g>
+              </svg>
+            </div>
+            <div>
+              <ul class="flex items-center gap-2 text-xs">
+                <li
+                  class="w-4 h-4 rounded-full flex justify-center items-center bg-sneaker_3"
+                ></li>
+                <li>Brown</li>
+                <li>|</li>
+                <li>Size = 42</li>
+              </ul>
+            </div>
+            <div class="flex justify-between items-center font-semibold">
+              <span class="font-bold">$105.00</span>
+              <div
+                class="flex items-center justify-center gap-3 text-black bg-gray-100 rounded-full py-1.5 px-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="10"
+                  viewBox="0 -960 960 960"
+                  width="10"
+                >
+                  <path d="M191.869-434.5v-91h576.262v91H191.869Z" />
+                </svg>
+                <span class="text-xs">1</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="10"
+                  viewBox="0 -960 960 960"
+                  width="10"
+                >
+                  <path
+                    d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="flex items-center gap-3 p-3 bg-white rounded-xl my-5">
+          <div
+            class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+          >
+            <img
+              class="w-24 h-16 rounded-xl"
+              src="../assets/img/sneakers/sneakers-3.png"
+              alt="nike"
+            />
+          </div>
+          <div class="flex flex-col gap-2 w-3/4">
+            <div class="flex justify-between">
+              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+              <svg
+                class="w-7 h-7"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 100 125"
+              >
+                <g>
+                  <path
+                    d="M66,21.2c0-5-4-9-9-9H43c-5,0-9,4-9,9V26H15c-1.1,0-2,0.9-2,2s0.9,2,2,2h9v43.8c0,7.7,6.3,14,14,14h24c7.7,0,14-6.3,14-14   V30h9c1.1,0,2-0.9,2-2s-0.9-2-2-2H66V21.2z M38,21.2c0-2.8,2.2-5,5-5h14c2.8,0,5,2.2,5,5V26H38V21.2z M72,73.8c0,5.5-4.5,10-10,10   H38c-5.5,0-10-4.5-10-10V30h44V73.8z"
+                  />
+                </g>
+              </svg>
+            </div>
+            <div>
+              <ul class="flex items-center gap-2 text-xs">
+                <li
+                  class="w-4 h-4 rounded-full flex justify-center items-center bg-sneaker_3"
+                ></li>
+                <li>Brown</li>
+                <li>|</li>
+                <li>Size = 42</li>
+              </ul>
+            </div>
+            <div class="flex justify-between items-center font-semibold">
+              <span class="font-bold">$105.00</span>
+              <div
+                class="flex items-center justify-center gap-3 text-black bg-gray-100 rounded-full py-1.5 px-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="10"
+                  viewBox="0 -960 960 960"
+                  width="10"
+                >
+                  <path d="M191.869-434.5v-91h576.262v91H191.869Z" />
+                </svg>
+                <span class="text-xs">1</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="10"
+                  viewBox="0 -960 960 960"
+                  width="10"
+                >
+                  <path
+                    d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </article>
+
         <article class="flex items-center gap-3 p-3 bg-white rounded-xl my-5">
           <div
             class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
@@ -285,7 +491,9 @@
         </article>
       </main>
     </div>
-    <footer class="w-full sticky pb-3 bottom-0 bg-white z-10">
+    <footer
+      class="w-full fixed pb-3 bottom-0 bg-white z-10 rounded-tl-3xl rounded-tr-3xl"
+    >
       <div
         class="flex justify-between items-center py-5 px-5 border-t border-gray-200 rounded-tl-3xl rounded-tr-3xl overflow-hidden"
       >
@@ -351,6 +559,10 @@
       </ul>
     </footer>
 
+    <script>
+      const overlay = document.querySelector('.overlay');
+      overlay.style.height = body.scrollHeight + 'px';
+    </script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
