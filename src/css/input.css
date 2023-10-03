@@ -7,6 +7,12 @@
   .register__input--focus {
     @apply border-2 border-black !important;
   }
+  .active__orders {
+    @apply text-black !important;
+  }
+  .active__orders span {
+    @apply h-1 bg-black !important;
+  }
 }
 
 @layer base {

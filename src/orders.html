@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="icon" type="image/x-icon" href="../assets/img/logo/logo.svg" />
+      <link href="/dist/css/output.css" rel="stylesheet" />
+      <title>Shopping Project</title>
+    </head>
+  </head>
+  <body class="bg-gray-50 relative">
+    <div class="container py-3 px-5">
+      <header>
+        <nav class="flex justify-between items-center">
+          <div class="flex items-center gap-4">
+            <svg
+              width="12"
+              height="24"
+              viewBox="0 0 28 41"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.49997 9.50003C11.9 5.9 17.5 2.5 20.5 1C23 -0.500001 24.1159 5.19132 22 9.00003C19.884 12.8087 14 15 14 15C14 15 27 12 27.5 23.5C27.6304 26.5 25.5 30 24 31C22.5 32 9.5 39.75 8 40.5C6.24174 41.3792 5.49999 39 5.49999 36C5.49999 29 13.5 26.5 13.5 26.5C6.49999 27.5 1.99999 25 0.999988 17.5C0.666658 15 2.5 11.1875 5.49997 9.50003Z"
+                fill="black"
+              />
+            </svg>
+            <h2 class="font-bold text-lg">My Orders</h2>
+          </div>
+          <div class="flex items-center gap-4">
+            <svg
+              class="w-6 h-6 mt-[6px]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 40"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              stroke-linejoin="round"
+              stroke-miterlimit="2"
+            >
+              <path
+                fill="#000000"
+                d="M23.985,25.734l5.331,4.996c0.403,0.377 1.036,0.357 1.414,-0.046c0.377,-0.403 0.357,-1.036 -0.046,-1.414l-5.26,-4.929c2.223,-2.478 3.576,-5.753 3.576,-9.341c0,-7.727 -6.273,-14 -14,-14c-7.727,0 -14,6.273 -14,14c0,7.727 6.273,14 14,14c3.418,0 6.552,-1.228 8.985,-3.266Zm-8.985,-22.734c6.623,0 12,5.377 12,12c0,6.623 -5.377,12 -12,12c-6.623,0 -12,-5.377 -12,-12c0,-6.623 5.377,-12 12,-12Z"
+              />
+            </svg>
+            <ion-icon
+              class="w-6 h-6"
+              name="ellipsis-horizontal-circle-outline"
+            ></ion-icon>
+          </div>
+        </nav>
+        <div
+          class="flex justify-between text-center items-center text-sm font-bold my-7"
+        >
+          <button class="w-full pb-3 relative active__orders">
+            Active
+            <span
+              class="w-full h-[1px] bg-gray-200 absolute bottom-0 left-0 rounded-full"
+            ></span>
+          </button>
+          <button class="w-full pb-3 relative text-gray-500">
+            Completed
+            <span
+              class="w-full h-[1px] bg-gray-200 absolute bottom-0 left-0 rounded-full"
+            ></span>
+          </button>
+        </div>
+      </header>
+      <main class="pb-20">
+        <section id="no__orders" class="hidden">
+          <div
+            class="flex flex-col items-center justify-center my-20 text-sm gap-2"
+          >
+            <img
+              class="w-48 h-48 mb-5"
+              src="../assets/content/notfound.png"
+              alt="notfound"
+            />
+            <h3 class="font-bold">You don't have an order yet</h3>
+            <p class="text-xs">You don't have an active orders at this time</p>
+          </div>
+        </section>
+        <section id="active__orders" class="hidden">
+          <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
+            <div
+              class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+            >
+              <img
+                class="w-24 h-16 rounded-xl"
+                src="../assets/img/sneakers/sneakers-3.png"
+                alt="nike"
+              />
+            </div>
+            <div class="flex flex-col gap-1 w-3/4">
+              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+              <div>
+                <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">
+                  <li
+                    class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                  ></li>
+                  <div class="flex items-center gap-2">
+                    <li>Brown</li>
+                    <li>|</li>
+                    <li>Size = 42</li>
+                    <li>|</li>
+                    <li>Qty = 1</li>
+                  </div>
+                </ul>
+              </div>
+              <span
+                class="text-[.6rem] bg-gray-200 w-fit py-1 px-2 rounded-md font-semibold my-1"
+                >In Delivery</span
+              >
+              <div class="flex justify-between items-center font-semibold">
+                <span class="font-bold">$105.00</span>
+                <button
+                  class="bg-black text-white rounded-full py-1 px-4 text-xs font-semibold"
+                >
+                  Track Order
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
+            <div
+              class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+            >
+              <img
+                class="w-24 h-16 rounded-xl"
+                src="../assets/img/sneakers/sneakers-3.png"
+                alt="nike"
+              />
+            </div>
+            <div class="flex flex-col gap-1 w-3/4">
+              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+              <div>
+                <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">
+                  <li
+                    class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                  ></li>
+                  <div class="flex items-center gap-2">
+                    <li>Brown</li>
+                    <li>|</li>
+                    <li>Size = 42</li>
+                    <li>|</li>
+                    <li>Qty = 1</li>
+                  </div>
+                </ul>
+              </div>
+              <span
+                class="text-[.6rem] bg-gray-200 w-fit py-1 px-2 rounded-md font-semibold my-1"
+                >In Delivery</span
+              >
+              <div class="flex justify-between items-center font-semibold">
+                <span class="font-bold">$105.00</span>
+                <button
+                  class="bg-black text-white rounded-full py-1 px-4 text-xs font-semibold"
+                >
+                  Track Order
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
+            <div
+              class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+            >
+              <img
+                class="w-24 h-16 rounded-xl"
+                src="../assets/img/sneakers/sneakers-3.png"
+                alt="nike"
+              />
+            </div>
+            <div class="flex flex-col gap-1 w-3/4">
+              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+              <div>
+                <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">
+                  <li
+                    class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                  ></li>
+                  <div class="flex items-center gap-2">
+                    <li>Brown</li>
+                    <li>|</li>
+                    <li>Size = 42</li>
+                    <li>|</li>
+                    <li>Qty = 1</li>
+                  </div>
+                </ul>
+              </div>
+              <span
+                class="text-[.6rem] bg-gray-200 w-fit py-1 px-2 rounded-md font-semibold my-1"
+                >In Delivery</span
+              >
+              <div class="flex justify-between items-center font-semibold">
+                <span class="font-bold">$105.00</span>
+                <button
+                  class="bg-black text-white rounded-full py-1 px-4 text-xs font-semibold"
+                >
+                  Track Order
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
+            <div
+              class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+            >
+              <img
+                class="w-24 h-16 rounded-xl"
+                src="../assets/img/sneakers/sneakers-3.png"
+                alt="nike"
+              />
+            </div>
+            <div class="flex flex-col gap-1 w-3/4">
+              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+              <div>
+                <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">
+                  <li
+                    class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                  ></li>
+                  <div class="flex items-center gap-2">
+                    <li>Brown</li>
+                    <li>|</li>
+                    <li>Size = 42</li>
+                    <li>|</li>
+                    <li>Qty = 1</li>
+                  </div>
+                </ul>
+              </div>
+              <span
+                class="text-[.6rem] bg-gray-200 w-fit py-1 px-2 rounded-md font-semibold my-1"
+                >In Delivery</span
+              >
+              <div class="flex justify-between items-center font-semibold">
+                <span class="font-bold">$105.00</span>
+                <button
+                  class="bg-black text-white rounded-full py-1 px-4 text-xs font-semibold"
+                >
+                  Track Order
+                </button>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section id="completed__orders">
+          <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
+            <div
+              class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+            >
+              <img
+                class="w-24 h-16 rounded-xl"
+                src="../assets/img/sneakers/sneakers-3.png"
+                alt="nike"
+              />
+            </div>
+            <div class="flex flex-col gap-1 w-3/4">
+              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+              <div>
+                <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">
+                  <li
+                    class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                  ></li>
+                  <div class="flex items-center gap-2">
+                    <li>Brown</li>
+                    <li>|</li>
+                    <li>Size = 42</li>
+                    <li>|</li>
+                    <li>Qty = 1</li>
+                  </div>
+                </ul>
+              </div>
+              <span
+                class="text-[.6rem] bg-gray-200 w-fit py-1 px-2 rounded-md font-semibold my-1"
+                >Completed</span
+              >
+              <div class="flex justify-between items-center font-semibold">
+                <span class="font-bold">$105.00</span>
+                <button
+                  class="bg-black text-white rounded-full py-1 px-4 text-xs font-semibold"
+                >
+                  Leave Review
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
+            <div
+              class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+            >
+              <img
+                class="w-24 h-16 rounded-xl"
+                src="../assets/img/sneakers/sneakers-3.png"
+                alt="nike"
+              />
+            </div>
+            <div class="flex flex-col gap-1 w-3/4">
+              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+              <div>
+                <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">
+                  <li
+                    class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                  ></li>
+                  <div class="flex items-center gap-2">
+                    <li>Brown</li>
+                    <li>|</li>
+                    <li>Size = 42</li>
+                    <li>|</li>
+                    <li>Qty = 1</li>
+                  </div>
+                </ul>
+              </div>
+              <span
+                class="text-[.6rem] bg-gray-200 w-fit py-1 px-2 rounded-md font-semibold my-1"
+                >Completed</span
+              >
+              <div class="flex justify-between items-center font-semibold">
+                <span class="font-bold">$105.00</span>
+                <button
+                  class="bg-black text-white rounded-full py-1 px-4 text-xs font-semibold"
+                >
+                  Buy Again
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
+            <div
+              class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+            >
+              <img
+                class="w-24 h-16 rounded-xl"
+                src="../assets/img/sneakers/sneakers-3.png"
+                alt="nike"
+              />
+            </div>
+            <div class="flex flex-col gap-1 w-3/4">
+              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+              <div>
+                <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">
+                  <li
+                    class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                  ></li>
+                  <div class="flex items-center gap-2">
+                    <li>Brown</li>
+                    <li>|</li>
+                    <li>Size = 42</li>
+                    <li>|</li>
+                    <li>Qty = 1</li>
+                  </div>
+                </ul>
+              </div>
+              <span
+                class="text-[.6rem] bg-gray-200 w-fit py-1 px-2 rounded-md font-semibold my-1"
+                >Completed</span
+              >
+              <div class="flex justify-between items-center font-semibold">
+                <span class="font-bold">$105.00</span>
+                <button
+                  class="bg-black text-white rounded-full py-1 px-4 text-xs font-semibold"
+                >
+                  Buy Again
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
+            <div
+              class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+            >
+              <img
+                class="w-24 h-16 rounded-xl"
+                src="../assets/img/sneakers/sneakers-3.png"
+                alt="nike"
+              />
+            </div>
+            <div class="flex flex-col gap-1 w-3/4">
+              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+              <div>
+                <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">
+                  <li
+                    class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                  ></li>
+                  <div class="flex items-center gap-2">
+                    <li>Brown</li>
+                    <li>|</li>
+                    <li>Size = 42</li>
+                    <li>|</li>
+                    <li>Qty = 1</li>
+                  </div>
+                </ul>
+              </div>
+              <span
+                class="text-[.6rem] bg-gray-200 w-fit py-1 px-2 rounded-md font-semibold my-1"
+                >Completed</span
+              >
+              <div class="flex justify-between items-center font-semibold">
+                <span class="font-bold">$105.00</span>
+                <button
+                  class="bg-black text-white rounded-full py-1 px-4 text-xs font-semibold"
+                >
+                  Buy Again
+                </button>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <footer class="w-full py-3 fixed bottom-0 bg-white z-10">
+      <ul class="flex w-full justify-around">
+        <li>
+          <a
+            class="flex flex-col gap-1 justify-center items-center text-[.6rem]"
+            href="#"
+            ><ion-icon class="text-2xl" name="home-outline"></ion-icon>Home</a
+          >
+        </li>
+        <li>
+          <a
+            class="flex flex-col gap-1 justify-center items-center text-[.6rem]"
+            href="#"
+            ><ion-icon class="text-2xl" name="bag-outline"></ion-icon>Cart</a
+          >
+        </li>
+        <li>
+          <a
+            class="flex flex-col gap-1 justify-center items-center text-[.6rem] font-bold"
+            href="#"
+            ><ion-icon class="text-2xl" name="cart"></ion-icon>Orders</a
+          >
+        </li>
+        <li>
+          <a
+            class="flex flex-col gap-1 justify-center items-center text-[.6rem]"
+            href="#"
+            ><ion-icon class="text-2xl" name="wallet-outline"></ion-icon
+            >Wallet</a
+          >
+        </li>
+        <li>
+          <a
+            class="flex flex-col gap-1 justify-center items-center text-[.6rem]"
+            href="#"
+            ><ion-icon class="text-2xl" name="person-outline"></ion-icon
+            >Profile</a
+          >
+        </li>
+      </ul>
+    </footer>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
