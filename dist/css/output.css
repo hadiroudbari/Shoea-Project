@@ -1196,28 +1196,12 @@ input,
   right: 0px;
 }
 
-.top-0{
-  top: 0px;
-}
-
-.right-10{
-  right: 2.5rem;
-}
-
-.top-10{
-  top: 2.5rem;
-}
-
-.right-5{
-  right: 1.25rem;
-}
-
-.top-5{
-  top: 1.25rem;
-}
-
 .right-3{
   right: 0.75rem;
+}
+
+.top-0{
+  top: 0px;
 }
 
 .top-3{
@@ -1272,11 +1256,6 @@ input,
   margin-bottom: 1.75rem;
 }
 
-.my-3{
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
 .mb-1{
   margin-bottom: 0.25rem;
 }
@@ -1325,6 +1304,10 @@ input,
   margin-top: 0.5rem;
 }
 
+.mt-3{
+  margin-top: 0.75rem;
+}
+
 .mt-5{
   margin-top: 1.25rem;
 }
@@ -1335,10 +1318,6 @@ input,
 
 .mt-\[6px\]{
   margin-top: 6px;
-}
-
-.mt-3{
-  margin-top: 0.75rem;
 }
 
 .block{
@@ -1517,6 +1496,10 @@ input,
   width: 1.25rem;
 }
 
+.w-5\/6{
+  width: 83.333333%;
+}
+
 .w-6{
   width: 1.5rem;
 }
@@ -1531,6 +1514,10 @@ input,
 
 .w-8{
   width: 2rem;
+}
+
+.w-9{
+  width: 2.25rem;
 }
 
 .w-fit{
@@ -1827,6 +1814,11 @@ input,
   background-color: rgb(233 233 233 / var(--tw-bg-opacity));
 }
 
+.bg-discount_box{
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 242 242 / var(--tw-bg-opacity));
+}
+
 .bg-gray-100{
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -1901,16 +1893,6 @@ input,
   background-color: rgb(255 255 255 / 0.5);
 }
 
-.bg-gray-700{
-  --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-}
-
-.bg-slate-950{
-  --tw-bg-opacity: 1;
-  background-color: rgb(2 6 23 / var(--tw-bg-opacity));
-}
-
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;
 }
@@ -1973,6 +1955,11 @@ input,
   padding-right: 1.25rem;
 }
 
+.px-7{
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+
 .py-1{
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -2006,11 +1993,6 @@ input,
 .py-5{
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-}
-
-.px-7{
-  padding-left: 1.75rem;
-  padding-right: 1.75rem;
 }
 
 .pb-20{
@@ -2061,6 +2043,10 @@ input,
   padding-top: 1.25rem;
 }
 
+.pb-4{
+  padding-bottom: 1rem;
+}
+
 .text-center{
   text-align: center;
 }
@@ -2109,9 +2095,8 @@ input,
   line-height: 1rem;
 }
 
-.text-base{
-  font-size: 1rem;
-  line-height: 1.5rem;
+.text-\[\.5rem\]{
+  font-size: .5rem;
 }
 
 .font-bold{
@@ -2128,6 +2113,10 @@ input,
 
 .font-semibold{
   font-weight: 600;
+}
+
+.font-normal{
+  font-weight: 400;
 }
 
 .leading-6{
