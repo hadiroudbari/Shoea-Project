@@ -1,6 +1,5 @@
 //
-shadow for boxes
-menu should in nav tag
+unsuccessful order should be handles
 // DO MORE
 order search
 add new address

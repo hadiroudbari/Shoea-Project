@@ -1123,6 +1123,12 @@ input,
   }
 }
 
+.register__input--focus{
+  border-width: 2px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity)) !important;
+}
+
 .active__orders{
   --tw-text-opacity: 1 !important;
   color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
@@ -1208,6 +1214,10 @@ input,
   top: 0.75rem;
 }
 
+.top-\[50\%\]{
+  top: 50%;
+}
+
 .z-0{
   z-index: 0;
 }
@@ -1254,6 +1264,11 @@ input,
 .my-7{
   margin-top: 1.75rem;
   margin-bottom: 1.75rem;
+}
+
+.my-4{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mb-1{
@@ -1318,6 +1333,10 @@ input,
 
 .mt-\[6px\]{
   margin-top: 6px;
+}
+
+.mt-4{
+  margin-top: 1rem;
 }
 
 .block{
@@ -1440,6 +1459,14 @@ input,
   height: 100%;
 }
 
+.h-2\/3{
+  height: 66.666667%;
+}
+
+.h-64{
+  height: 16rem;
+}
+
 .w-1\/2{
   width: 50%;
 }
@@ -1527,6 +1554,10 @@ input,
 
 .w-full{
   width: 100%;
+}
+
+.w-2\/3{
+  width: 66.666667%;
 }
 
 .flex-1{
@@ -1700,6 +1731,10 @@ input,
 
 .rounded{
   border-radius: 0.25rem;
+}
+
+.rounded-2xl{
+  border-radius: 1rem;
 }
 
 .rounded-3xl{
@@ -2007,6 +2042,10 @@ input,
   padding-bottom: 8rem;
 }
 
+.pb-4{
+  padding-bottom: 1rem;
+}
+
 .pb-5{
   padding-bottom: 1.25rem;
 }
@@ -2043,10 +2082,6 @@ input,
   padding-top: 1.25rem;
 }
 
-.pb-4{
-  padding-bottom: 1rem;
-}
-
 .text-center{
   text-align: center;
 }
@@ -2071,8 +2106,17 @@ input,
   line-height: 1;
 }
 
+.text-\[\.5rem\]{
+  font-size: .5rem;
+}
+
 .text-\[\.6rem\]{
   font-size: .6rem;
+}
+
+.text-base{
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .text-lg{
@@ -2095,10 +2139,6 @@ input,
   line-height: 1rem;
 }
 
-.text-\[\.5rem\]{
-  font-size: .5rem;
-}
-
 .font-bold{
   font-weight: 700;
 }
@@ -2111,12 +2151,12 @@ input,
   font-weight: 500;
 }
 
-.font-semibold{
-  font-weight: 600;
-}
-
 .font-normal{
   font-weight: 400;
+}
+
+.font-semibold{
+  font-weight: 600;
 }
 
 .leading-6{
@@ -2157,12 +2197,25 @@ input,
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-red-500{
+  --tw-text-opacity: 1;
+  color: rgb(240 82 82 / var(--tw-text-opacity));
+}
+
 .opacity-0{
   opacity: 0;
 }
 
 .opacity-100{
   opacity: 1;
+}
+
+.opacity-50{
+  opacity: 0.5;
+}
+
+.opacity-75{
+  opacity: 0.75;
 }
 
 .shadow{
