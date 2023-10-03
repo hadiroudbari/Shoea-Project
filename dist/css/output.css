@@ -1200,6 +1200,30 @@ input,
   top: 0px;
 }
 
+.right-10{
+  right: 2.5rem;
+}
+
+.top-10{
+  top: 2.5rem;
+}
+
+.right-5{
+  right: 1.25rem;
+}
+
+.top-5{
+  top: 1.25rem;
+}
+
+.right-3{
+  right: 0.75rem;
+}
+
+.top-3{
+  top: 0.75rem;
+}
+
 .z-0{
   z-index: 0;
 }
@@ -1875,6 +1899,16 @@ input,
 
 .bg-white\/50{
   background-color: rgb(255 255 255 / 0.5);
+}
+
+.bg-gray-700{
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
+.bg-slate-950{
+  --tw-bg-opacity: 1;
+  background-color: rgb(2 6 23 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50{
