@@ -122,7 +122,7 @@
             amet quia tempore quod deleniti explicabo
             <a class="font-bold" href="#">view more...</a>
           </p>
-          <div class="flex gap-10 overflow-x-scroll">
+          <div class="flex gap-10">
             <div class="flex flex-col gap-1">
               <h4 class="font-bold">Size</h4>
               <ul class="flex gap-2 text-xs">
@@ -149,9 +149,11 @@
                 </li>
               </ul>
             </div>
-            <div class="flex flex-col gap-1">
+            <div class="flex flex-col gap-1 w-1/2">
               <h4 class="font-bold">Color</h4>
-              <ul class="flex justify-center items-center gap-2">
+              <ul
+                class="flex justify-start items-center gap-2 overflow-x-auto w-full"
+              >
                 <li>
                   <a
                     class="w-8 h-8 rounded-full flex justify-center items-center bg-gray-200"
@@ -268,8 +270,10 @@
       let swiper = new Swiper('.mySwiper', {
         pagination: {
           el: '.swiper-pagination',
+          clickable: true,
         },
       });
+      swiper.slideTo(0);
     </script>
     <script
       type="module"
