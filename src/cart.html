@@ -10,17 +10,17 @@
   <body id="body" class="bg-gray-50 relative">
     <!-- <div class="overlay z-0"></div>
     <section
-      class="w-full fixed pt-2 pb-5 bottom-0 z-10 rounded-tl-3xl rounded-tr-3xl flex flex-col items-center justify-center bg-gray-50"
+      class="w-full fixed pt-2 pb-5 bottom-0 z-10 rounded-tl-3xl rounded-tr-3xl flex flex-col items-center justify-center bg-gray-50 px-5"
       id="modal"
     >
       <header
-        class="flex flex-col items-center gap-5 border-b border-gray-200 w-3/4 pb-5"
+        class="flex flex-col items-center gap-5 border-b border-gray-200 w-full pb-5"
       >
         <span class="w-7 h-[2px] rounded-full bg-gray-400 block"></span>
         <h3 class="font-extrabold">Remove From Cart?</h3>
       </header>
-      <main class="w-3/4 border-b border-gray-200">
-        <article class="flex items-center gap-3 p-3 bg-white rounded-xl my-5">
+      <main class="w-full border-b border-gray-200">
+        <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
           <div
             class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
           >
@@ -47,40 +47,47 @@
             <div class="flex justify-between items-center font-semibold">
               <span class="font-bold">$105.00</span>
               <div
-                class="flex items-center justify-center gap-3 text-black bg-gray-100 rounded-full py-1.5 px-3"
+                class="flex items-center justify-center gap-3 text-black font-bold bg-gray-200 rounded-full py-1 px-3"
               >
                 <svg
+                  class="w-3 h-3 mt-1 cursor-pointer"
+                  xmlns:svg="http://www.w3.org/2000/svg"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 100 125"
                 >
-                  <path d="M191.869-434.5v-91h576.262v91H191.869Z" />
+                  <g transform="translate(0,-952.36218)">
+                    <path
+                      d="m 22,996.36218 c -3.3137,0 -6,2.6862 -6,6.00002 0,3.3136 2.6863,6 6,6 l 56,0 c 3.3137,0 6,-2.6864 6,-6 0,-3.31382 -2.6863,-6.00002 -6,-6.00002 z"
+                      fill="#000000"
+                    />
+                  </g>
                 </svg>
-                <span class="text-xs">1</span>
+                <span class="text-xs">2</span>
                 <svg
+                  class="w-2 h-2 mt-1 cursor-pointer"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 5814 7267.5"
                 >
-                  <path
-                    d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
-                  />
+                  <g>
+                    <path
+                      class="fil0"
+                      d="M538 2362l1824 0 0 -1824c0,-717 1090,-717 1090,0l0 1824 1824 0c717,0 717,1090 0,1090l-1824 0 0 1824c0,717 -1090,717 -1090,0l0 -1824 -1824 0c-717,0 -717,-1090 0,-1090z"
+                    />
+                  </g>
                 </svg>
               </div>
             </div>
           </div>
         </article>
       </main>
-      <footer class="w-3/4 flex justify-between items-center py-4 gap-3">
+      <footer class="w-full flex justify-between items-center py-4 gap-3">
         <button
           class="bg-gray-200 text-black py-3 w-1/2 text-sm font-bold rounded-full"
         >
           Cancel
         </button>
         <button
-          class="bg-black text-white py-3 w-1/2 text-sm font-bold rounded-full"
+          class="bg-black text-white py-3 w-1/2 text-sm font-bold rounded-full shadow-lg"
         >
           Yes, Remove
         </button>
@@ -88,7 +95,7 @@
     </section> -->
     <div class="container py-3 px-5">
       <header class="flex justify-between items-center">
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-4">
           <svg
             width="12"
             height="24"
@@ -101,12 +108,25 @@
               fill="black"
             />
           </svg>
-          <h2 class="font-extrabold text-lg">My Cart</h2>
+          <h2 class="font-bold text-lg">My Cart</h2>
         </div>
-        <ion-icon class="text-2xl" name="search-outline"></ion-icon>
+        <svg
+          class="w-6 h-6 mt-1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 32 40"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          stroke-linejoin="round"
+          stroke-miterlimit="2"
+        >
+          <path
+            fill="#000000"
+            d="M23.985,25.734l5.331,4.996c0.403,0.377 1.036,0.357 1.414,-0.046c0.377,-0.403 0.357,-1.036 -0.046,-1.414l-5.26,-4.929c2.223,-2.478 3.576,-5.753 3.576,-9.341c0,-7.727 -6.273,-14 -14,-14c-7.727,0 -14,6.273 -14,14c0,7.727 6.273,14 14,14c3.418,0 6.552,-1.228 8.985,-3.266Zm-8.985,-22.734c6.623,0 12,5.377 12,12c0,6.623 -5.377,12 -12,12c-6.623,0 -12,-5.377 -12,-12c0,-6.623 5.377,-12 12,-12Z"
+          />
+        </svg>
       </header>
       <main class="pb-32">
-        <article class="flex items-center gap-3 p-3 bg-white rounded-xl my-5">
+        <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
           <div
             class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
           >
@@ -117,24 +137,14 @@
             />
           </div>
           <div class="flex flex-col gap-2 w-3/4">
-            <div class="flex justify-between">
+            <div class="flex justify-between items-center">
               <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
-              <svg
-                class="w-7 h-7"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 100 125"
-              >
-                <g>
-                  <path
-                    d="M66,21.2c0-5-4-9-9-9H43c-5,0-9,4-9,9V26H15c-1.1,0-2,0.9-2,2s0.9,2,2,2h9v43.8c0,7.7,6.3,14,14,14h24c7.7,0,14-6.3,14-14   V30h9c1.1,0,2-0.9,2-2s-0.9-2-2-2H66V21.2z M38,21.2c0-2.8,2.2-5,5-5h14c2.8,0,5,2.2,5,5V26H38V21.2z M72,73.8c0,5.5-4.5,10-10,10   H38c-5.5,0-10-4.5-10-10V30h44V73.8z"
-                  />
-                </g>
-              </svg>
+              <img class="w-5 h-6" src="../assets/content/bin.png" alt="bin" />
             </div>
             <div>
-              <ul class="flex items-center gap-2 text-xs">
+              <ul class="flex items-center gap-2 text-[.6rem]">
                 <li
-                  class="w-4 h-4 rounded-full flex justify-center items-center bg-sneaker_3"
+                  class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
                 ></li>
                 <li>Brown</li>
                 <li>|</li>
@@ -144,33 +154,40 @@
             <div class="flex justify-between items-center font-semibold">
               <span class="font-bold">$105.00</span>
               <div
-                class="flex items-center justify-center gap-3 text-black bg-gray-100 rounded-full py-1.5 px-3"
+                class="flex items-center justify-center gap-3 text-black font-bold bg-gray-200 rounded-full py-1 px-3"
               >
                 <svg
+                  class="w-3 h-3 mt-1 cursor-pointer"
+                  xmlns:svg="http://www.w3.org/2000/svg"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 100 125"
                 >
-                  <path d="M191.869-434.5v-91h576.262v91H191.869Z" />
+                  <g transform="translate(0,-952.36218)">
+                    <path
+                      d="m 22,996.36218 c -3.3137,0 -6,2.6862 -6,6.00002 0,3.3136 2.6863,6 6,6 l 56,0 c 3.3137,0 6,-2.6864 6,-6 0,-3.31382 -2.6863,-6.00002 -6,-6.00002 z"
+                      fill="#000000"
+                    />
+                  </g>
                 </svg>
-                <span class="text-xs">1</span>
+                <span class="text-xs">2</span>
                 <svg
+                  class="w-2 h-2 mt-1 cursor-pointer"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 5814 7267.5"
                 >
-                  <path
-                    d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
-                  />
+                  <g>
+                    <path
+                      class="fil0"
+                      d="M538 2362l1824 0 0 -1824c0,-717 1090,-717 1090,0l0 1824 1824 0c717,0 717,1090 0,1090l-1824 0 0 1824c0,717 -1090,717 -1090,0l0 -1824 -1824 0c-717,0 -717,-1090 0,-1090z"
+                    />
+                  </g>
                 </svg>
               </div>
             </div>
           </div>
         </article>
 
-        <article class="flex items-center gap-3 p-3 bg-white rounded-xl my-5">
+        <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
           <div
             class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
           >
@@ -181,24 +198,14 @@
             />
           </div>
           <div class="flex flex-col gap-2 w-3/4">
-            <div class="flex justify-between">
+            <div class="flex justify-between items-center">
               <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
-              <svg
-                class="w-7 h-7"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 100 125"
-              >
-                <g>
-                  <path
-                    d="M66,21.2c0-5-4-9-9-9H43c-5,0-9,4-9,9V26H15c-1.1,0-2,0.9-2,2s0.9,2,2,2h9v43.8c0,7.7,6.3,14,14,14h24c7.7,0,14-6.3,14-14   V30h9c1.1,0,2-0.9,2-2s-0.9-2-2-2H66V21.2z M38,21.2c0-2.8,2.2-5,5-5h14c2.8,0,5,2.2,5,5V26H38V21.2z M72,73.8c0,5.5-4.5,10-10,10   H38c-5.5,0-10-4.5-10-10V30h44V73.8z"
-                  />
-                </g>
-              </svg>
+              <img class="w-5 h-6" src="../assets/content/bin.png" alt="bin" />
             </div>
             <div>
-              <ul class="flex items-center gap-2 text-xs">
+              <ul class="flex items-center gap-2 text-[.6rem]">
                 <li
-                  class="w-4 h-4 rounded-full flex justify-center items-center bg-sneaker_3"
+                  class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
                 ></li>
                 <li>Brown</li>
                 <li>|</li>
@@ -208,33 +215,40 @@
             <div class="flex justify-between items-center font-semibold">
               <span class="font-bold">$105.00</span>
               <div
-                class="flex items-center justify-center gap-3 text-black bg-gray-100 rounded-full py-1.5 px-3"
+                class="flex items-center justify-center gap-3 text-black font-bold bg-gray-200 rounded-full py-1 px-3"
               >
                 <svg
+                  class="w-3 h-3 mt-1"
+                  xmlns:svg="http://www.w3.org/2000/svg"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 100 125"
                 >
-                  <path d="M191.869-434.5v-91h576.262v91H191.869Z" />
+                  <g transform="translate(0,-952.36218)">
+                    <path
+                      d="m 22,996.36218 c -3.3137,0 -6,2.6862 -6,6.00002 0,3.3136 2.6863,6 6,6 l 56,0 c 3.3137,0 6,-2.6864 6,-6 0,-3.31382 -2.6863,-6.00002 -6,-6.00002 z"
+                      fill="#000000"
+                    />
+                  </g>
                 </svg>
-                <span class="text-xs">1</span>
+                <span class="text-xs">2</span>
                 <svg
+                  class="w-2 h-2 mt-1"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 5814 7267.5"
                 >
-                  <path
-                    d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
-                  />
+                  <g>
+                    <path
+                      class="fil0"
+                      d="M538 2362l1824 0 0 -1824c0,-717 1090,-717 1090,0l0 1824 1824 0c717,0 717,1090 0,1090l-1824 0 0 1824c0,717 -1090,717 -1090,0l0 -1824 -1824 0c-717,0 -717,-1090 0,-1090z"
+                    />
+                  </g>
                 </svg>
               </div>
             </div>
           </div>
         </article>
 
-        <article class="flex items-center gap-3 p-3 bg-white rounded-xl my-5">
+        <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
           <div
             class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
           >
@@ -245,24 +259,14 @@
             />
           </div>
           <div class="flex flex-col gap-2 w-3/4">
-            <div class="flex justify-between">
+            <div class="flex justify-between items-center">
               <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
-              <svg
-                class="w-7 h-7"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 100 125"
-              >
-                <g>
-                  <path
-                    d="M66,21.2c0-5-4-9-9-9H43c-5,0-9,4-9,9V26H15c-1.1,0-2,0.9-2,2s0.9,2,2,2h9v43.8c0,7.7,6.3,14,14,14h24c7.7,0,14-6.3,14-14   V30h9c1.1,0,2-0.9,2-2s-0.9-2-2-2H66V21.2z M38,21.2c0-2.8,2.2-5,5-5h14c2.8,0,5,2.2,5,5V26H38V21.2z M72,73.8c0,5.5-4.5,10-10,10   H38c-5.5,0-10-4.5-10-10V30h44V73.8z"
-                  />
-                </g>
-              </svg>
+              <img class="w-5 h-6" src="../assets/content/bin.png" alt="bin" />
             </div>
             <div>
-              <ul class="flex items-center gap-2 text-xs">
+              <ul class="flex items-center gap-2 text-[.6rem]">
                 <li
-                  class="w-4 h-4 rounded-full flex justify-center items-center bg-sneaker_3"
+                  class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
                 ></li>
                 <li>Brown</li>
                 <li>|</li>
@@ -272,33 +276,40 @@
             <div class="flex justify-between items-center font-semibold">
               <span class="font-bold">$105.00</span>
               <div
-                class="flex items-center justify-center gap-3 text-black bg-gray-100 rounded-full py-1.5 px-3"
+                class="flex items-center justify-center gap-3 text-black font-bold bg-gray-200 rounded-full py-1 px-3"
               >
                 <svg
+                  class="w-3 h-3 mt-1"
+                  xmlns:svg="http://www.w3.org/2000/svg"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 100 125"
                 >
-                  <path d="M191.869-434.5v-91h576.262v91H191.869Z" />
+                  <g transform="translate(0,-952.36218)">
+                    <path
+                      d="m 22,996.36218 c -3.3137,0 -6,2.6862 -6,6.00002 0,3.3136 2.6863,6 6,6 l 56,0 c 3.3137,0 6,-2.6864 6,-6 0,-3.31382 -2.6863,-6.00002 -6,-6.00002 z"
+                      fill="#000000"
+                    />
+                  </g>
                 </svg>
-                <span class="text-xs">1</span>
+                <span class="text-xs">2</span>
                 <svg
+                  class="w-2 h-2 mt-1"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 5814 7267.5"
                 >
-                  <path
-                    d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
-                  />
+                  <g>
+                    <path
+                      class="fil0"
+                      d="M538 2362l1824 0 0 -1824c0,-717 1090,-717 1090,0l0 1824 1824 0c717,0 717,1090 0,1090l-1824 0 0 1824c0,717 -1090,717 -1090,0l0 -1824 -1824 0c-717,0 -717,-1090 0,-1090z"
+                    />
+                  </g>
                 </svg>
               </div>
             </div>
           </div>
         </article>
 
-        <article class="flex items-center gap-3 p-3 bg-white rounded-xl my-5">
+        <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
           <div
             class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
           >
@@ -309,24 +320,14 @@
             />
           </div>
           <div class="flex flex-col gap-2 w-3/4">
-            <div class="flex justify-between">
+            <div class="flex justify-between items-center">
               <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
-              <svg
-                class="w-7 h-7"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 100 125"
-              >
-                <g>
-                  <path
-                    d="M66,21.2c0-5-4-9-9-9H43c-5,0-9,4-9,9V26H15c-1.1,0-2,0.9-2,2s0.9,2,2,2h9v43.8c0,7.7,6.3,14,14,14h24c7.7,0,14-6.3,14-14   V30h9c1.1,0,2-0.9,2-2s-0.9-2-2-2H66V21.2z M38,21.2c0-2.8,2.2-5,5-5h14c2.8,0,5,2.2,5,5V26H38V21.2z M72,73.8c0,5.5-4.5,10-10,10   H38c-5.5,0-10-4.5-10-10V30h44V73.8z"
-                  />
-                </g>
-              </svg>
+              <img class="w-5 h-6" src="../assets/content/bin.png" alt="bin" />
             </div>
             <div>
-              <ul class="flex items-center gap-2 text-xs">
+              <ul class="flex items-center gap-2 text-[.6rem]">
                 <li
-                  class="w-4 h-4 rounded-full flex justify-center items-center bg-sneaker_3"
+                  class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
                 ></li>
                 <li>Brown</li>
                 <li>|</li>
@@ -336,33 +337,40 @@
             <div class="flex justify-between items-center font-semibold">
               <span class="font-bold">$105.00</span>
               <div
-                class="flex items-center justify-center gap-3 text-black bg-gray-100 rounded-full py-1.5 px-3"
+                class="flex items-center justify-center gap-3 text-black font-bold bg-gray-200 rounded-full py-1 px-3"
               >
                 <svg
+                  class="w-3 h-3 mt-1"
+                  xmlns:svg="http://www.w3.org/2000/svg"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 100 125"
                 >
-                  <path d="M191.869-434.5v-91h576.262v91H191.869Z" />
+                  <g transform="translate(0,-952.36218)">
+                    <path
+                      d="m 22,996.36218 c -3.3137,0 -6,2.6862 -6,6.00002 0,3.3136 2.6863,6 6,6 l 56,0 c 3.3137,0 6,-2.6864 6,-6 0,-3.31382 -2.6863,-6.00002 -6,-6.00002 z"
+                      fill="#000000"
+                    />
+                  </g>
                 </svg>
-                <span class="text-xs">1</span>
+                <span class="text-xs">2</span>
                 <svg
+                  class="w-2 h-2 mt-1"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 5814 7267.5"
                 >
-                  <path
-                    d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
-                  />
+                  <g>
+                    <path
+                      class="fil0"
+                      d="M538 2362l1824 0 0 -1824c0,-717 1090,-717 1090,0l0 1824 1824 0c717,0 717,1090 0,1090l-1824 0 0 1824c0,717 -1090,717 -1090,0l0 -1824 -1824 0c-717,0 -717,-1090 0,-1090z"
+                    />
+                  </g>
                 </svg>
               </div>
             </div>
           </div>
         </article>
 
-        <article class="flex items-center gap-3 p-3 bg-white rounded-xl my-5">
+        <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
           <div
             class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
           >
@@ -373,24 +381,14 @@
             />
           </div>
           <div class="flex flex-col gap-2 w-3/4">
-            <div class="flex justify-between">
+            <div class="flex justify-between items-center">
               <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
-              <svg
-                class="w-7 h-7"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 100 125"
-              >
-                <g>
-                  <path
-                    d="M66,21.2c0-5-4-9-9-9H43c-5,0-9,4-9,9V26H15c-1.1,0-2,0.9-2,2s0.9,2,2,2h9v43.8c0,7.7,6.3,14,14,14h24c7.7,0,14-6.3,14-14   V30h9c1.1,0,2-0.9,2-2s-0.9-2-2-2H66V21.2z M38,21.2c0-2.8,2.2-5,5-5h14c2.8,0,5,2.2,5,5V26H38V21.2z M72,73.8c0,5.5-4.5,10-10,10   H38c-5.5,0-10-4.5-10-10V30h44V73.8z"
-                  />
-                </g>
-              </svg>
+              <img class="w-5 h-6" src="../assets/content/bin.png" alt="bin" />
             </div>
             <div>
-              <ul class="flex items-center gap-2 text-xs">
+              <ul class="flex items-center gap-2 text-[.6rem]">
                 <li
-                  class="w-4 h-4 rounded-full flex justify-center items-center bg-sneaker_3"
+                  class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
                 ></li>
                 <li>Brown</li>
                 <li>|</li>
@@ -400,33 +398,40 @@
             <div class="flex justify-between items-center font-semibold">
               <span class="font-bold">$105.00</span>
               <div
-                class="flex items-center justify-center gap-3 text-black bg-gray-100 rounded-full py-1.5 px-3"
+                class="flex items-center justify-center gap-3 text-black font-bold bg-gray-200 rounded-full py-1 px-3"
               >
                 <svg
+                  class="w-3 h-3 mt-1"
+                  xmlns:svg="http://www.w3.org/2000/svg"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 100 125"
                 >
-                  <path d="M191.869-434.5v-91h576.262v91H191.869Z" />
+                  <g transform="translate(0,-952.36218)">
+                    <path
+                      d="m 22,996.36218 c -3.3137,0 -6,2.6862 -6,6.00002 0,3.3136 2.6863,6 6,6 l 56,0 c 3.3137,0 6,-2.6864 6,-6 0,-3.31382 -2.6863,-6.00002 -6,-6.00002 z"
+                      fill="#000000"
+                    />
+                  </g>
                 </svg>
-                <span class="text-xs">1</span>
+                <span class="text-xs">2</span>
                 <svg
+                  class="w-2 h-2 mt-1"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 5814 7267.5"
                 >
-                  <path
-                    d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
-                  />
+                  <g>
+                    <path
+                      class="fil0"
+                      d="M538 2362l1824 0 0 -1824c0,-717 1090,-717 1090,0l0 1824 1824 0c717,0 717,1090 0,1090l-1824 0 0 1824c0,717 -1090,717 -1090,0l0 -1824 -1824 0c-717,0 -717,-1090 0,-1090z"
+                    />
+                  </g>
                 </svg>
               </div>
             </div>
           </div>
         </article>
 
-        <article class="flex items-center gap-3 p-3 bg-white rounded-xl my-5">
+        <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
           <div
             class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
           >
@@ -437,24 +442,14 @@
             />
           </div>
           <div class="flex flex-col gap-2 w-3/4">
-            <div class="flex justify-between">
+            <div class="flex justify-between items-center">
               <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
-              <svg
-                class="w-7 h-7"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 100 125"
-              >
-                <g>
-                  <path
-                    d="M66,21.2c0-5-4-9-9-9H43c-5,0-9,4-9,9V26H15c-1.1,0-2,0.9-2,2s0.9,2,2,2h9v43.8c0,7.7,6.3,14,14,14h24c7.7,0,14-6.3,14-14   V30h9c1.1,0,2-0.9,2-2s-0.9-2-2-2H66V21.2z M38,21.2c0-2.8,2.2-5,5-5h14c2.8,0,5,2.2,5,5V26H38V21.2z M72,73.8c0,5.5-4.5,10-10,10   H38c-5.5,0-10-4.5-10-10V30h44V73.8z"
-                  />
-                </g>
-              </svg>
+              <img class="w-5 h-6" src="../assets/content/bin.png" alt="bin" />
             </div>
             <div>
-              <ul class="flex items-center gap-2 text-xs">
+              <ul class="flex items-center gap-2 text-[.6rem]">
                 <li
-                  class="w-4 h-4 rounded-full flex justify-center items-center bg-sneaker_3"
+                  class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
                 ></li>
                 <li>Brown</li>
                 <li>|</li>
@@ -464,26 +459,94 @@
             <div class="flex justify-between items-center font-semibold">
               <span class="font-bold">$105.00</span>
               <div
-                class="flex items-center justify-center gap-3 text-black bg-gray-100 rounded-full py-1.5 px-3"
+                class="flex items-center justify-center gap-3 text-black font-bold bg-gray-200 rounded-full py-1 px-3"
               >
                 <svg
+                  class="w-3 h-3 mt-1"
+                  xmlns:svg="http://www.w3.org/2000/svg"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 100 125"
                 >
-                  <path d="M191.869-434.5v-91h576.262v91H191.869Z" />
+                  <g transform="translate(0,-952.36218)">
+                    <path
+                      d="m 22,996.36218 c -3.3137,0 -6,2.6862 -6,6.00002 0,3.3136 2.6863,6 6,6 l 56,0 c 3.3137,0 6,-2.6864 6,-6 0,-3.31382 -2.6863,-6.00002 -6,-6.00002 z"
+                      fill="#000000"
+                    />
+                  </g>
                 </svg>
-                <span class="text-xs">1</span>
+                <span class="text-xs">2</span>
                 <svg
+                  class="w-2 h-2 mt-1"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="10"
-                  viewBox="0 -960 960 960"
-                  width="10"
+                  viewBox="0 0 5814 7267.5"
                 >
-                  <path
-                    d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
-                  />
+                  <g>
+                    <path
+                      class="fil0"
+                      d="M538 2362l1824 0 0 -1824c0,-717 1090,-717 1090,0l0 1824 1824 0c717,0 717,1090 0,1090l-1824 0 0 1824c0,717 -1090,717 -1090,0l0 -1824 -1824 0c-717,0 -717,-1090 0,-1090z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="flex items-center gap-3 p-4 bg-white rounded-xl my-5">
+          <div
+            class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+          >
+            <img
+              class="w-24 h-16 rounded-xl"
+              src="../assets/img/sneakers/sneakers-3.png"
+              alt="nike"
+            />
+          </div>
+          <div class="flex flex-col gap-2 w-3/4">
+            <div class="flex justify-between items-center">
+              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+              <img class="w-5 h-6" src="../assets/content/bin.png" alt="bin" />
+            </div>
+            <div>
+              <ul class="flex items-center gap-2 text-[.6rem]">
+                <li
+                  class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                ></li>
+                <li>Brown</li>
+                <li>|</li>
+                <li>Size = 42</li>
+              </ul>
+            </div>
+            <div class="flex justify-between items-center font-semibold">
+              <span class="font-bold">$105.00</span>
+              <div
+                class="flex items-center justify-center gap-3 text-black font-bold bg-gray-200 rounded-full py-1 px-3"
+              >
+                <svg
+                  class="w-3 h-3 mt-1"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 125"
+                >
+                  <g transform="translate(0,-952.36218)">
+                    <path
+                      d="m 22,996.36218 c -3.3137,0 -6,2.6862 -6,6.00002 0,3.3136 2.6863,6 6,6 l 56,0 c 3.3137,0 6,-2.6864 6,-6 0,-3.31382 -2.6863,-6.00002 -6,-6.00002 z"
+                      fill="#000000"
+                    />
+                  </g>
+                </svg>
+                <span class="text-xs">2</span>
+                <svg
+                  class="w-2 h-2 mt-1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 5814 7267.5"
+                >
+                  <g>
+                    <path
+                      class="fil0"
+                      d="M538 2362l1824 0 0 -1824c0,-717 1090,-717 1090,0l0 1824 1824 0c717,0 717,1090 0,1090l-1824 0 0 1824c0,717 -1090,717 -1090,0l0 -1824 -1824 0c-717,0 -717,-1090 0,-1090z"
+                    />
+                  </g>
                 </svg>
               </div>
             </div>
@@ -498,8 +561,8 @@
         class="flex justify-between items-center py-5 px-5 border-t border-gray-200 rounded-tl-3xl rounded-tr-3xl overflow-hidden"
       >
         <div class="flex flex-col gap-1">
-          <h6 class="text-[.7rem] text-gray-600">Total Price</h6>
-          <span class="text-xl font-extrabold">$240.00</span>
+          <h6 class="text-[.6rem] text-gray-600">Total Price</h6>
+          <span class="text-xl font-bold">$585.00</span>
         </div>
         <div>
           <button
@@ -528,7 +591,7 @@
         </li>
         <li>
           <a
-            class="flex flex-col gap-1 justify-center items-center text-[.6rem]"
+            class="flex flex-col gap-1 justify-center items-center text-[.6rem] font-bold"
             href="#"
             ><ion-icon class="text-2xl" name="bag"></ion-icon>Cart</a
           >
@@ -552,7 +615,7 @@
           <a
             class="flex flex-col gap-1 justify-center items-center text-[.6rem]"
             href="#"
-            ><ion-icon class="text-2xl" name="person-outline"></ion-icon
+            ><ion-icon class="text-xl" name="person-outline"></ion-icon
             >Profile</a
           >
         </li>
