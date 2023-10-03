@@ -13,6 +13,9 @@
   .active__orders span {
     @apply h-1 bg-black !important;
   }
+  .active__searchbox {
+    @apply border border-black !important;
+  }
 }
 
 @layer base {
@@ -32,7 +35,6 @@
     font-family: 'Nunito', sans-serif !important;
     line-height: 1;
     font-weight: 400;
-    color: #333;
     overflow-x: hidden;
     height: 100vh;
   }

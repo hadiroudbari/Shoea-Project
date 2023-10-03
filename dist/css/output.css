@@ -906,7 +906,6 @@ body {
   font-family: 'Nunito', sans-serif !important;
   line-height: 1;
   font-weight: 400;
-  color: #333;
   overflow-x: hidden;
   height: 100vh;
 }
@@ -1135,6 +1134,12 @@ input,
   background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
 }
 
+.active__searchbox{
+  border-width: 1px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity)) !important;
+}
+
 .visible{
   visibility: visible;
 }
@@ -1243,6 +1248,11 @@ input,
   margin-bottom: 1.75rem;
 }
 
+.my-3{
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
 .mb-1{
   margin-bottom: 0.25rem;
 }
@@ -1301,6 +1311,10 @@ input,
 
 .mt-\[6px\]{
   margin-top: 6px;
+}
+
+.mt-3{
+  margin-top: 0.75rem;
 }
 
 .block{
@@ -1539,6 +1553,11 @@ input,
 
 .rotate-180{
   --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.rotate-90{
+  --tw-rotate: 90deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1819,6 +1838,11 @@ input,
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
+.bg-search_box{
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+}
+
 .bg-sneaker_1{
   --tw-bg-opacity: 1;
   background-color: rgb(96 125 138 / var(--tw-bg-opacity));
@@ -1950,6 +1974,11 @@ input,
   padding-bottom: 1.25rem;
 }
 
+.px-7{
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+
 .pb-20{
   padding-bottom: 5rem;
 }
@@ -1992,6 +2021,10 @@ input,
 
 .pt-40{
   padding-top: 10rem;
+}
+
+.pt-5{
+  padding-top: 1.25rem;
 }
 
 .text-center{
@@ -2040,6 +2073,11 @@ input,
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-base{
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .font-bold{
@@ -2113,6 +2151,12 @@ input,
 .shadow-lg{
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-sm{
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
