@@ -4,92 +4,107 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="../assets/img/logo/logo.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
     <link href="/dist/css/output.css" rel="stylesheet" />
-    <title>Shopping Project</title>
     <script src="../dist/js/onBoarding.js" defer></script>
+    <title>Shopping Project</title>
     <style>
-      #onboarding__second {
-        transform: translateX(100%);
+      .swiper {
+        width: 100%;
+        height: 100%;
       }
-      #onboarding__third {
-        transform: translateX(200%);
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .swiper-pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: 100px !important;
+      }
+
+      .swiper-pagination span {
+        width: 30px;
+        height: 3px;
+        border-radius: 30px !important;
+        margin-left: 0 !important;
+      }
+
+      .swiper-pagination span.swiper-pagination-bullet-active {
+        background: #000;
       }
     </style>
   </head>
   <body>
     <div class="container flex flex-col">
-      <div class="onboarding__box relative h-5/6">
-        <article
-          id="onboarding__first"
-          class="h-full absolute top-0 right-0 transition-all duration-300 ease-in-out"
+      <div class="swiper mySwiper h-1/2">
+        <div class="swiper-wrapper h-3/4">
+          <article class="swiper-slide h-full flex flex-col">
+            <img
+              class="h-4/6 w-full"
+              src="../assets/img/onboarding/onboarding-1.jpg"
+              alt="onboarding__first"
+            />
+            <p class="p-5 text-2xl font-bold text-center">
+              We provide high quality products just for you
+            </p>
+          </article>
+          <article class="swiper-slide h-full flex flex-col">
+            <img
+              class="h-4/6 w-full"
+              src="../assets/img/onboarding/onboarding-2.jpg"
+              alt="onboarding__second"
+            />
+            <p class="p-5 text-2xl font-bold text-center">
+              Your satisfaction is our number one periority
+            </p>
+          </article>
+          <article id="last__slide" class="swiper-slide h-full flex flex-col">
+            <img
+              class="h-4/6 w-full"
+              src="../assets/img/onboarding/onboarding-3.jpg"
+              alt="onboarding__third"
+            />
+            <p class="p-5 text-2xl font-bold text-center">
+              Let’s fulfill your fashion needs with shoearight now!
+            </p>
+          </article>
+        </div>
+        <div class="swiper-pagination"></div>
+        <a
+          id="btn__next"
+          class="w-4/5 table m-auto text-white text-sm font-semibold bg-gray-800 rounded-full py-2 px-10 mt-10 absolute bottom-5 centered text-center cursor-pointer"
         >
-          <img
-            class="h-4/6 w-full"
-            src="../assets/img/onboarding/onboarding-1.jpg"
-            alt="onboarding__first"
-          />
-          <p class="p-5 text-2xl font-bold text-center">
-            We provide high quality products just for you
-          </p>
-        </article>
-        <article
-          id="onboarding__second"
-          class="h-full absolute top-0 right-0 transition-all duration-300 ease-in-out"
+          Next
+        </a>
+        <a
+          href="http://127.0.0.1:5500/src/login.html"
+          id="btn__start"
+          class="w-4/5 m-auto text-white text-sm font-semibold bg-gray-800 rounded-full py-2 px-10 mt-10 absolute bottom-5 centered text-center cursor-pointer hidden"
         >
-          <img
-            class="h-4/6 w-full"
-            src="../assets/img/onboarding/onboarding-2.jpg"
-            alt="onboarding__second"
-          />
-          <p class="p-5 text-2xl font-bold text-center">
-            Your satisfaction is our number one periority
-          </p>
-        </article>
-        <article
-          id="onboarding__third"
-          class="h-full absolute top-0 right-0 transition-all duration-300 ease-in-out"
-        >
-          <img
-            class="h-4/6 w-full"
-            src="../assets/img/onboarding/onboarding-3.jpg"
-            alt="onboarding__third"
-          />
-          <p class="p-5 text-2xl font-bold text-center">
-            Your satisfaction is our number one periority
-          </p>
-        </article>
+          Get Started
+        </a>
       </div>
-      <div id="indicators" class="mt-16 absolute bottom-28 centered">
-        <ul class="flex justify-center gap-1">
-          <li>
-            <a
-              id="indicator__first"
-              class="bg-gray-800 w-7 h-1 block rounded-full"
-              href="#"
-            ></a>
-          </li>
-          <li>
-            <a
-              id="indicator__second"
-              class="bg-gray-400 w-7 h-1 block rounded-full"
-              href="#"
-            ></a>
-          </li>
-          <li>
-            <a
-              id="indicator__third"
-              class="bg-gray-400 w-7 h-1 block rounded-full"
-              href="#"
-            ></a>
-          </li>
-        </ul>
-      </div>
-      <button
-        id="btn__next"
-        class="w-4/5 table m-auto text-white text-sm font-semibold bg-gray-800 rounded-full py-2 px-10 mt-10 absolute bottom-5 centered"
-      >
-        Next
-      </button>
     </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   </body>
 </html>

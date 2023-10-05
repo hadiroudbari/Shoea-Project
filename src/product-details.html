@@ -53,6 +53,13 @@
         height: 6px;
         border-radius: 30px !important;
       }
+      .hide__scroll::-webkit-scrollbar {
+        display: none;
+      }
+      .hide__scroll {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     </style>
   </head>
   <body>
@@ -123,9 +130,11 @@
             <a class="font-bold" href="#">view more...</a>
           </p>
           <div class="flex gap-10">
-            <div class="flex flex-col gap-1">
+            <div class="flex flex-col gap-1 w-1/2">
               <h4 class="font-bold">Size</h4>
-              <ul class="flex gap-2 text-xs">
+              <ul
+                class="flex justify-start items-center gap-2 overflow-x-auto w-full hide__scroll"
+              >
                 <li>
                   <a
                     class="w-8 h-8 flex justify-center items-center border-2 border-black rounded-full font-bold"
@@ -152,7 +161,7 @@
             <div class="flex flex-col gap-1 w-1/2">
               <h4 class="font-bold">Color</h4>
               <ul
-                class="flex justify-start items-center gap-2 overflow-x-auto w-full"
+                class="flex justify-start items-center gap-2 overflow-x-auto w-full hide__scroll"
               >
                 <li>
                   <a
