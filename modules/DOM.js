@@ -14,3 +14,9 @@ export const inputSearch = document.querySelector('#input__search');
 export const brandsBox = document.querySelector('#brands__box');
 export const filterBox = document.querySelector('#filter__box');
 export const homeProducts = document.querySelector('#home__products');
+
+// HOME -- BRAND
+export const brandTitle = document.querySelector('#brand__title');
+export const homeBrandProducts = document.querySelector(
+  '#home__brand--products'
+);
