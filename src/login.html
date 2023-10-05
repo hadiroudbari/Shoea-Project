@@ -4,9 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="../assets/img/logo/logo.svg" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <link href="/dist/css/output.css" rel="stylesheet" />
-    <script src="../dist/js/login.js" defer></script>
+    <script type="module" src="../dist/js/login.js" defer></script>
     <title>Shopping Project</title>
+    <style>
+      .loader {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        border-top: 2px solid #000;
+        border-right: 2px solid transparent;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="container flex flex-col items-center py-3 px-5">
@@ -51,33 +77,39 @@
             />
           </div>
 
-          <div
-            class="input__box mb-6 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent relative"
-          >
-            <ion-icon class="text-gray-500" name="lock-closed"></ion-icon>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              class="text-sm bg-gray-100 rounded-md w-full p-2"
-              placeholder="Password"
-              minlength="8"
-              maxlength="30"
-              required
-            />
-            <ion-icon
-              class="show text-gray-500 mr-3 cursor-pointer"
-              name="eye"
-            ></ion-icon>
+          <div class="flex flex-col w-full gap-2 mb-6">
+            <div
+              class="input__box bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent relative"
+            >
+              <ion-icon class="text-gray-500" name="lock-closed"></ion-icon>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="text-sm bg-gray-100 rounded-md w-full p-2"
+                placeholder="Password"
+                minlength="8"
+                maxlength="30"
+                required
+              />
+              <ion-icon
+                class="show text-gray-500 mr-3 cursor-pointer"
+                name="eye"
+              ></ion-icon>
+            </div>
+            <div
+              id="find__password"
+              class="items-center self-start gap-2 hidden"
+            ></div>
           </div>
 
           <div class="flex items-start mb-6">
             <div class="flex items-center h-5">
               <input
                 id="remember"
+                name="remember"
                 type="checkbox"
                 class="w-4 h-4 rounded border-gray-200 text-gray-900 bg-gray-200 cursor-pointer"
-                required
               />
             </div>
             <label for="remember" class="ml-2 text-sm cursor-pointer"
@@ -96,6 +128,10 @@
       </form>
     </div>
 
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

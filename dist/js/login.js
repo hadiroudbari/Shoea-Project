@@ -1,34 +1,27 @@
-const form = document.querySelector('#form');
-const formBtn = form.querySelector('#login');
-const inputs = document.querySelectorAll('.input__box input');
-const inputUsername = document.querySelector('#username');
-const inputPassword = document.querySelector('#password');
-const checkBoxRemember = document.querySelector('#remember');
+import * as DOM from '../../modules/DOM.js';
+import getData from '../../modules/helpers/getData.js';
+import showToast from '../../modules/helpers/showToast.js';
+import debounce from '../../modules/helpers/debounce.js';
+import editData from '../../modules/helpers/editData.js';
+
+// INPUT VALIDATION
 
 const changeBtnBackground = () => {
-  if (
-    inputUsername.value !== '' &&
-    inputPassword.value !== '' &&
-    checkBoxRemember.checked
-  ) {
-    formBtn.removeAttribute('disabled', 'false');
-    formBtn.classList.remove('bg-gray-500');
-    formBtn.classList.add('bg-gray-900');
+  if (DOM.inputUsername.value !== '' && DOM.inputPassword.value !== '') {
+    DOM.formBtn.removeAttribute('disabled', 'false');
+    DOM.formBtn.classList.remove('bg-gray-500');
+    DOM.formBtn.classList.add('bg-gray-900');
   } else {
-    formBtn.setAttribute('disabled', 'true');
-    formBtn.classList.remove('bg-gray-900');
-    formBtn.classList.add('bg-gray-500');
+    DOM.formBtn.setAttribute('disabled', 'true');
+    DOM.formBtn.classList.remove('bg-gray-900');
+    DOM.formBtn.classList.add('bg-gray-500');
   }
 };
 
-form.reset();
+DOM.form.reset();
 changeBtnBackground();
 
-checkBoxRemember.addEventListener('change', () => {
-  changeBtnBackground();
-});
-
-form.addEventListener('click', e => {
+DOM.form.addEventListener('click', e => {
   const currentInput = e.target.closest('.input__box')?.querySelector('input');
 
   if (e.target.classList.contains('show')) {
@@ -44,22 +37,21 @@ form.addEventListener('click', e => {
   }
 });
 
-inputs.forEach(input =>
+DOM.inputs.forEach(input =>
   input.addEventListener('focus', e => {
     const parentEl = e.target.closest('.input__box');
     parentEl.classList.add('register__input--focus');
   })
 );
 
-inputs.forEach(input =>
+DOM.inputs.forEach(input =>
   input.addEventListener('blur', e => {
-    console.log('b');
     const parentEl = e.target.closest('.input__box');
     parentEl.classList.remove('register__input--focus');
   })
 );
 
-inputs.forEach(input => {
+DOM.inputs.forEach(input => {
   input.addEventListener('input', e => {
     const parentEl = e.target.closest('.input__box');
     const ionIcons = parentEl.querySelectorAll('ion-icon');
@@ -78,4 +70,111 @@ inputs.forEach(input => {
 
     changeBtnBackground();
   });
+});
+
+// LOGIN
+
+DOM.form.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  const formData = Object.fromEntries(new FormData(DOM.form).entries());
+  const users = await getData('users');
+
+  const currentUser = users.find(
+    user =>
+      (user.username === formData.username ||
+        user.email === formData.username) &&
+      user.password === formData.password
+  );
+
+  if (currentUser) {
+    await editData('users', currentUser.id, {
+      remember: DOM.checkBoxRemember.checked,
+    });
+    showToast(
+      'You have successfully logged in',
+      1,
+      'http://127.0.0.1:5500/src/home.html',
+      'linear-gradient(to right, #00b09b, #96c93d)'
+    );
+  } else {
+    showToast(
+      'Invalid Username or Password',
+      1000,
+      '',
+      'linear-gradient(to right, #ed213a, #93291e)'
+    );
+  }
+});
+
+const checkRemember = async () => {
+  const users = await getData('users');
+  const currentUser = users.find(
+    user =>
+      user.username === DOM.inputUsername.value ||
+      user.email === DOM.inputUsername.value
+  );
+
+  if (DOM.inputUsername.value === '') {
+    DOM.findPassword.classList.remove('flex');
+    DOM.findPassword.classList.add('hidden');
+  }
+
+  if (!currentUser) {
+    DOM.inputPassword.value = '';
+    const html = `
+                <ion-icon name="information-circle"></ion-icon>
+                <p id="text" class="text-xs">
+                  Username NOT found (for remember password)
+                </p>
+      `;
+    DOM.findPassword.innerHTML = html;
+  } else {
+    if (currentUser.remember === true) {
+      DOM.inputPassword.value = currentUser.password;
+      const html = `
+                <ion-icon name="checkmark"></ion-icon>
+                <p id="text" class="text-xs">
+                  Your Account has been saved
+                </p>
+      `;
+      DOM.findPassword.innerHTML = html;
+      const ionIcons = document.querySelectorAll('ion-icon');
+      ionIcons.forEach(icon => {
+        icon.classList.remove('text-gray-500');
+        icon.classList.add('text-gray-900');
+      });
+      DOM.checkBoxRemember.checked = true;
+      changeBtnBackground();
+    } else if (currentUser.remember === false) {
+      DOM.inputPassword.value = '';
+      const html = `
+                <ion-icon name="close"></ion-icon>
+                <p id="text" class="text-xs">
+                  Your Account was NOT saved
+                </p>
+      `;
+      DOM.findPassword.innerHTML = html;
+      const ionIcons = document.querySelectorAll('ion-icon');
+      ionIcons.forEach(icon => {
+        icon.classList.remove('text-gray-900');
+        icon.classList.add('text-gray-500');
+      });
+      changeBtnBackground();
+    }
+  }
+};
+const checkUser = debounce(checkRemember, 500);
+
+DOM.inputUsername.addEventListener('input', async e => {
+  const html = `
+      <span class="loader"></span>
+      <p id="text" class="text-xs">
+        Finding password if your account saved
+      </p>
+    `;
+  DOM.findPassword.innerHTML = html;
+  DOM.findPassword.classList.remove('hidden');
+  DOM.findPassword.classList.add('flex');
+  checkUser();
 });

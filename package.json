@@ -78,6 +78,7 @@
     "thenify": "^3.3.1",
     "thenify-all": "^1.6.0",
     "to-regex-range": "^5.0.1",
+    "toastify-js": "^1.12.0",
     "ts-interface-checker": "^0.1.13",
     "util-deprecate": "^1.0.2",
     "wrappy": "^1.0.2",
