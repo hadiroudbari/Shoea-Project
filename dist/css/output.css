@@ -1146,6 +1146,11 @@ input,
   border-color: rgb(0 0 0 / var(--tw-border-opacity)) !important;
 }
 
+.brands__img{
+  height: 3rem !important;
+  width: 3rem !important;
+}
+
 .visible{
   visibility: visible;
 }
@@ -1450,10 +1455,6 @@ input,
   width: 2.5rem;
 }
 
-.w-12{
-  width: 3rem;
-}
-
 .w-2{
   width: 0.5rem;
 }
@@ -1608,6 +1609,10 @@ input,
 
 .grid-cols-7{
   grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-rows-2{
+  grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
 .flex-col{
@@ -1813,11 +1818,6 @@ input,
 .bg-blue-700{
   --tw-bg-opacity: 1;
   background-color: rgb(26 86 219 / var(--tw-bg-opacity));
-}
-
-.bg-brand{
-  --tw-bg-opacity: 1;
-  background-color: rgb(233 233 233 / var(--tw-bg-opacity));
 }
 
 .bg-discount_box{
@@ -2257,10 +2257,6 @@ input,
 
 .ease-out{
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-
-.hover\:mr-3:hover{
-  margin-right: 0.75rem;
 }
 
 .hover\:gap-3:hover{

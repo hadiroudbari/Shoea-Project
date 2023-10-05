@@ -3,6 +3,7 @@ import getData from '../../modules/helpers/getData.js';
 import showToast from '../../modules/helpers/showToast.js';
 import debounce from '../../modules/helpers/debounce.js';
 import editData from '../../modules/helpers/editData.js';
+import postData from '../../modules/helpers/postData.js';
 
 // INPUT VALIDATION
 
@@ -91,6 +92,7 @@ DOM.form.addEventListener('submit', async e => {
     await editData('users', currentUser.id, {
       remember: DOM.checkBoxRemember.checked,
     });
+    await postData('loggedUser', currentUser);
     showToast(
       'You have successfully logged in',
       1,

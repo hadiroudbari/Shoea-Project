@@ -16,6 +16,9 @@
   .active__searchbox {
     @apply border border-black !important;
   }
+  .brands__img {
+    @apply w-12 h-12 !important;
+  }
 }
 
 @layer base {
