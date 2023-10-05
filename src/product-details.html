@@ -65,7 +65,9 @@
   <body>
     <div class="container p-0">
       <header class="bg-gray-100 py-3 px-5 w-full">
-        <ion-icon class="text-xl" name="arrow-back-outline"></ion-icon>
+        <a id="go__back" href="#">
+          <ion-icon class="text-xl" name="arrow-back-outline"></ion-icon>
+        </a>
 
         <div class="swiper mySwiper">
           <div class="swiper-wrapper h-3/4">
@@ -282,7 +284,11 @@
           clickable: true,
         },
       });
-      swiper.slideTo(0);
+
+      document.getElementById('go__back').addEventListener('click', e => {
+        e.preventDefault();
+        history.back();
+      });
     </script>
     <script
       type="module"

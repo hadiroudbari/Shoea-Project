@@ -20,3 +20,8 @@ export const brandTitle = document.querySelector('#brand__title');
 export const homeBrandProducts = document.querySelector(
   '#home__brand--products'
 );
+
+// HOME -- POPULAR
+export const homePopularProducts = document.querySelector(
+  '#home__popular--products'
+);

@@ -1,6 +1,7 @@
 import * as DOM from '../../modules/DOM.js';
 import getData from '../../modules/helpers/getData.js';
 import renderProducts from '../../modules/view/renderProducts.js';
+import renderFilters from '../../modules/view/renderFilters.js';
 import { textFormatter } from '../../modules/helpers/Formatter.js';
 
 const showUserInfo = async () => {
@@ -16,7 +17,7 @@ DOM.inputSearch.addEventListener('focus', e => {
 
 const showBrands = async () => {
   const brands = await getData('brands');
-  const brandsCopy = brands.slice().sort((a, b) => b.id - a.id);
+  brands.slice().sort((a, b) => b.id - a.id);
 
   DOM.brandsBox.innerHTML = `
           <figure data-brand="More" class="flex flex-col items-center gap-2">
@@ -33,16 +34,7 @@ const showBrands = async () => {
           </figure>
   `;
 
-  DOM.filterBox.innerHTML = `
-          <li data-filter="All">
-            <a
-              class="filter__link border-2 border-tag rounded-full py-1.5 px-4 bg-tag text-white block"
-              href="#"
-              >All</a
-            >
-          </li>
-    `;
-  brandsCopy.forEach(brand => {
+  brands.forEach(brand => {
     const html = `
           <figure data-brand="${
             brand.name
@@ -64,19 +56,6 @@ const showBrands = async () => {
           </figure>
     `;
     DOM.brandsBox.insertAdjacentHTML('afterbegin', html);
-  });
-
-  brands.forEach(brand => {
-    const htmlFilter = `
-          <li data-filter="${brand.name}">
-            <a
-              class="filter__link block border-2 border-tag rounded-full py-1.5 px-4 whitespace-nowrap"
-              href="#"
-              >${brand.name}</a
-            >
-          </li>
-    `;
-    DOM.filterBox.insertAdjacentHTML('beforeend', htmlFilter);
   });
 };
 
@@ -101,7 +80,8 @@ DOM.filterBox.addEventListener('click', async e => {
     e.target.classList.add('bg-tag', 'text-white');
 
     if (filterName !== 'all') {
-      await renderProducts(DOM.homeProducts, 'brand', filterName);
+      const products = await getData('products', 'brand', filterName);
+      await renderProducts(DOM.homeProducts, products);
     } else {
       await renderProducts(DOM.homeProducts);
     }
@@ -111,6 +91,7 @@ DOM.filterBox.addEventListener('click', async e => {
 const init = async () => {
   await showUserInfo();
   await showBrands();
+  await renderFilters();
   await renderProducts(DOM.homeProducts);
 };
 

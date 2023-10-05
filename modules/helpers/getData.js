@@ -1,16 +1,16 @@
 import { BASE_API } from '../config.js';
 
-const getData = async dataKey => {
+const getData = async (keyData = 'products', key = '', value = '') => {
   try {
-    const fetchQuery = await fetch(`${BASE_API}/${dataKey}`);
-    const dataArray = await fetchQuery.json();
+    const fetchQuery = await fetch(`${BASE_API}/${keyData}?${key}=${value}`);
+    const data = await fetchQuery.json();
 
     if (!fetchQuery.ok)
       throw new Error(
         `Message: "${fetchQuery.statusText}" & Status:"${fetchQuery.status}"`
       );
 
-    return dataArray;
+    return data;
   } catch (error) {
     console.error(error);
   }

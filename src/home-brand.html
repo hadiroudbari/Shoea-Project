@@ -11,7 +11,7 @@
   <body>
     <div class="container py-3 px-5">
       <header class="flex items-center gap-3">
-        <a href="http://127.0.0.1:5500/src/home.html">
+        <a id="go__back" href="#">
           <ion-icon class="text-xl" name="arrow-back-outline"></ion-icon>
         </a>
         <h3 id="brand__title" class="text-lg font-bold">Nike</h3>
@@ -21,6 +21,13 @@
         class="grid grid-cols-2 gap-5 mt-5 mb-14"
       ></main>
     </div>
+
+    <script>
+      document.getElementById('go__back').addEventListener('click', e => {
+        e.preventDefault();
+        history.back();
+      });
+    </script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

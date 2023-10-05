@@ -37,10 +37,9 @@
   <body>
     <div class="container flex flex-col items-center py-3 px-5">
       <header class="flex flex-col items-center">
-        <ion-icon
-          class="self-start text-2xl"
-          name="arrow-back-outline"
-        ></ion-icon>
+        <a id="go__back" class="self-start" href="#">
+          <ion-icon class="text-2xl" name="arrow-back-outline"></ion-icon>
+        </a>
         <svg
           class="my-20"
           width="70"
@@ -128,6 +127,12 @@
       </form>
     </div>
 
+    <script>
+      document.getElementById('go__back').addEventListener('click', e => {
+        e.preventDefault();
+        history.back();
+      });
+    </script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"

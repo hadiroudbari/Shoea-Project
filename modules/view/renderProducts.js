@@ -1,13 +1,16 @@
-import getSingleData from '../../modules/helpers/getSingleData.js';
+import getData from '../../modules/helpers/getData.js';
 import { textFormatter, numberFormatter } from '../helpers/Formatter.js';
 
-const renderProducts = async (container, key = '', value = '') => {
-  const products = await getSingleData('products', key, value);
+const renderProducts = async (container, products) => {
+  if (!products) products = await getData('products');
   container.innerHTML = '';
   products.forEach(product => {
     const html = `
         <article class="flex flex-col gap-1">
-          <div
+          <a
+            href="http://127.0.0.1:5500/src/product-details.html?id=${
+              product.id
+            }"
             class="w-40 h-40 flex justify-center items-center bg-gray-100 rounded-3xl overflow-hidden"
           >
             <img
@@ -15,7 +18,7 @@ const renderProducts = async (container, key = '', value = '') => {
               src="${product.images[0].imgSrc}"
               alt="${product.title}"
             />
-          </div>
+          </a>
           <h3 class="font-semibold mt-1">${textFormatter(
             product.title,
             14
