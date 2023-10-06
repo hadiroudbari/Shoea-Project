@@ -10,6 +10,7 @@ import { numberFormatter } from '../../modules/model/formatter.js';
 import addToCart from '../../modules/model/addToCart.js';
 import editData from '../../modules/model/editData.js';
 import { checkProductDetails } from '../../modules/helpers.js';
+import showToast from '../../modules/model/showToast.js';
 
 const productID = getProductID();
 let product;
@@ -90,18 +91,18 @@ DOM.detailsMainBox.addEventListener('click', e => {
     e.target.id === 'product__order--plus' ||
     e.target.id === 'product__order--minus'
   ) {
-    const stockAlert = document.querySelector('#stock__alert');
-
-    if (!stockAlert.dataset.count) {
-      stockAlert.classList.remove('hidden');
-      stockAlert.classList.remove('text-black');
-      stockAlert.classList.remove('text-orange-500');
-      stockAlert.classList.add('text-red-500');
+    if (!DOM.stockAlert.dataset.count) {
+      DOM.stockAlert.classList.remove('hidden');
+      DOM.stockAlert.classList.remove('text-black');
+      DOM.stockAlert.classList.remove('text-orange-500');
+      DOM.stockAlert.classList.add('text-red-500');
 
       stockAlert.textContent = 'First, You should choose a size';
-    } else if (stockAlert.dataset.count > 0) {
+    } else if (DOM.stockAlert.dataset.count > 0) {
       if (e.target.id === 'product__order--plus') {
-        if (+DOM.productOrderCount.textContent === +stockAlert.dataset.count)
+        if (
+          +DOM.productOrderCount.textContent === +DOM.stockAlert.dataset.count
+        )
           return;
         DOM.productOrderCount.textContent =
           +DOM.productOrderCount.textContent + 1;
@@ -125,6 +126,8 @@ DOM.addToCartBtn.addEventListener('click', async e => {
   const newProduct = {
     title: product.title,
     imgSrc: product.images[swiper.activeIndex].imgSrc,
+    brand: product.brand,
+    stock: +DOM.stockAlert.dataset.count,
     size: checkProductDetails().size,
     color: checkProductDetails().color,
     count: +DOM.productOrderCount.textContent,
@@ -134,6 +137,12 @@ DOM.addToCartBtn.addEventListener('click', async e => {
   };
 
   await addToCart(newProduct);
+  showToast(
+    'Product Successfully added to your Cart',
+    1,
+    'http://127.0.0.1:5500/src/cart.html',
+    'linear-gradient(to right, #00b09b, #96c93d)'
+  );
 });
 
 const init = async () => {

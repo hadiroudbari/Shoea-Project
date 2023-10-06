@@ -1,19 +1,13 @@
-import * as DOM from '../../modules/DOM.js';
 import { textFormatter, numberFormatter } from '../model/formatter.js';
 import renderProductSize from './renderProductSize.js';
 import renderProductColor from './renderProductColor.js';
 import renderProductImage from './renderProductImage.js';
+import { changeProductBg } from '../helpers.js';
 
 const renderProductDetails = async (container, product) => {
   // Fix Background Image for UI
   const containerHeader = container.querySelector('header');
-  if (product.brand === 'nike') {
-    containerHeader.classList.add('bg-gray-100');
-  } else if (product.brand === 'adidas') {
-    containerHeader.classList.add('bg-details_img');
-  } else {
-    containerHeader.classList.add('bg-gray-100');
-  }
+  changeProductBg(containerHeader, product.brand);
 
   // Render Image
   renderProductImage(product, product.images[0].id);
@@ -25,9 +19,10 @@ const renderProductDetails = async (container, product) => {
   detailsTitleBox.textContent = product.title;
 
   // Render Favorite
+  const favoriteBtn = container.querySelector('#favorite__btn');
   if (product.favorite) {
-    DOM.favoriteBtn.name = 'heart';
-    DOM.favoriteBtn.classList.add('text-red-500');
+    favoriteBtn.name = 'heart';
+    favoriteBtn.classList.add('text-red-500');
   }
 
   // Render Info Sold

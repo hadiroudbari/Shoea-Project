@@ -41,3 +41,7 @@ export const productDetailsPrice = document.querySelector(
 );
 export const addToCartBtn = document.querySelector('#add__to--cart');
 export const favoriteBtn = document.querySelector('#favorite__btn');
+export const stockAlert = document.querySelector('#stock__alert');
+
+// CART
+export const cartBox = document.querySelector('#cart__box');

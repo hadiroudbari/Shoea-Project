@@ -73,3 +73,13 @@ export const checkProductDetails = () => {
     color: currentColor?.dataset.color,
   };
 };
+
+export const changeProductBg = (container, brand) => {
+  if (brand === 'nike') {
+    container.classList.add('bg-gray-100');
+  } else if (brand === 'adidas') {
+    container.classList.add('bg-details_img');
+  } else {
+    container.classList.add('bg-gray-100');
+  }
+};
