@@ -25,3 +25,17 @@ export const homeBrandProducts = document.querySelector(
 export const homePopularProducts = document.querySelector(
   '#home__popular--products'
 );
+
+// PAGE -- DETAILS
+export const detailsContainer = document.querySelector('#details__container');
+export const detailsMainBox = document.querySelector('#product__details--main');
+export const productOrderMinus = document.querySelector(
+  '#product__order--minus'
+);
+export const productOrderPlus = document.querySelector('#product__order--plus');
+export const productOrderCount = document.querySelector(
+  '#product__order--count'
+);
+export const productDetailsPrice = document.querySelector(
+  '#product__details--footer .price'
+);

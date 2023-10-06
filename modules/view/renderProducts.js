@@ -1,5 +1,5 @@
-import getData from '../../modules/helpers/getData.js';
-import { textFormatter, numberFormatter } from '../helpers/Formatter.js';
+import getData from '../../modules/model/getData.js';
+import { textFormatter, numberFormatter } from '../model/formatter.js';
 
 const renderProducts = async (container, products) => {
   if (!products) products = await getData('products');

@@ -19,6 +19,9 @@
   .brands__img {
     @apply w-12 h-12 !important;
   }
+  .disabled__size {
+    @apply border-gray-500 text-gray-500 pointer-events-none !important;
+  }
 }
 
 @layer base {

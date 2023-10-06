@@ -1,5 +1,5 @@
 import * as DOM from '../../modules/DOM.js';
-import getData from '../../modules/helpers/getData.js';
+import getData from '../../modules/model/getData.js';
 
 const renderFilters = async () => {
   const brands = await getData('brands');

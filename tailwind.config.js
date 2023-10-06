@@ -8,6 +8,7 @@ module.exports = {
         search: '#828282',
         search_box: '#f5f5f5',
         discount_box: '#f2f2f2',
+        details_img: '#eaeeef',
         tag: '#343a40',
         sneaker_1: '#607d8a',
         sneaker_2: '#9d28ac',
