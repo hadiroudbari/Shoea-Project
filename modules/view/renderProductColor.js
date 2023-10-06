@@ -4,7 +4,7 @@ const renderProductColor = (product, id) => {
   const detailsColor = document.querySelector('#product__details--color');
 
   detailsColor.innerHTML = '';
-  product[0].images.forEach((img, i) => {
+  product.images.forEach((img, i) => {
     const html = `
     <li>
       <a

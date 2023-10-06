@@ -2,12 +2,12 @@ const renderProductImage = (product, id = 1) => {
   const imageSliderBox = document.querySelector('#product__details--slider');
 
   imageSliderBox.innerHTML = '';
-  product[0].images.forEach(img => {
+  product.images.forEach(img => {
     const html = `
             <div data-id="${img.id}" class="swiper-slide h-full">
               <img
                 src="${img.imgSrc}"
-                alt="${product[0].title}"
+                alt="${product.title}"
               />
             </div>
     `;

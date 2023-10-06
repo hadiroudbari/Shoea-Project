@@ -8,13 +8,15 @@ import renderProductImage from '../../modules/view/renderProductImage.js';
 import { selectProductSizeOption } from '../../modules/view/renderProductSize.js';
 import { numberFormatter } from '../../modules/model/formatter.js';
 import addToCart from '../../modules/model/addToCart.js';
+import editData from '../../modules/model/editData.js';
 import { checkProductDetails } from '../../modules/helpers.js';
 
 const productID = getProductID();
 let product;
 
 const showProductDetails = async () => {
-  product = await getData('products', 'id', productID);
+  const productArray = await getData('products', 'id', productID);
+  product = productArray[0];
   renderProductDetails(DOM.detailsContainer, product);
 };
 
@@ -22,9 +24,25 @@ swiper.on('slideChange', function () {
   renderProductColor(product, swiper.activeIndex + 1);
   renderProductSize(
     product,
-    product[0].images[swiper.activeIndex].color,
+    product.images[swiper.activeIndex].color,
     +(swiper.activeIndex + 1)
   );
+});
+
+DOM.favoriteBtn.addEventListener('click', async e => {
+  if (e.target.name === 'heart-outline') {
+    await editData('products', productID, {
+      favorite: true,
+    });
+    e.target.name = 'heart';
+    e.target.classList.add('text-red-500');
+  } else {
+    await editData('products', productID, {
+      favorite: false,
+    });
+    e.target.name = 'heart-outline';
+    e.target.classList.remove('text-red-500');
+  }
 });
 
 DOM.detailsMainBox.addEventListener('click', e => {
@@ -52,7 +70,7 @@ DOM.detailsMainBox.addEventListener('click', e => {
     renderProductColor(product, +e.target.dataset.id);
     renderProductImage(product, +e.target.dataset.id);
     DOM.productOrderCount.textContent = 1;
-    DOM.productDetailsPrice.textContent = numberFormatter(product[0].price);
+    DOM.productDetailsPrice.textContent = numberFormatter(product.price);
     checkProductDetails();
   }
 
@@ -64,7 +82,7 @@ DOM.detailsMainBox.addEventListener('click', e => {
       +e.target.dataset.size
     );
     DOM.productOrderCount.textContent = 1;
-    DOM.productDetailsPrice.textContent = numberFormatter(product[0].price);
+    DOM.productDetailsPrice.textContent = numberFormatter(product.price);
     checkProductDetails();
   }
 
@@ -95,7 +113,7 @@ DOM.detailsMainBox.addEventListener('click', e => {
     }
 
     DOM.productDetailsPrice.textContent = numberFormatter(
-      product[0].price,
+      product.price,
       DOM.productOrderCount.textContent
     );
   }
@@ -105,13 +123,13 @@ DOM.addToCartBtn.addEventListener('click', async e => {
   e.preventDefault();
 
   const newProduct = {
-    title: product[0].title,
-    imgSrc: product[0].images[swiper.activeIndex].imgSrc,
+    title: product.title,
+    imgSrc: product.images[swiper.activeIndex].imgSrc,
     size: checkProductDetails().size,
     color: checkProductDetails().color,
     count: +DOM.productOrderCount.textContent,
-    price: product[0].price,
-    productId: product[0].id,
+    price: product.price,
+    productId: product.id,
     userId: 1,
   };
 

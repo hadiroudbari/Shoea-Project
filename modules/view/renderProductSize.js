@@ -1,6 +1,6 @@
 export const selectProductSizeOption = (product, sizeItem, id, sizeID) => {
   const stockAlert = document.querySelector('#stock__alert');
-  const currentSizeStock = product[0].sizeStock.find(item => item.id === id);
+  const currentSizeStock = product.sizeStock.find(item => item.id === id);
   const sizeStockCount = currentSizeStock.stock[sizeID - 1].stockCount;
   const sizeStockItems = document.querySelectorAll('.product__size');
 
@@ -33,9 +33,7 @@ const renderProductSize = (product, color, id) => {
   const stockAlert = document.querySelector('#stock__alert');
   stockAlert.classList.add('hidden');
 
-  const currentColorSize = product[0].sizeStock.find(
-    item => item.color === color
-  );
+  const currentColorSize = product.sizeStock.find(item => item.color === color);
 
   detailsSize.innerHTML = '';
   currentColorSize.stock.forEach((item, i) => {
