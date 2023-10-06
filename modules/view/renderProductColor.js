@@ -11,7 +11,9 @@ const renderProductColor = (product, id) => {
         data-color="${img.color}"
         data-id="${img.id}"
         style="background:${img.color}"
-        class="w-8 h-8 rounded-full flex justify-center items-center product__color"
+        class="w-8 h-8 rounded-full flex justify-center items-center product__color ${
+          i + 1 === id ? 'active__color' : ''
+        }"
         href="#"
         >
         ${

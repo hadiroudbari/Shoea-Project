@@ -234,6 +234,7 @@
           </div>
           <div class="w-full">
             <button
+              id="add__to--cart"
               class="bg-black text-white rounded-full py-3 w-full flex items-center justify-center gap-3 text-sm font-extrabold shadow-xl"
             >
               <svg
@@ -258,7 +259,7 @@
 
     <!-- Initialize Swiper -->
     <script>
-      let swiper = new Swiper('.mySwiper', {
+      const swiper = new Swiper('.mySwiper', {
         pagination: {
           el: '.swiper-pagination',
           clickable: true,

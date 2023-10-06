@@ -39,3 +39,4 @@ export const productOrderCount = document.querySelector(
 export const productDetailsPrice = document.querySelector(
   '#product__details--footer .price'
 );
+export const addToCartBtn = document.querySelector('#add__to--cart');

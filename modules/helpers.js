@@ -1,3 +1,5 @@
+import * as DOM from '../../modules/DOM.js';
+
 // Debounce
 export const debounce = (cb, delay = 1000) => {
   let timeout;
@@ -45,4 +47,29 @@ export const lightOrDark = color => {
   } else {
     return 'dark';
   }
+};
+
+export const checkProductDetails = () => {
+  const sizes = Array.from(document.querySelectorAll('.product__size'));
+  const colors = Array.from(document.querySelectorAll('.product__color'));
+
+  const currentSize = sizes.find(size =>
+    size.classList.contains('active__size')
+  );
+  const currentColor = colors.find(color =>
+    color.classList.contains('active__color')
+  );
+
+  if (currentSize && currentColor) {
+    DOM.addToCartBtn.disabled = false;
+    DOM.addToCartBtn.style.opacity = '100%';
+  } else {
+    DOM.addToCartBtn.disabled = true;
+    DOM.addToCartBtn.style.opacity = '50%';
+  }
+
+  return {
+    size: +currentSize?.textContent,
+    color: currentColor?.dataset.color,
+  };
 };

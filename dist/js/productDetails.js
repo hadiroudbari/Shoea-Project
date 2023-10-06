@@ -7,6 +7,8 @@ import renderProductColor from '../../modules/view/renderProductColor.js';
 import renderProductImage from '../../modules/view/renderProductImage.js';
 import { selectProductSizeOption } from '../../modules/view/renderProductSize.js';
 import { numberFormatter } from '../../modules/model/formatter.js';
+import addToCart from '../../modules/model/addToCart.js';
+import { checkProductDetails } from '../../modules/helpers.js';
 
 const productID = getProductID();
 let product;
@@ -15,6 +17,15 @@ const showProductDetails = async () => {
   product = await getData('products', 'id', productID);
   renderProductDetails(DOM.detailsContainer, product);
 };
+
+swiper.on('slideChange', function () {
+  renderProductColor(product, swiper.activeIndex + 1);
+  renderProductSize(
+    product,
+    product[0].images[swiper.activeIndex].color,
+    +(swiper.activeIndex + 1)
+  );
+});
 
 DOM.detailsMainBox.addEventListener('click', e => {
   e.preventDefault();
@@ -40,6 +51,9 @@ DOM.detailsMainBox.addEventListener('click', e => {
     renderProductSize(product, e.target.dataset.color, +e.target.dataset.id);
     renderProductColor(product, +e.target.dataset.id);
     renderProductImage(product, +e.target.dataset.id);
+    DOM.productOrderCount.textContent = 1;
+    DOM.productDetailsPrice.textContent = numberFormatter(product[0].price);
+    checkProductDetails();
   }
 
   if (e.target.classList.contains('product__size')) {
@@ -49,6 +63,9 @@ DOM.detailsMainBox.addEventListener('click', e => {
       +e.target.dataset.id,
       +e.target.dataset.size
     );
+    DOM.productOrderCount.textContent = 1;
+    DOM.productDetailsPrice.textContent = numberFormatter(product[0].price);
+    checkProductDetails();
   }
 
   if (
@@ -84,7 +101,25 @@ DOM.detailsMainBox.addEventListener('click', e => {
   }
 });
 
+DOM.addToCartBtn.addEventListener('click', async e => {
+  e.preventDefault();
+
+  const newProduct = {
+    title: product[0].title,
+    imgSrc: product[0].images[swiper.activeIndex].imgSrc,
+    size: checkProductDetails().size,
+    color: checkProductDetails().color,
+    count: +DOM.productOrderCount.textContent,
+    price: product[0].price,
+    productId: product[0].id,
+    userId: 1,
+  };
+
+  await addToCart(newProduct);
+});
+
 const init = async () => {
   await showProductDetails();
+  checkProductDetails();
 };
 window.addEventListener('DOMContentLoaded', init);

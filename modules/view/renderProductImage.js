@@ -1,4 +1,4 @@
-const renderProductImage = (product, id) => {
+const renderProductImage = (product, id = 1) => {
   const imageSliderBox = document.querySelector('#product__details--slider');
 
   imageSliderBox.innerHTML = '';

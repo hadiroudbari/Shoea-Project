@@ -5,10 +5,10 @@ export const selectProductSizeOption = (product, sizeItem, id, sizeID) => {
   const sizeStockItems = document.querySelectorAll('.product__size');
 
   sizeStockItems.forEach(item => {
-    item.classList.remove('bg-black', 'text-white');
+    item.classList.remove('bg-black', 'text-white', 'active__size');
   });
 
-  sizeItem.classList.add('bg-black', 'text-white');
+  sizeItem.classList.add('bg-black', 'text-white', 'active__size');
 
   stockAlert.classList.remove('hidden');
   stockAlert.textContent = '';
