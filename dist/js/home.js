@@ -1,8 +1,8 @@
 import * as DOM from '../../modules/DOM.js';
-import getData from '../../modules/helpers/getData.js';
+import getData from '../../modules/model/getData.js';
 import renderProducts from '../../modules/view/renderProducts.js';
 import renderFilters from '../../modules/view/renderFilters.js';
-import { textFormatter } from '../../modules/helpers/Formatter.js';
+import { textFormatter } from '../../modules/model/formatter.js';
 
 const showUserInfo = async () => {
   const currnetUser = await getData('loggedUser');
@@ -11,7 +11,7 @@ const showUserInfo = async () => {
   DOM.userFullname.textContent = `${currnetUser[0].firstName} ${currnetUser[0].lastName}`;
 };
 
-DOM.inputSearch.addEventListener('focus', e => {
+DOM.inputSearch.addEventListener('focus', () => {
   location.assign('http://127.0.0.1:5500/src/search.html');
 });
 
@@ -69,6 +69,7 @@ DOM.brandsBox.addEventListener('click', e => {
 });
 
 DOM.filterBox.addEventListener('click', async e => {
+  e.preventDefault();
   const filterName = e.target.closest('li').dataset.filter.toLowerCase();
   const filterLinks = document.querySelectorAll('.filter__link');
   filterLinks.forEach(filter => {

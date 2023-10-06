@@ -1,8 +1,8 @@
 import * as DOM from '../../modules/DOM.js';
 import renderFilters from '../../modules/view/renderFilters.js';
 import renderProducts from '../../modules/view/renderProducts.js';
-import sortData from '../../modules/helpers/sortData.js';
-import getData from '../../modules/helpers/getData.js';
+import sortData from '../../modules/model/sortData.js';
+import getData from '../../modules/model/getData.js';
 
 const products = await sortData();
 
@@ -12,6 +12,7 @@ const showPopularProducts = async () => {
 };
 
 DOM.filterBox.addEventListener('click', async e => {
+  e.preventDefault();
   const filterName = e.target.closest('li').dataset.filter.toLowerCase();
   const filterLinks = document.querySelectorAll('.filter__link');
   filterLinks.forEach(filter => {

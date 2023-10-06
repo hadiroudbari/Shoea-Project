@@ -1,6 +1,6 @@
 import * as DOM from '../../modules/DOM.js';
 import renderProducts from '../../modules/view/renderProducts.js';
-import getData from '../../modules/helpers/getData.js';
+import getData from '../../modules/model/getData.js';
 
 const getfilterQuery = async () => {
   const url = new URL(window.location.href);

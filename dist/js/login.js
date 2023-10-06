@@ -1,9 +1,9 @@
 import * as DOM from '../../modules/DOM.js';
-import getData from '../../modules/helpers/getData.js';
-import showToast from '../../modules/helpers/showToast.js';
-import debounce from '../../modules/helpers/debounce.js';
-import editData from '../../modules/helpers/editData.js';
-import postData from '../../modules/helpers/postData.js';
+import getData from '../../modules/model/getData.js';
+import showToast from '../../modules/model/showToast.js';
+import editData from '../../modules/model/editData.js';
+import postData from '../../modules/model/postData.js';
+import { debounce } from '../../modules/helpers.js';
 
 // INPUT VALIDATION
 
