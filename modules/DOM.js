@@ -51,3 +51,12 @@ export const deleteBox = document.querySelector('#delete__box');
 export const deleteRemoveBtn = document.querySelector('#delete__remove');
 export const deleteCancelBtn = document.querySelector('#delete__cancel');
 export const checkoutBtn = document.querySelector('#checkout__btn');
+
+// CHECKOUT
+export const checkoutBody = document.querySelector('#checkout__body');
+export const addressBox = document.querySelector('#address__box');
+export const orderBox = document.querySelector('#order__box');
+
+// CHECKOUT -- ADDRESS
+export const addressContainer = document.querySelector('#address__container');
+export const applyAddress = document.querySelector('#apply__address');

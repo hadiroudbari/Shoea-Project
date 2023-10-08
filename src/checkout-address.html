@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="../assets/img/logo/logo.svg" />
     <link href="/dist/css/output.css" rel="stylesheet" />
+    <script type="module" src="../dist/js/checkoutAddress.js" defer></script>
     <title>Shopping Project</title>
   </head>
   <body class="bg-gray-50 relative">
@@ -17,7 +18,7 @@
       </header>
 
       <main class="pb-20">
-        <section class="my-5">
+        <section id="address__container" class="my-5">
           <article
             class="p-4 bg-white rounded-xl flex items-center justify-between my-5 shadow cursor-pointer"
           >
@@ -113,13 +114,12 @@
               <ion-icon class="text-xl" name="radio-button-off"></ion-icon>
             </div>
           </article>
-
-          <a
-            class="w-full bg-gray-200 rounded-full h-10 flex justify-center items-center text-xs font-bold"
-            href="#"
-            >Add New Address</a
-          >
         </section>
+        <button
+          class="w-full bg-gray-200 rounded-full h-10 flex justify-center items-center text-xs font-bold"
+        >
+          Add New Address
+        </button>
       </main>
     </div>
     <footer
@@ -129,6 +129,8 @@
         class="flex justify-between items-center py-5 px-5 border-t border-gray-200 rounded-tl-3xl rounded-tr-3xl overflow-hidden"
       >
         <button
+          data-id="1"
+          id="apply__address"
           class="bg-black text-white rounded-full py-3 flex items-center justify-center gap-3 text-sm font-extrabold shadow-xl w-full"
         >
           Apply

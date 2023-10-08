@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="../assets/img/logo/logo.svg" />
     <link href="/dist/css/output.css" rel="stylesheet" />
+    <script type="module" src="../dist/js/checkout.js" defer></script>
     <title>Shopping Project</title>
   </head>
-  <body class="bg-gray-50 relative">
+  <body id="checkout__body" class="bg-gray-50 relative">
     <div class="container py-3 px-5">
       <header class="flex justify-between items-center">
         <div class="flex items-center gap-4">
@@ -23,249 +24,216 @@
       <main class="pb-20">
         <section class="my-5 border-b border-gray-200 pb-5">
           <h3 class="text-sm font-bold mb-5">Shipping Address</h3>
-          <article
-            class="p-4 bg-white rounded-xl flex items-center justify-between shadow"
-          >
-            <div class="flex gap-3">
-              <img
-                class="w-10 h-10"
-                src="../assets/content/location.png"
-                alt=""
-              />
-              <div class="flex flex-col gap-2">
-                <h4 class="text-xs font-bold">Home</h4>
-                <p class="text-[.6rem] text-gray-600">
-                  61480 Sunbrook Park, PC 5679
-                </p>
-              </div>
-            </div>
-            <div>
-              <a href="#">
-                <img
-                  class="w-4 h-5"
-                  src="../assets/content/edit.png"
-                  alt="edit-icon"
-                />
-              </a>
-              <!-- <svg
-                class="w-6 h-6 mt-1"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 348 465"
-              >
-                <g>
-                  <path
-                    class="fil0"
-                    d="M309 5l34 34c7,7 7,19 0,26l-41 41 -60 -60 41 -41c7,-7 19,-7 26,0zm-21 115l-194 194 -60 -60 194 -194 60 60zm-210 206l-2 1 -68 21c-5,1 -9,-3 -8,-8l21 -68 1 -2 56 56z"
-                  />
-                  <path
-                    class="fil1"
-                    d="M233 372c-4,0 -8,-3 -8,-8 0,-5 4,-8 8,-8l20 0c5,0 8,3 8,8 0,5 -3,8 -8,8l-20 0z"
-                  />
-                  <path
-                    class="fil1"
-                    d="M70 372c-5,0 -9,-3 -9,-8 0,-5 4,-8 9,-8l118 0c5,0 9,3 9,8 0,5 -4,8 -9,8l-118 0z"
-                  />
-                </g>
-              </svg> -->
-            </div>
-          </article>
+          <div id="address__box"></div>
         </section>
         <section class="my-5 border-b border-gray-200 pb-5">
           <h3 class="text-sm font-bold mb-5">Order List</h3>
-          <article
-            class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow"
-          >
-            <div
-              class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+          <div id="order__box">
+            <article
+              class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow"
             >
-              <img
-                class="w-24 h-16 rounded-xl"
-                src="../assets/img/sneakers/sneakers-3.png"
-                alt="nike"
-              />
-            </div>
-            <div class="flex flex-col gap-2 w-3/4">
-              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
-              <div>
-                <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">
-                  <li
-                    class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
-                  ></li>
-                  <div class="flex items-center gap-2">
-                    <li>Brown</li>
-                    <li>|</li>
-                    <li>Size = 42</li>
-                  </div>
-                </ul>
+              <div
+                class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+              >
+                <img
+                  class="w-24 h-16 rounded-xl"
+                  src="../assets/img/sneakers/sneakers-3.png"
+                  alt="nike"
+                />
               </div>
-              <div class="flex justify-between items-center font-semibold">
-                <span class="font-bold">$105.00</span>
-                <div
-                  class="flex items-center justify-center text-black font-semibold bg-gray-200 rounded-full w-7 h-7"
-                >
-                  <span class="text-xs">2</span>
+              <div class="flex flex-col gap-2 w-3/4">
+                <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+                <div>
+                  <ul
+                    class="flex items-center gap-1 text-[.6rem] text-gray-600"
+                  >
+                    <li
+                      class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                    ></li>
+                    <div class="flex items-center gap-2">
+                      <li>Brown</li>
+                      <li>|</li>
+                      <li>Size = 42</li>
+                    </div>
+                  </ul>
+                </div>
+                <div class="flex justify-between items-center font-semibold">
+                  <span class="font-bold">$105.00</span>
+                  <div
+                    class="flex items-center justify-center text-black font-semibold bg-gray-200 rounded-full w-7 h-7"
+                  >
+                    <span class="text-xs">2</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <article
-            class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow"
-          >
-            <div
-              class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+            <article
+              class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow"
             >
-              <img
-                class="w-24 h-16 rounded-xl"
-                src="../assets/img/sneakers/sneakers-3.png"
-                alt="nike"
-              />
-            </div>
-            <div class="flex flex-col gap-2 w-3/4">
-              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
-              <div>
-                <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">
-                  <li
-                    class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
-                  ></li>
-                  <div class="flex items-center gap-2">
-                    <li>Brown</li>
-                    <li>|</li>
-                    <li>Size = 42</li>
-                  </div>
-                </ul>
+              <div
+                class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+              >
+                <img
+                  class="w-24 h-16 rounded-xl"
+                  src="../assets/img/sneakers/sneakers-3.png"
+                  alt="nike"
+                />
               </div>
-              <div class="flex justify-between items-center font-semibold">
-                <span class="font-bold">$105.00</span>
-                <div
-                  class="flex items-center justify-center text-black font-semibold bg-gray-200 rounded-full w-7 h-7"
-                >
-                  <span class="text-xs">2</span>
+              <div class="flex flex-col gap-2 w-3/4">
+                <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+                <div>
+                  <ul
+                    class="flex items-center gap-1 text-[.6rem] text-gray-600"
+                  >
+                    <li
+                      class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                    ></li>
+                    <div class="flex items-center gap-2">
+                      <li>Brown</li>
+                      <li>|</li>
+                      <li>Size = 42</li>
+                    </div>
+                  </ul>
+                </div>
+                <div class="flex justify-between items-center font-semibold">
+                  <span class="font-bold">$105.00</span>
+                  <div
+                    class="flex items-center justify-center text-black font-semibold bg-gray-200 rounded-full w-7 h-7"
+                  >
+                    <span class="text-xs">2</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <article
-            class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow"
-          >
-            <div
-              class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+            <article
+              class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow"
             >
-              <img
-                class="w-24 h-16 rounded-xl"
-                src="../assets/img/sneakers/sneakers-3.png"
-                alt="nike"
-              />
-            </div>
-            <div class="flex flex-col gap-2 w-3/4">
-              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
-              <div>
-                <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">
-                  <li
-                    class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
-                  ></li>
-                  <div class="flex items-center gap-2">
-                    <li>Brown</li>
-                    <li>|</li>
-                    <li>Size = 42</li>
-                  </div>
-                </ul>
+              <div
+                class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+              >
+                <img
+                  class="w-24 h-16 rounded-xl"
+                  src="../assets/img/sneakers/sneakers-3.png"
+                  alt="nike"
+                />
               </div>
-              <div class="flex justify-between items-center font-semibold">
-                <span class="font-bold">$105.00</span>
-                <div
-                  class="flex items-center justify-center text-black font-semibold bg-gray-200 rounded-full w-7 h-7"
-                >
-                  <span class="text-xs">2</span>
+              <div class="flex flex-col gap-2 w-3/4">
+                <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+                <div>
+                  <ul
+                    class="flex items-center gap-1 text-[.6rem] text-gray-600"
+                  >
+                    <li
+                      class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                    ></li>
+                    <div class="flex items-center gap-2">
+                      <li>Brown</li>
+                      <li>|</li>
+                      <li>Size = 42</li>
+                    </div>
+                  </ul>
+                </div>
+                <div class="flex justify-between items-center font-semibold">
+                  <span class="font-bold">$105.00</span>
+                  <div
+                    class="flex items-center justify-center text-black font-semibold bg-gray-200 rounded-full w-7 h-7"
+                  >
+                    <span class="text-xs">2</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <article
-            class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow"
-          >
-            <div
-              class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+            <article
+              class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow"
             >
-              <img
-                class="w-24 h-16 rounded-xl"
-                src="../assets/img/sneakers/sneakers-3.png"
-                alt="nike"
-              />
-            </div>
-            <div class="flex flex-col gap-2 w-3/4">
-              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
-              <div>
-                <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">
-                  <li
-                    class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
-                  ></li>
-                  <div class="flex items-center gap-2">
-                    <li>Brown</li>
-                    <li>|</li>
-                    <li>Size = 42</li>
-                  </div>
-                </ul>
+              <div
+                class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24"
+              >
+                <img
+                  class="w-24 h-16 rounded-xl"
+                  src="../assets/img/sneakers/sneakers-3.png"
+                  alt="nike"
+                />
               </div>
-              <div class="flex justify-between items-center font-semibold">
-                <span class="font-bold">$105.00</span>
-                <div
-                  class="flex items-center justify-center text-black font-semibold bg-gray-200 rounded-full w-7 h-7"
-                >
-                  <span class="text-xs">2</span>
+              <div class="flex flex-col gap-2 w-3/4">
+                <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+                <div>
+                  <ul
+                    class="flex items-center gap-1 text-[.6rem] text-gray-600"
+                  >
+                    <li
+                      class="w-3 h-3 rounded-full flex justify-center items-center bg-sneaker_3"
+                    ></li>
+                    <div class="flex items-center gap-2">
+                      <li>Brown</li>
+                      <li>|</li>
+                      <li>Size = 42</li>
+                    </div>
+                  </ul>
+                </div>
+                <div class="flex justify-between items-center font-semibold">
+                  <span class="font-bold">$105.00</span>
+                  <div
+                    class="flex items-center justify-center text-black font-semibold bg-gray-200 rounded-full w-7 h-7"
+                  >
+                    <span class="text-xs">2</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </section>
         <section class="my-5 border-b border-gray-200 pb-5">
           <h3 class="text-sm font-bold mb-5">Choose Shipping</h3>
-          <article
-            class="p-4 bg-white rounded-xl flex items-center justify-between shadow"
-          >
-            <div class="flex items-center gap-3">
-              <img
-                class="w-5 h-3"
-                src="../assets/content/truck.png"
-                alt="truck"
-              />
-              <h3 class="text-sm font-bold">Choose Shipping Type</h3>
-            </div>
-            <ion-icon class="text-gray-600" name="chevron-forward"></ion-icon>
-          </article>
-          <!-- <article
-            class="p-4 bg-white rounded-xl flex items-center justify-between my-5 shadow cursor-pointer"
-          >
-            <div class="flex gap-3">
-              <img
-                class="w-10 h-10"
-                src="../assets/content/chooseshipping/1.png"
-                alt=""
-              />
-              <div class="flex flex-col gap-2">
-                <h4 class="text-xs font-bold flex items-center gap-2">
-                  Regular
-                </h4>
-                <p class="text-[.6rem] text-gray-600">
-                  Estimated Arrival, Dec 20-22
-                </p>
-              </div>
-            </div>
-            <div class="flex items-center gap-4">
-              <div>
-                <span class="text-sm font-bold">$15</span>
-              </div>
-              <a href="#">
+          <div id="checkout__shipping">
+            <article
+              class="p-4 bg-white rounded-xl flex items-center justify-between shadow checkout__shipping--selection"
+            >
+              <div class="flex items-center gap-3">
                 <img
-                  class="w-4 h-5"
-                  src="../assets/content/edit.png"
-                  alt="edit-icon"
+                  class="w-5 h-3"
+                  src="../assets/content/truck.png"
+                  alt="truck"
                 />
-              </a>
-            </div>
-          </article> -->
+                <h3 class="text-sm font-bold">Choose Shipping Type</h3>
+              </div>
+              <ion-icon class="text-gray-600" name="chevron-forward"></ion-icon>
+            </article>
+            <!-- <article
+              class="p-4 bg-white rounded-xl flex items-center justify-between my-5 shadow cursor-pointer"
+            >
+              <div class="flex gap-3">
+                <img
+                  class="w-10 h-10"
+                  src="../assets/content/chooseshipping/1.png"
+                  alt=""
+                />
+                <div class="flex flex-col gap-2">
+                  <h4 class="text-xs font-bold flex items-center gap-2">
+                    Regular
+                  </h4>
+                  <p class="text-[.6rem] text-gray-600">
+                    Estimated Arrival, Dec 20-22
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div>
+                  <span class="text-sm font-bold">$15</span>
+                </div>
+                <a class="checkout__shipping--selection" href="#">
+                  <img
+                    class="w-4 h-5"
+                    src="../assets/content/edit.png"
+                    alt="edit-icon"
+                  />
+                </a>
+              </div>
+            </article> -->
+          </div>
         </section>
         <section class="my-5 pb-5">
           <h3 class="text-sm font-bold mb-5">Promo Code</h3>

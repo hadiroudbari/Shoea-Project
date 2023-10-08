@@ -1,0 +1,25 @@
+import * as DOM from '../../modules/DOM.js';
+import renderAddress from '../../modules/view/renderAddress.js';
+
+DOM.addressContainer.addEventListener('click', e => {
+  const addressItem = e.target.closest('.address__item');
+  const icons = Array.from(DOM.addressContainer.querySelectorAll('.icon'));
+  const activeIcon = icons.find(item => item.name === 'radio-button-on');
+
+  if (addressItem) {
+    activeIcon.name = 'radio-button-off';
+    addressItem.querySelector('.icon').name = 'radio-button-on';
+    DOM.applyAddress.dataset.id = addressItem.dataset.id;
+  }
+});
+
+DOM.applyAddress.addEventListener('click', () => {
+  location.assign(
+    `http://127.0.0.1:5500/src/checkout.html?addressID=${DOM.applyAddress.dataset.id}`
+  );
+});
+
+const init = async () => {
+  await renderAddress(DOM.addressContainer);
+};
+window.addEventListener('DOMContentLoaded', init);
