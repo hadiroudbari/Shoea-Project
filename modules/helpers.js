@@ -86,9 +86,9 @@ export const changeProductBg = (container, brand) => {
   }
 };
 
-export const calcTotalPrice = container => {
+export const calcTotalPrice = (container, totalBox, shipping, discount) => {
   const productCartPrice = container.querySelectorAll('.cart__price');
-  const productTotalPrice = document.querySelector('#total__price');
+
   let totalPrice = 0;
   productCartPrice.forEach(element => {
     const extractArray = element.innerHTML.match(/\d+/g);
@@ -96,7 +96,13 @@ export const calcTotalPrice = container => {
     const extractString = extractArray.join('');
     totalPrice += +numberExtractor(extractString);
   });
-  productTotalPrice.innerHTML = numberFormatter(totalPrice);
+  if (shipping) totalPrice += +shipping;
+
+  if (discount) totalPrice -= +discount;
+
+  if (totalBox) totalBox.innerHTML = numberFormatter(totalPrice);
+
+  return totalPrice;
 };
 
 export const showDeleteModal = () => {

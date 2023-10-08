@@ -1,10 +1,13 @@
 import * as DOM from '../../modules/DOM.js';
 import getData from '../../modules/model/getData.js';
 import { lightOrDark } from '../helpers.js';
-import { numberFormatter } from '../../modules/model/formatter.js';
+import {
+  numberFormatter,
+  numberExtractor,
+} from '../../modules/model/formatter.js';
 import { changeProductBg } from '../helpers.js';
 
-const renderCheckoutOrder = async container => {
+const renderCheckoutOrder = async (container, priceAmount) => {
   const checkoutOrders = await getData('', '', '', 'users/1/cart');
 
   container.innerHTML = '';
@@ -43,7 +46,7 @@ const renderCheckoutOrder = async container => {
               </ul>
                 </div>
                 <div class="flex justify-between items-center font-semibold">
-                  <span class="font-bold">${numberFormatter(
+                  <span class="font-bold cart__price">${numberFormatter(
                     checkoutOrder.price,
                     checkoutOrder.count
                   )}</span>

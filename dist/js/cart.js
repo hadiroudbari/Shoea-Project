@@ -41,7 +41,7 @@ DOM.cartBox.addEventListener('click', async e => {
       count: +productCartCount.textContent,
     });
 
-    calcTotalPrice(DOM.cartBox);
+    calcTotalPrice(DOM.cartBox, DOM.cartTotalPrice);
   }
 
   if (e.target.classList.contains('delete')) {
@@ -62,7 +62,7 @@ DOM.deleteRemoveBtn.addEventListener('click', async () => {
   const productID = document.querySelector('#deleted__item').dataset.id;
   await deleteData('cart', productID);
   await renderCartItem();
-  calcTotalPrice(DOM.cartBox);
+  calcTotalPrice(DOM.cartBox, DOM.cartTotalPrice);
   hideDeleteModal();
 });
 
@@ -72,5 +72,5 @@ DOM.checkoutBtn.addEventListener('click', () => {
 
 window.addEventListener('DOMContentLoaded', async () => {
   await renderCartItem();
-  calcTotalPrice(DOM.cartBox);
+  calcTotalPrice(DOM.cartBox, DOM.cartTotalPrice);
 });

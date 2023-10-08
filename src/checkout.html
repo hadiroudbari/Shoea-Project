@@ -89,7 +89,7 @@
               <ul class="flex flex-col gap-4">
                 <li class="flex justify-between">
                   Amount
-                  <span id="price__amount" class="font-semibold">$585.00</span>
+                  <span id="price__amount" class="font-semibold"></span>
                 </li>
                 <li class="flex justify-between">
                   Shipping
@@ -109,9 +109,17 @@
                     </svg>
                   </span>
                 </li>
-                <li class="justify-between hidden">
+                <li id="price__promo--box" class="justify-between hidden">
                   Promo
-                  <span id="price__promo" class="font-semibold">
+                  <span id="price__promo" class="font-semibold">0</span>
+                </li>
+              </ul>
+            </div>
+            <div class="w-full pt-4">
+              <ul class="flex flex-col gap-3">
+                <li class="flex justify-between">
+                  Total
+                  <span id="price__total" class="font-semibold">
                     <svg
                       class="w-3 h-3 mt-1 cursor-pointer"
                       xmlns:svg="http://www.w3.org/2000/svg"
@@ -129,13 +137,6 @@
                 </li>
               </ul>
             </div>
-            <div class="w-full pt-4">
-              <ul class="flex flex-col gap-3">
-                <li class="flex justify-between">
-                  Total <span class="font-semibold">$585.00</span>
-                </li>
-              </ul>
-            </div>
           </article>
         </section>
       </main>
@@ -147,7 +148,9 @@
         class="flex justify-between items-center py-5 px-5 border-t border-gray-200 rounded-tl-3xl rounded-tr-3xl overflow-hidden"
       >
         <button
-          class="bg-black text-white rounded-full py-3 flex items-center justify-center gap-3 text-sm font-extrabold shadow-xl w-full"
+          disabled
+          id="checkout__payment--btn"
+          class="bg-black text-white rounded-full py-3 flex items-center justify-center gap-3 text-sm font-extrabold shadow-xl w-full opacity-50"
         >
           Continue to Payment
           <div class="flex items-center">

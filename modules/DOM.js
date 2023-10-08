@@ -51,6 +51,7 @@ export const deleteBox = document.querySelector('#delete__box');
 export const deleteRemoveBtn = document.querySelector('#delete__remove');
 export const deleteCancelBtn = document.querySelector('#delete__cancel');
 export const checkoutBtn = document.querySelector('#checkout__btn');
+export const cartTotalPrice = document.querySelector('#total__price');
 
 // CHECKOUT
 export const checkoutBody = document.querySelector('#checkout__body');
@@ -62,6 +63,14 @@ export const discountInput = document.querySelector('#discount__input');
 export const discountItem = document.querySelector('#discount__item');
 export const discountAlert = document.querySelector('#discount__alert');
 export const discountClose = document.querySelector('#discount__close');
+export const priceAmount = document.querySelector('#price__amount');
+export const priceShipping = document.querySelector('#price__shipping');
+export const pricePromo = document.querySelector('#price__promo');
+export const pricePromoBox = document.querySelector('#price__promo--box');
+export const priceTotal = document.querySelector('#price__total');
+export const checkoutPaymentBtn = document.querySelector(
+  '#checkout__payment--btn'
+);
 
 // CHECKOUT -- ADDRESS
 export const addressContainer = document.querySelector('#address__container');

@@ -32,7 +32,7 @@ const renderCheckoutShipping = async (container, id) => {
         </div>
         <div class="flex items-center gap-4">
           <div>
-            <span data-price="${shipping[0].price}" class="text-sm font-bold">$${shipping[0].price}</span>
+            <span id="shipping__price" data-price="${shipping[0].price}" class="text-sm font-bold">$${shipping[0].price}</span>
           </div>
           <img
             class="w-4 h-5 checkout__shipping--selection cursor-pointer"
