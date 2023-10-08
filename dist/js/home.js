@@ -17,10 +17,10 @@ DOM.inputSearch.addEventListener('focus', () => {
 
 const showBrands = async () => {
   const brands = await getData('brands');
-  brands.slice().sort((a, b) => b.id - a.id);
+  brands.sort((a, b) => b.id - a.id);
 
   DOM.brandsBox.innerHTML = `
-          <figure data-brand="More" class="flex flex-col items-center gap-2">
+          <figure id="brand__show--more" data-brand="More" class="flex flex-col items-center gap-2">
             <div
               style="width:48px !important;height:48px !important";
               class="flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
@@ -33,12 +33,13 @@ const showBrands = async () => {
             <figcaption class="text-xs font-semibold">More</figcaption>
           </figure>
   `;
-
-  brands.forEach(brand => {
+  brands.forEach((brand, i) => {
     const html = `
           <figure data-brand="${
             brand.name
-          }" class="flex flex-col justify-start items-center gap-2">
+          }" class="flex flex-col justify-start items-center gap-2 ${
+      i < 4 ? 'more__item hidden' : ''
+    }">
             <div
               class="brand__item flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
             >
@@ -55,16 +56,33 @@ const showBrands = async () => {
             )}</figcaption>
           </figure>
     `;
+
     DOM.brandsBox.insertAdjacentHTML('afterbegin', html);
   });
 };
 
 DOM.brandsBox.addEventListener('click', e => {
-  const brandName = e.target.closest('figure').dataset.brand;
+  const figure = e.target.closest('figure');
+  const brandName = figure.dataset.brand;
+  const moreItems = DOM.brandsBox.querySelectorAll('.more__item');
+  const figCaption = figure.querySelector('figcaption');
+
   if (e.target.closest('div').classList.contains('brand__item')) {
     location.assign(
       `http://127.0.0.1:5500/src/home-brand.html?brand=${brandName.toLowerCase()}`
     );
+  } else if (figure.id === 'brand__show--more') {
+    moreItems.forEach(item => {
+      item.classList.remove('hidden');
+    });
+    figCaption.textContent = 'Less';
+    figure.id = 'brand__show--less';
+  } else if (figure.id === 'brand__show--less') {
+    moreItems.forEach(item => {
+      item.classList.add('hidden');
+    });
+    figCaption.textContent = 'More';
+    figure.id = 'brand__show--more';
   }
 });
 

@@ -128,65 +128,26 @@
             <a class="font-bold" href="#">view more...</a> -->
           </p>
           <div class="flex gap-10">
-            <div class="flex flex-col gap-1 w-1/2">
+            <div id="size__box" class="flex flex-col gap-1 w-1/2">
               <h4 class="font-bold">Size</h4>
               <ul
                 id="product__details--size"
                 class="flex justify-start items-center gap-2 overflow-x-auto w-full hide__scroll"
-              >
-                <li>
-                  <a
-                    class="w-8 h-8 flex justify-center items-center border-2 border-black rounded-full font-bold"
-                    href="#"
-                    >40</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="w-8 h-8 flex justify-center items-center border-2 border-black rounded-full font-bold"
-                    href="#"
-                    >41</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="w-8 h-8 flex justify-center items-center border-2 border-black rounded-full font-bold bg-black text-white"
-                    href="#"
-                    >42</a
-                  >
-                </li>
-              </ul>
+              ></ul>
             </div>
-            <div class="flex flex-col gap-1 w-1/2">
+            <div id="color__box" class="flex flex-col gap-1 w-1/2">
               <h4 class="font-bold">Color</h4>
               <ul
                 id="product__details--color"
                 class="flex justify-start items-center gap-2 overflow-x-auto w-full hide__scroll"
-              >
-                <!-- <li>
-                  <a
-                    class="w-8 h-8 rounded-full flex justify-center items-center bg-gray-200"
-                    href="#"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="20"
-                      viewBox="0 -960 960 960"
-                      width="20"
-                    >
-                      <path
-                        d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"
-                      />
-                    </svg>
-                  </a>
-                </li> -->
-              </ul>
+              ></ul>
             </div>
           </div>
           <span
             id="stock__alert"
             class="text-xs font-bold text-orange-500 hidden"
           ></span>
-          <div class="flex items-center gap-4">
+          <div id="quantity__box" class="flex items-center gap-4">
             <h4 class="font-bold">Quantity</h4>
             <div
               class="flex items-center justify-center gap-3 text-black font-bold bg-gray-200 rounded-full"
@@ -235,7 +196,7 @@
           id="product__details--footer"
           class="flex justify-between gap-4 items-center py-4"
         >
-          <div class="flex flex-col gap-1">
+          <div id="price__box" class="flex flex-col gap-1">
             <h6 class="text-[.6rem] text-gray-600">Total Price</h6>
             <span class="text-xl font-bold price"></span>
           </div>

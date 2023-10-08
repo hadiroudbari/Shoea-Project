@@ -72,6 +72,7 @@ DOM.detailsMainBox.addEventListener('click', e => {
     renderProductImage(product, +e.target.dataset.id);
     DOM.productOrderCount.textContent = 1;
     DOM.productDetailsPrice.textContent = numberFormatter(product.price);
+    DOM.stockAlert.dataset.count = '';
     checkProductDetails();
   }
 
@@ -92,13 +93,15 @@ DOM.detailsMainBox.addEventListener('click', e => {
     e.target.id === 'product__order--minus'
   ) {
     if (!DOM.stockAlert.dataset.count) {
-      DOM.stockAlert.classList.remove('hidden');
-      DOM.stockAlert.classList.remove('text-black');
-      DOM.stockAlert.classList.remove('text-orange-500');
+      DOM.stockAlert.classList.remove(
+        'hidden',
+        'text-black',
+        'text-orange-500'
+      );
       DOM.stockAlert.classList.add('text-red-500');
-
-      stockAlert.textContent = 'First, You should choose a size';
+      DOM.stockAlert.textContent = 'First, You should choose a size';
     } else if (DOM.stockAlert.dataset.count > 0) {
+      console.log(e.target);
       if (e.target.id === 'product__order--plus') {
         if (
           +DOM.productOrderCount.textContent === +DOM.stockAlert.dataset.count
@@ -112,11 +115,24 @@ DOM.detailsMainBox.addEventListener('click', e => {
           +DOM.productOrderCount.textContent - 1;
       }
     }
-
     DOM.productDetailsPrice.textContent = numberFormatter(
       product.price,
       DOM.productOrderCount.textContent
     );
+  }
+});
+
+DOM.addToCartBtn.addEventListener('mouseover', e => {
+  if (e.target.disabled === true) {
+    if (product.stockStatus) {
+      DOM.stockAlert.classList.remove(
+        'hidden',
+        'text-black',
+        'text-orange-500'
+      );
+      DOM.stockAlert.classList.add('text-red-500');
+      DOM.stockAlert.textContent = 'First, You should choose a size';
+    }
   }
 });
 

@@ -10,10 +10,8 @@ export const selectProductSizeOption = (product, sizeItem, id, sizeID) => {
 
   sizeItem.classList.add('bg-black', 'text-white', 'active__size');
 
-  stockAlert.classList.remove('hidden');
   stockAlert.textContent = '';
-  stockAlert.classList.remove('text-black');
-  stockAlert.classList.remove('text-red-500');
+  stockAlert.classList.remove('hidden', 'text-black', 'text-red-500');
   stockAlert.classList.add('text-orange-500');
 
   stockAlert.dataset.count = sizeStockCount;

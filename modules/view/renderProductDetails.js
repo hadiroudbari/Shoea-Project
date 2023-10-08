@@ -57,6 +57,21 @@ const renderProductDetails = async (container, product) => {
     )}</span> <a id="show__more--description" class="font-bold" href="#"> view more...</a>`
   );
 
+  if (!product.stockStatus) {
+    const quantityBox = document.querySelector('#quantity__box');
+    const colorBox = document.querySelector('#color__box');
+    const sizeBox = document.querySelector('#size__box');
+    const priceBox = document.querySelector('#price__box');
+    [quantityBox, colorBox, sizeBox, priceBox].forEach(item => {
+      item.classList.add('hidden');
+    });
+    const addToCartBtn = document.querySelector('#add__to--cart');
+    addToCartBtn.innerHTML = `
+    Out of stock
+    `;
+    return;
+  }
+
   // Main -- Color
   renderProductColor(product, product.images[0].id);
 
