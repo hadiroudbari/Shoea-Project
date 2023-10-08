@@ -56,7 +56,12 @@ export const checkoutBtn = document.querySelector('#checkout__btn');
 export const checkoutBody = document.querySelector('#checkout__body');
 export const addressBox = document.querySelector('#address__box');
 export const orderBox = document.querySelector('#order__box');
+export const shippingBox = document.querySelector('#shipping__box');
 
 // CHECKOUT -- ADDRESS
 export const addressContainer = document.querySelector('#address__container');
 export const applyAddress = document.querySelector('#apply__address');
+
+// CHECKOUT -- SHIPPING
+export const shippingContainer = document.querySelector('#shipping__container');
+export const applyShipping = document.querySelector('#apply__shipping');

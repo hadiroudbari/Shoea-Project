@@ -9,7 +9,7 @@ const renderCheckoutAddress = async (container, id) => {
     const html = `
         <article
         data-id="${addresses[id - 1].id}"
-        class="p-4 bg-white rounded-xl flex items-center justify-between shadow"
+        class="p-4 bg-white rounded-xl flex items-center justify-between shadow address__item""
       >
         <div class="flex gap-3">
           <img
