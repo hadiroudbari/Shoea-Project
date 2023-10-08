@@ -57,6 +57,11 @@ export const checkoutBody = document.querySelector('#checkout__body');
 export const addressBox = document.querySelector('#address__box');
 export const orderBox = document.querySelector('#order__box');
 export const shippingBox = document.querySelector('#shipping__box');
+export const discountForm = document.querySelector('#discount__form');
+export const discountInput = document.querySelector('#discount__input');
+export const discountItem = document.querySelector('#discount__item');
+export const discountAlert = document.querySelector('#discount__alert');
+export const discountClose = document.querySelector('#discount__close');
 
 // CHECKOUT -- ADDRESS
 export const addressContainer = document.querySelector('#address__container');

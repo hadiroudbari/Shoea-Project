@@ -12,7 +12,9 @@
     <div class="container py-3 px-5">
       <header class="flex justify-between items-center">
         <div class="flex items-center gap-4">
-          <ion-icon class="text-xl" name="arrow-back-outline"></ion-icon>
+          <a id="go__back" href="#">
+            <ion-icon class="text-xl" name="arrow-back-outline"></ion-icon>
+          </a>
           <h2 class="font-bold text-lg">Shipping Address</h2>
         </div>
       </header>
@@ -138,6 +140,12 @@
       </div>
     </footer>
 
+    <script>
+      document.getElementById('go__back').addEventListener('click', e => {
+        e.preventDefault();
+        history.back();
+      });
+    </script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

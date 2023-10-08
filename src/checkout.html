@@ -46,76 +46,72 @@
               </div>
               <ion-icon class="text-gray-600" name="chevron-forward"></ion-icon>
             </article>
-            <!-- <article
-              class="p-4 bg-white rounded-xl flex items-center justify-between my-5 shadow cursor-pointer"
-            >
-              <div class="flex gap-3">
-                <img
-                  class="w-10 h-10"
-                  src="../assets/content/chooseshipping/1.png"
-                  alt=""
-                />
-                <div class="flex flex-col gap-2">
-                  <h4 class="text-xs font-bold flex items-center gap-2">
-                    Regular
-                  </h4>
-                  <p class="text-[.6rem] text-gray-600">
-                    Estimated Arrival, Dec 20-22
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-center gap-4">
-                <div>
-                  <span class="text-sm font-bold">$15</span>
-                </div>
-                <a class="checkout__shipping--selection" href="#">
-                  <img
-                    class="w-4 h-5"
-                    src="../assets/content/edit.png"
-                    alt="edit-icon"
-                  />
-                </a>
-              </div>
-            </article> -->
           </div>
         </section>
         <section class="my-5 pb-5">
           <h3 class="text-sm font-bold mb-5">Promo Code</h3>
           <article>
-            <form id="form" class="flex items-center gap-4">
+            <form id="discount__form" class="flex items-center gap-4">
               <input
                 class="w-5/6 h-9 bg-discount_box rounded-xl text-xs pl-3"
                 type="text"
                 name="discount"
-                id="discount"
+                id="discount__input"
                 placeholder="Enter Promo Code"
               />
-              <!-- <div
-                class="flex items-center gap-3 bg-black rounded-full text-white text-xs font-bold h-9 px-5"
+              <div
+                id="discount__item"
+                class="items-center gap-3 bg-black rounded-full text-white text-xs font-bold h-9 px-5 hidden"
               >
-                <p>Discount 30% Off</p>
-                <ion-icon class="text-base" name="close"></ion-icon>
-              </div> -->
+                <p></p>
+                <ion-icon
+                  id="discount__close"
+                  class="text-base cursor-pointer"
+                  name="close"
+                ></ion-icon>
+              </div>
               <button
                 class="w-9 h-9 bg-black rounded-full flex justify-center items-center text-white text-xl"
                 type="submit"
-                id="submit"
+                id="discount__btn"
               >
                 +
               </button>
             </form>
+            <span id="discount__alert" class="text-red-600 text-xs mt-2 hidden"
+              >Invalid Code. Please try a different code</span
+            >
           </article>
           <article
             class="p-4 bg-white rounded-xl flex flex-col items-center justify-between my-5 text-xs text-gray-600 shadow"
           >
             <div class="pb-4 border-b border-gray-200 w-full">
-              <ul class="flex flex-col gap-3">
+              <ul class="flex flex-col gap-4">
                 <li class="flex justify-between">
-                  Amount <span class="font-semibold">$585.00</span>
+                  Amount
+                  <span id="price__amount" class="font-semibold">$585.00</span>
                 </li>
                 <li class="flex justify-between">
                   Shipping
-                  <span class="font-semibold">
+                  <span id="price__shipping" class="font-semibold">
+                    <svg
+                      class="w-3 h-3 mt-1 cursor-pointer"
+                      xmlns:svg="http://www.w3.org/2000/svg"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 100 125"
+                    >
+                      <g transform="translate(0,-952.36218)">
+                        <path
+                          d="m 22,996.36218 c -3.3137,0 -6,2.6862 -6,6.00002 0,3.3136 2.6863,6 6,6 l 56,0 c 3.3137,0 6,-2.6864 6,-6 0,-3.31382 -2.6863,-6.00002 -6,-6.00002 z"
+                          fill="#000000"
+                        />
+                      </g>
+                    </svg>
+                  </span>
+                </li>
+                <li class="justify-between hidden">
+                  Promo
+                  <span id="price__promo" class="font-semibold">
                     <svg
                       class="w-3 h-3 mt-1 cursor-pointer"
                       xmlns:svg="http://www.w3.org/2000/svg"

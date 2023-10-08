@@ -2,8 +2,7 @@ import * as DOM from '../../modules/DOM.js';
 import renderCheckoutAddress from '../../modules/view/renderCheckoutAddress.js';
 import renderCheckoutOrder from '../../modules/view/renderCheckoutOrder.js';
 import renderCheckoutShipping from '../../modules/view/renderCheckoutShipping.js';
-import renderCartItem from '../../modules/view/renderCartItem.js';
-import editData from '../../modules/model/editData.js';
+import getData from '../../modules/model/getData.js';
 
 const showAddressItem = async () => {
   const url = new URL(window.location.href);
@@ -42,6 +41,32 @@ DOM.checkoutBody.addEventListener('click', e => {
         `http://127.0.0.1:5500/src/checkout-shipping.html?addressID=1`
       );
     }
+  }
+
+  if (e.target.id === 'discount__close') {
+    DOM.discountItem.classList.add('hidden');
+    DOM.discountInput.classList.remove('hidden');
+  }
+});
+
+DOM.discountForm.addEventListener('submit', async e => {
+  e.preventDefault();
+  const discountCodes = await getData('discountCodes');
+  const discountCheck = discountCodes.find(
+    item => item.code === DOM.discountInput.value
+  );
+
+  if (discountCheck) {
+    DOM.discountInput.classList.add('hidden');
+    DOM.discountAlert.classList.add('hidden');
+    DOM.discountItem.classList.remove('hidden');
+    DOM.discountItem.classList.add('flex');
+    DOM.discountItem.querySelector(
+      'p'
+    ).textContent = `Discount ${discountCheck.discount}% Off`;
+  } else {
+    DOM.discountAlert.classList.remove('hidden');
+    DOM.discountAlert.classList.add('block');
   }
 });
 
