@@ -79,3 +79,7 @@ export const applyAddress = document.querySelector('#apply__address');
 // CHECKOUT -- SHIPPING
 export const shippingContainer = document.querySelector('#shipping__container');
 export const applyShipping = document.querySelector('#apply__shipping');
+
+// CHECKOUT -- PAYMENT
+export const paymentContainer = document.querySelector('#payment__container');
+export const applyPayment = document.querySelector('#apply__payment');

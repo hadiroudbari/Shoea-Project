@@ -1,13 +1,9 @@
-import * as DOM from '../../modules/DOM.js';
 import getData from '../../modules/model/getData.js';
 import { lightOrDark } from '../helpers.js';
-import {
-  numberFormatter,
-  numberExtractor,
-} from '../../modules/model/formatter.js';
+import { numberFormatter } from '../../modules/model/formatter.js';
 import { changeProductBg } from '../helpers.js';
 
-const renderCheckoutOrder = async (container, priceAmount) => {
+const renderCheckoutOrder = async container => {
   const checkoutOrders = await getData('', '', '', 'users/1/cart');
 
   container.innerHTML = '';

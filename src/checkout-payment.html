@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="../assets/img/logo/logo.svg" />
     <link href="/dist/css/output.css" rel="stylesheet" />
+    <script type="module" src="../dist/js/checkoutPayment.js" defer></script>
     <title>Shopping Project</title>
   </head>
   <body class="bg-gray-50 relative">
@@ -27,98 +28,7 @@
         </svg>
       </header>
       <main>
-        <section>
-          <article
-            class="p-4 bg-white rounded-xl flex items-center justify-between my-5 shadow cursor-pointer"
-          >
-            <div class="flex items-center gap-3">
-              <img
-                class="w-6 h-6"
-                src="../assets/content/Payments/Wallet.png"
-                alt=""
-              />
-              <h4 class="text-sm font-bold flex items-center gap-2">
-                My Wallet
-              </h4>
-            </div>
-            <div class="flex items-center gap-4">
-              <div>
-                <span class="text-xs font-bold">$9,379</span>
-              </div>
-              <ion-icon class="text-xl" name="radio-button-on"></ion-icon>
-            </div>
-          </article>
-
-          <article
-            class="p-4 bg-white rounded-xl flex items-center justify-between my-5 shadow cursor-pointer"
-          >
-            <div class="flex items-center gap-3">
-              <img
-                class="w-6 h-6"
-                src="../assets/content/Payments/Paypal.png"
-                alt=""
-              />
-              <h4 class="text-sm font-bold flex items-center gap-2">Paypal</h4>
-            </div>
-            <div class="flex items-center gap-4">
-              <ion-icon class="text-xl" name="radio-button-off"></ion-icon>
-            </div>
-          </article>
-
-          <article
-            class="p-4 bg-white rounded-xl flex items-center justify-between my-5 shadow cursor-pointer"
-          >
-            <div class="flex items-center gap-3">
-              <img
-                class="w-6 h-6"
-                src="../assets/content/Payments/Google.png"
-                alt=""
-              />
-              <h4 class="text-sm font-bold flex items-center gap-2">
-                Google Pay
-              </h4>
-            </div>
-            <div class="flex items-center gap-4">
-              <ion-icon class="text-xl" name="radio-button-off"></ion-icon>
-            </div>
-          </article>
-
-          <article
-            class="p-4 bg-white rounded-xl flex items-center justify-between my-5 shadow cursor-pointer"
-          >
-            <div class="flex items-center gap-3">
-              <img
-                class="w-6 h-6"
-                src="../assets/content/Payments/Apple.png"
-                alt=""
-              />
-              <h4 class="text-sm font-bold flex items-center gap-2">
-                Apple Pay
-              </h4>
-            </div>
-            <div class="flex items-center gap-4">
-              <ion-icon class="text-xl" name="radio-button-off"></ion-icon>
-            </div>
-          </article>
-
-          <article
-            class="p-4 bg-white rounded-xl flex items-center justify-between my-5 shadow cursor-pointer"
-          >
-            <div class="flex items-center gap-3">
-              <img
-                class="w-6 h-6"
-                src="../assets/content/Payments/Mastercard.png"
-                alt=""
-              />
-              <h4 class="text-sm font-bold flex items-center gap-2">
-                <span class="mt-2">**** **** ****</span> 0141
-              </h4>
-            </div>
-            <div class="flex items-center gap-4">
-              <ion-icon class="text-xl" name="radio-button-off"></ion-icon>
-            </div>
-          </article>
-        </section>
+        <section id="payment__container"></section>
       </main>
     </div>
     <footer
@@ -129,7 +39,7 @@
       >
         <button
           data-id="1"
-          id="apply__shipping"
+          id="apply__payment"
           class="bg-black text-white rounded-full py-3 flex items-center justify-center gap-3 text-sm font-extrabold shadow-xl w-full"
         >
           Confirm Payment

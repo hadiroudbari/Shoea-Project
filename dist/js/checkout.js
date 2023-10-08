@@ -86,6 +86,7 @@ DOM.discountForm.addEventListener('submit', async e => {
     DOM.pricePromoBox.classList.remove('hidden');
     DOM.pricePromoBox.classList.add('flex');
     DOM.pricePromo.innerHTML = '- $' + discountAmount;
+    DOM.pricePromo.dataset.promo = discountAmount;
 
     calcTotalPrice(
       DOM.orderBox,
@@ -105,13 +106,13 @@ DOM.checkoutPaymentBtn.addEventListener('click', () => {
   const queryShippingID = url.searchParams.get('shippingID');
 
   location.assign(
-    `http://127.0.0.1:5500/src/checkout-payment.html?addressID=${queryAddressID}&shippingID=${queryShippingID}&discount=${DOM.pricePromo.innerHTML}&totalPrice=${DOM.priceTotal.innerHTML}`
+    `http://127.0.0.1:5500/src/checkout-payment.html?addressID=${queryAddressID}&shippingID=${queryShippingID}&discount=$${DOM.pricePromo.dataset.promo}&totalPrice=${DOM.priceTotal.innerHTML}`
   );
 });
 
 const init = async () => {
   await showAddressItem();
-  await renderCheckoutOrder(DOM.orderBox, DOM.priceAmount);
+  await renderCheckoutOrder(DOM.orderBox);
   calcTotalPrice(DOM.orderBox, DOM.priceAmount);
   await showShippingItem();
 };
