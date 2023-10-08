@@ -45,3 +45,9 @@ export const stockAlert = document.querySelector('#stock__alert');
 
 // CART
 export const cartBox = document.querySelector('#cart__box');
+export const overlay = document.querySelector('#overlay');
+export const modal = document.querySelector('#modal');
+export const deleteBox = document.querySelector('#delete__box');
+export const deleteRemoveBtn = document.querySelector('#delete__remove');
+export const deleteCancelBtn = document.querySelector('#delete__cancel');
+export const checkoutBtn = document.querySelector('#checkout__btn');

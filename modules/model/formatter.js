@@ -8,10 +8,12 @@ export const textFormatter = (text, count, element = '...') => {
 };
 
 export const numberFormatter = (number, multiple = 1) => {
-  const extractNumber = +number.match(/\d+/)[0];
+  const extractNumber = isNaN(number) ? numberExtractor(number) : number;
   const newNumber = `$${new Intl.NumberFormat('en-IN', {
     minimumFractionDigits: 2,
   }).format(extractNumber * multiple)}`;
 
   return newNumber;
 };
+
+export const numberExtractor = number => +number.match(/\d+/)[0];

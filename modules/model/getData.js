@@ -1,8 +1,19 @@
 import { BASE_API } from '../config.js';
 
-const getData = async (keyData = 'products', key = '', value = '') => {
+const getData = async (
+  keyData = 'products',
+  key = '',
+  value = '',
+  customQuery
+) => {
   try {
-    const fetchQuery = await fetch(`${BASE_API}/${keyData}?${key}=${value}`);
+    let fetchQuery;
+    if (customQuery) {
+      fetchQuery = await fetch(`${BASE_API}/${customQuery}`);
+    } else {
+      fetchQuery = await fetch(`${BASE_API}/${keyData}?${key}=${value}`);
+    }
+
     const data = await fetchQuery.json();
 
     if (!fetchQuery.ok)

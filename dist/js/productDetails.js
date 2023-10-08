@@ -146,6 +146,7 @@ DOM.addToCartBtn.addEventListener('click', async e => {
     stock: +DOM.stockAlert.dataset.count,
     size: checkProductDetails().size,
     color: checkProductDetails().color,
+    colorName: checkProductDetails().colorName,
     count: +DOM.productOrderCount.textContent,
     price: product.price,
     productId: product.id,

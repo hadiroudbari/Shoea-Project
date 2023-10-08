@@ -1,4 +1,5 @@
 import * as DOM from '../../modules/DOM.js';
+import { numberExtractor, numberFormatter } from './model/formatter.js';
 
 // Debounce
 export const debounce = (cb, delay = 1000) => {
@@ -71,6 +72,7 @@ export const checkProductDetails = () => {
   return {
     size: +currentSize?.textContent,
     color: currentColor?.dataset.color,
+    colorName: currentColor?.dataset.name,
   };
 };
 
@@ -82,4 +84,29 @@ export const changeProductBg = (container, brand) => {
   } else {
     container.classList.add('bg-gray-100');
   }
+};
+
+export const calcTotalPrice = container => {
+  const productCartPrice = container.querySelectorAll('.cart__price');
+  const productTotalPrice = document.querySelector('#total__price');
+  let totalPrice = 0;
+  productCartPrice.forEach(element => {
+    const extractArray = element.innerHTML.match(/\d+/g);
+    extractArray.splice(-1, 1);
+    const extractString = extractArray.join('');
+    totalPrice += +numberExtractor(extractString);
+  });
+  productTotalPrice.innerHTML = numberFormatter(totalPrice);
+};
+
+export const showDeleteModal = () => {
+  DOM.overlay.classList.remove('hidden');
+  DOM.modal.classList.remove('hide__modal');
+  DOM.modal.classList.add('shode__modal');
+};
+
+export const hideDeleteModal = () => {
+  DOM.overlay.classList.add('hidden');
+  DOM.modal.classList.add('hide__modal');
+  DOM.modal.classList.remove('shode__modal');
 };

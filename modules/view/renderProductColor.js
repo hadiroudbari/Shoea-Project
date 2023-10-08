@@ -8,6 +8,7 @@ const renderProductColor = (product, id) => {
     const html = `
     <li>
       <a
+        data-name="${img.colorName}"
         data-color="${img.color}"
         data-id="${img.id}"
         style="background:${img.color}"

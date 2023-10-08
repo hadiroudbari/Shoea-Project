@@ -5,7 +5,28 @@ import { numberFormatter } from '../../modules/model/formatter.js';
 import { changeProductBg } from '../helpers.js';
 
 const renderCartItem = async () => {
-  const cartProducts = await getData('cart');
+  const cartProducts = await getData('', '', '', 'users/1/cart');
+
+  if (cartProducts.length < 1) {
+    DOM.cartBox.innerHTML = `
+    <section id="no__orders">
+      <div
+        class="flex flex-col items-center justify-center my-20 text-sm text-center gap-2"
+      >
+        <img
+          class="w-48 h-48 mb-5"
+          src="../assets/content/notfound.png"
+          alt="notfound"
+        />
+        <h3 class="font-bold text-lg">Your Cart is empty !</h3>
+        <p class="text-sm px-7">
+          You can add products to your cart <a href="http://127.0.0.1:5500/src/home.html" class="font-bold text-base">here</a>
+        </p>
+      </div>
+    </section>
+    `;
+    return;
+  }
 
   DOM.cartBox.innerHTML = '';
   cartProducts.forEach(cart => {
@@ -24,9 +45,9 @@ const renderCartItem = async () => {
           </div>
           <div class="flex flex-col gap-2 w-3/4">
             <div class="flex justify-between items-center">
-              <h3 class="font-bold text-sm">Air Jordan 3 Retro</h3>
+              <h3 class="font-bold text-sm">${cart.title}</h3>
               <a href="#">
-                <img class="w-5 h-6" src="http://127.0.0.1:5500/assets/content/bin.png" alt="delete" />
+                <img class="w-5 h-6 delete" src="http://127.0.0.1:5500/assets/content/bin.png" alt="delete" />
               </a>
             </div>
             <div>
@@ -36,7 +57,9 @@ const renderCartItem = async () => {
                   class="w-3 h-3 rounded-full flex justify-center items-center"
                 ></li>
                 <div class="flex items-center gap-2">
-                  <li>${lightOrDark(cart.color)}</li>
+                  <li>${
+                    cart.colorName ? cart.colorName : lightOrDark(cart.color)
+                  }</li>
                   <li>|</li>
                   <li>Size = ${cart.size}</li>
                 </div>
@@ -45,7 +68,7 @@ const renderCartItem = async () => {
             <div class="flex justify-between items-center font-semibold">
               <span data-price="${
                 cart.price
-              }" id="cart__price" class="font-bold">${numberFormatter(
+              }" class="font-bold cart__price">${numberFormatter(
       cart.price,
       cart.count
     )}</span>
@@ -54,8 +77,7 @@ const renderCartItem = async () => {
               >
                 <a href="#">
                   <svg
-                    id="product__order--minus"
-                    class="w-5 h-5 mt-1 cursor-pointer ml-2 py-1 pl-1 pr-1"
+                    class="w-5 h-5 mt-1 cursor-pointer ml-2 py-1 pl-1 pr-1 product__order--minus"
                     xmlns:svg="http://www.w3.org/2000/svg"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 100 125"
@@ -73,13 +95,12 @@ const renderCartItem = async () => {
                     </g>
                   </svg>
                 </a>
-                <span class="text-xs" data-count="${
+                <span class="text-xs product__order--count" data-count="${
                   cart.stock
-                }" id="product__order--count">${cart.count}</span>
+                }">${cart.count}</span>
                 <a href="#">
                   <svg
-                    id="product__order--plus"
-                    class="w-4 h-4 mt-1 cursor-pointer mr-2 py-1 pr-1 pl-1"
+                    class="w-4 h-4 mt-1 cursor-pointer mr-2 py-1 pr-1 pl-1 product__order--plus"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 5814 7267.5"
                   >
