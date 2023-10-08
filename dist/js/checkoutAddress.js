@@ -1,5 +1,5 @@
 import * as DOM from '../../modules/DOM.js';
-import renderAddress from '../../modules/view/renderAddress.js';
+import renderCheckoutAddress from '../../modules/view/renderCheckoutAddress.js';
 
 DOM.addressContainer.addEventListener('click', e => {
   const addressItem = e.target.closest('.address__item');
@@ -20,6 +20,6 @@ DOM.applyAddress.addEventListener('click', () => {
 });
 
 const init = async () => {
-  await renderAddress(DOM.addressContainer);
+  await renderCheckoutAddress(DOM.addressContainer);
 };
 window.addEventListener('DOMContentLoaded', init);

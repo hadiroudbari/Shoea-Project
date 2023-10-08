@@ -1,7 +1,6 @@
-import * as DOM from '../../modules/DOM.js';
 import getData from '../model/getData.js';
 
-const renderAddress = async (container, id) => {
+const renderCheckoutAddress = async (container, id) => {
   const user = await getData('users', 'id', 1);
   const addresses = user[0].addresses;
 
@@ -75,4 +74,4 @@ const renderAddress = async (container, id) => {
   });
 };
 
-export default renderAddress;
+export default renderCheckoutAddress;

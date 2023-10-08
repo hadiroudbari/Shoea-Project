@@ -1,5 +1,6 @@
 import * as DOM from '../../modules/DOM.js';
-import renderAddress from '../../modules/view/renderAddress.js';
+import renderCheckoutAddress from '../../modules/view/renderCheckoutAddress.js';
+import renderCheckoutOrder from '../../modules/view/renderCheckoutOrder.js';
 import renderCartItem from '../../modules/view/renderCartItem.js';
 import editData from '../../modules/model/editData.js';
 
@@ -7,7 +8,7 @@ const showAddressItem = async () => {
   const url = new URL(window.location.href);
   const addressID = url.searchParams.get('addressID');
 
-  await renderAddress(DOM.addressBox, addressID ? addressID : 1);
+  await renderCheckoutAddress(DOM.addressBox, addressID ? addressID : 1);
 };
 
 DOM.checkoutBody.addEventListener('click', e => {
@@ -18,5 +19,6 @@ DOM.checkoutBody.addEventListener('click', e => {
 
 const init = async () => {
   await showAddressItem();
+  await renderCheckoutOrder(DOM.orderBox);
 };
 window.addEventListener('DOMContentLoaded', init);
