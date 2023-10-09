@@ -101,3 +101,22 @@ export const wrongPassword = document.querySelector('#wrong__password');
 export const ordersContainer = document.querySelector('#orders__container');
 export const ordersActive = document.querySelector('#orders__active');
 export const ordersCompleted = document.querySelector('#orders__completed');
+
+// SEARCH
+export const searchBoxRecentIcon = document.querySelector(
+  '#search__box--recent'
+);
+export const searchRecent = document.querySelector('#search__recent');
+export const searchRecentList = document.querySelector('#search__recent--list');
+export const searchHeaderResult = document.querySelector(
+  '#search__header--result'
+);
+export const searchHeaderWords = document.querySelector(
+  '#search__header--words'
+);
+export const searchHeaderFound = document.querySelector(
+  '#search__header--found'
+);
+export const searchHeaderClear = document.querySelector(
+  '#search__header--clear'
+);

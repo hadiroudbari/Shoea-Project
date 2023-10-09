@@ -4,14 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="../assets/img/logo/logo.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css"
+    />
     <link href="/dist/css/output.css" rel="stylesheet" />
+    <script type="module" src="../dist/js/search.js" defer></script>
     <title>Shopping Project</title>
+    <style>
+      #keyboard__box {
+        position: fixed !important;
+        width: 100% !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        transform: translateY(200px);
+        transition: all 0.4s ease-in-out;
+        z-index: 100;
+      }
+      .simple-keyboard {
+        padding: 0.5rem;
+        padding-bottom: 1rem;
+      }
+    </style>
   </head>
-  <body>
+  <body id="body" class="relative">
     <div class="container py-3 px-5">
       <header>
         <div
-          class="flex items-center px-4 bg-search_box rounded-xl w-full mt-3 h-12 active__searchbox"
+          id="search__box"
+          class="flex items-center px-4 bg-search_box rounded-xl w-full mt-3 h-12 border border-transparent shadow search__box"
         >
           <svg
             fill="#6b7280"
@@ -28,12 +49,13 @@
             />
           </svg>
           <input
-            class="bg-search_box text-sm w-full font-semibold"
+            class="bg-search_box text-sm w-full font-semibold search__input"
             type="text"
-            id="search"
+            id="search__input"
             placeholder="Search"
           />
           <svg
+            id="search__box--recent"
             class="w-8 h-8 mt-1 rotate-90 cursor-pointer"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 25"
@@ -45,17 +67,23 @@
             </g>
           </svg>
         </div>
-        <div class="flex justify-between items-center my-5">
-          <!-- <h3 class="flex gap-1 font-bold">
-            Results for
-            <p>"Running"</p>
+        <div class="flex justify-between items-center my-5 text-sm">
+          <h3 class="flex gap-1 font-bold">
+            <p id="search__header--result">Recent</p>
+            <span class="hidden" id="search__header--words">"Running"</span>
           </h3>
-          <span class="font-semibold">12,749 found</span> -->
-          <h3 class="flex gap-1 font-bold">Recent</h3>
-          <span class="font-semibold text-sm">Clear All</span>
+          <p id="search__header--found" class="font-bold text-sm hidden">
+            <span>12,749</span> Found
+          </p>
+          <button id="search__header--clear" class="font-bold">
+            Clear All
+          </button>
         </div>
       </header>
-      <main>
+      <div id="keyboard__box">
+        <div class="simple-keyboard"></div>
+      </div>
+      <main class="pb-[200px]">
         <section id="not__found" class="hidden">
           <div
             class="flex flex-col items-center justify-center my-20 text-sm gap-2 text-center"
@@ -258,7 +286,7 @@
         </section>
         <section id="search__recent">
           <div class="border-t border-gray-200 pt-5">
-            <ul class="flex flex-col gap-4 text-sm">
+            <ul id="search__recent--list" class="flex flex-col gap-4 text-sm">
               <li class="flex justify-between items-center text-gray-500">
                 <a href="#">Nike Wrapshot Classic</a>
                 <button>
@@ -408,6 +436,82 @@
       </main>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.js"></script>
+    <script>
+      const searchInput = document.getElementById('search__input');
+      const searchBox = document.getElementById('search__box');
+      const keyboardBox = document.querySelector('#keyboard__box');
+
+      body.addEventListener('click', e => {
+        if (
+          !e.target.closest('#search__box') &&
+          !e.target.closest('#keyboard__box')
+        ) {
+          searchBox.classList.remove('active__searchbox');
+          keyboardBox.style.transform = 'translateY(200px)';
+        } else {
+          keyboardBox.style.transform = 'translateY(0)';
+          searchBox.classList.add('active__searchbox');
+        }
+      });
+
+      window.onload = function () {
+        searchBox.classList.add('active__searchbox');
+        searchInput.focus();
+        keyboardBox.style.transform = 'translateY(0)';
+      };
+
+      const Keyboard = window.SimpleKeyboard.default;
+
+      const myKeyboard = new Keyboard({
+        onChange: input => onChange(input),
+        onKeyPress: button => onKeyPress(button),
+        layout: {
+          default: [
+            'Q W E R T Y U I O P',
+            'A S D F G H J K L',
+            '{shift} Z X C V B N M {bksp}',
+            '@ {space} {enter}',
+          ],
+          shift: [
+            '1 2 3 4 5 6 7 8 9 0',
+            '~ ! @ # $ % ^ & * ( ) _ +',
+            '{shift} : { } | < > ? " {bksp}',
+            '.com {space} @',
+          ],
+        },
+        display: {
+          '{bksp}':
+            '<ion-icon class="text-xl" name="backspace-outline"></ion-icon>',
+          '{space}': 'space',
+          '{shift}': 'shift',
+          '{enter}': 'return',
+        },
+        buttonTheme: [
+          {
+            class: 'keyboard__bg--gray text-white',
+            buttons: '{bksp}',
+          },
+        ],
+      });
+
+      function onChange(input) {
+        searchInput.value = input;
+      }
+
+      function onKeyPress(button) {
+        if (button === '{shift}' || button === '{lock}') handleShift();
+      }
+
+      function handleShift() {
+        let currentLayout = myKeyboard.options.layoutName;
+        let shiftToggle = currentLayout === 'default' ? 'shift' : 'default';
+
+        myKeyboard.setOptions({
+          layoutName: shiftToggle,
+        });
+      }
+    </script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

@@ -14,13 +14,16 @@
     @apply h-1 bg-black !important;
   }
   .active__searchbox {
-    @apply border border-black !important;
+    @apply border-black !important;
   }
   .brands__img {
     @apply w-12 h-12 !important;
   }
   .disabled__size {
     @apply border-gray-500 text-gray-500 pointer-events-none !important;
+  }
+  .keyboard__bg--gray {
+    @apply bg-gray-500 !important;
   }
 }
 

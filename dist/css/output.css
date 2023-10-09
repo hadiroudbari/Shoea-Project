@@ -1141,7 +1141,6 @@ input,
 }
 
 .active__searchbox{
-  border-width: 1px !important;
   --tw-border-opacity: 1 !important;
   border-color: rgb(0 0 0 / var(--tw-border-opacity)) !important;
 }
@@ -1157,6 +1156,11 @@ input,
   border-color: rgb(107 114 128 / var(--tw-border-opacity)) !important;
   --tw-text-opacity: 1 !important;
   color: rgb(107 114 128 / var(--tw-text-opacity)) !important;
+}
+
+.keyboard__bg--gray{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity)) !important;
 }
 
 .visible{
@@ -1255,11 +1259,6 @@ input,
   margin: auto;
 }
 
-.my-1{
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-}
-
 .my-20{
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -1343,10 +1342,6 @@ input,
   margin-top: 6px;
 }
 
-.mb-52{
-  margin-bottom: 13rem;
-}
-
 .block{
   display: block;
 }
@@ -1385,14 +1380,6 @@ input,
 
 .h-12{
   height: 3rem;
-}
-
-.h-16{
-  height: 4rem;
-}
-
-.h-24{
-  height: 6rem;
 }
 
 .h-3{
@@ -1467,14 +1454,6 @@ input,
   width: 2.5rem;
 }
 
-.w-24{
-  width: 6rem;
-}
-
-.w-28{
-  width: 7rem;
-}
-
 .w-3{
   width: 0.75rem;
 }
@@ -1529,11 +1508,6 @@ input,
 
 .w-9{
   width: 2.25rem;
-}
-
-.w-fit{
-  width: -moz-fit-content;
-  width: fit-content;
 }
 
 .w-full{
@@ -1813,6 +1787,11 @@ input,
   border-color: transparent;
 }
 
+.border-white{
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
 .bg-black{
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -1871,11 +1850,6 @@ input,
 .bg-search_box{
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
-}
-
-.bg-sneaker_3{
-  --tw-bg-opacity: 1;
-  background-color: rgb(122 84 72 / var(--tw-bg-opacity));
 }
 
 .bg-tag{
@@ -2058,8 +2032,20 @@ input,
   padding-top: 1.25rem;
 }
 
-.pb-52{
-  padding-bottom: 13rem;
+.pb-\[150px\]{
+  padding-bottom: 150px;
+}
+
+.pb-\[250px\]{
+  padding-bottom: 250px;
+}
+
+.pb-\[220px\]{
+  padding-bottom: 220px;
+}
+
+.pb-\[200px\]{
+  padding-bottom: 200px;
 }
 
 .text-center{
