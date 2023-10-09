@@ -6,7 +6,7 @@ export const debounce = (cb, delay = 1000) => {
   let timeout;
   return (...args) => {
     clearTimeout(timeout);
-    timeout = setTimeout(() => cb(...args), delay);
+    timeout = setTimeout(async () => await cb(...args), delay);
   };
 };
 
@@ -116,4 +116,25 @@ export const hideDeleteModal = () => {
   DOM.overlay.classList.add('hidden');
   DOM.modal.classList.add('hide__modal');
   DOM.modal.classList.remove('shode__modal');
+};
+
+// Search
+
+export const showRecentBox = () => {
+  DOM.searchNotFoundBox.classList.add('hidden');
+  DOM.searchFoundBox.classList.add('hidden');
+  DOM.searchRecent.classList.remove('hidden');
+  DOM.searchHeaderClear.classList.remove('hidden');
+  DOM.searchBoxRecentIcon.classList.remove('opacity-60');
+  DOM.searchHeaderResult.textContent = 'Recent';
+  DOM.searchHeaderWords.classList.add('hidden');
+  DOM.searchHeaderFound.classList.add('hidden');
+};
+
+export const showSearchBox = () => {
+  DOM.searchNotFoundBox.classList.add('hidden');
+  DOM.searchRecent.classList.add('hidden');
+  DOM.searchFoundBox.classList.remove('hidden');
+  DOM.searchFoundBox.classList.add('grid');
+  DOM.searchBoxRecentIcon.classList.add('opacity-60');
 };

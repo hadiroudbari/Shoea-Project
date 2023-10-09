@@ -117,6 +117,10 @@ export const searchHeaderWords = document.querySelector(
 export const searchHeaderFound = document.querySelector(
   '#search__header--found'
 );
+export const searchFoundCount = document.querySelector('#search__found--count');
+
 export const searchHeaderClear = document.querySelector(
   '#search__header--clear'
 );
+export const searchNotFoundBox = document.querySelector('#not__found');
+export const searchFoundBox = document.querySelector('#search__found');

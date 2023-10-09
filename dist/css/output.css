@@ -2048,6 +2048,10 @@ input,
   padding-bottom: 200px;
 }
 
+.pb-\[210px\]{
+  padding-bottom: 210px;
+}
+
 .text-center{
   text-align: center;
 }
@@ -2200,6 +2204,10 @@ input,
 
 .opacity-75{
   opacity: 0.75;
+}
+
+.opacity-60{
+  opacity: 0.6;
 }
 
 .shadow{
