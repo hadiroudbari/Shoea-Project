@@ -96,3 +96,8 @@ export const finishModalUnsuccess = document.querySelector(
   '#finish__modal--unsuccess'
 );
 export const wrongPassword = document.querySelector('#wrong__password');
+
+// ORDERS
+export const ordersContainer = document.querySelector('#orders__container');
+export const ordersActive = document.querySelector('#orders__active');
+export const ordersCompleted = document.querySelector('#orders__completed');

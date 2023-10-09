@@ -26,6 +26,9 @@ const renderCartItem = async () => {
       </div>
     </section>
     `;
+
+    DOM.checkoutBtn.disabled = true;
+    DOM.checkoutBtn.classList.add('opacity-50');
     return;
   }
 
@@ -119,6 +122,9 @@ const renderCartItem = async () => {
         </article>
     `;
     DOM.cartBox.insertAdjacentHTML('beforeend', html);
+
+    DOM.checkoutBtn.disabled = false;
+    DOM.checkoutBtn.classList.add('opacity-100');
   });
 
   const cartBoxImage = document.querySelectorAll(

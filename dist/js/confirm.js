@@ -89,6 +89,7 @@ DOM.confirmForm.addEventListener('submit', async e => {
       totalPrice: urlCheck().totalPrice,
       discount: urlCheck().discount,
       status: 'In Delivery',
+      active: true,
     };
 
     await postData('orders', newOrder);
