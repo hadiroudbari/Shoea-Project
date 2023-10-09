@@ -33,7 +33,6 @@ const renderCheckoutOrder = async container => {
                 ></li>
                 <div class="flex items-center gap-2">
                   <li>${
-                    checkoutOrder.colorName === 'undefined' ||
                     !checkoutOrder.colorName
                       ? lightOrDark(checkoutOrder.color)
                       : checkoutOrder.colorName

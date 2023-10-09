@@ -59,9 +59,7 @@ const renderCartItem = async () => {
                 ></li>
                 <div class="flex items-center gap-2">
                   <li>${
-                    cart.colorName === 'undefined' || !cart.colorName
-                      ? lightOrDark(cart.color)
-                      : cart.colorName
+                    !cart.colorName ? lightOrDark(cart.color) : cart.colorName
                   }</li>
                   <li>|</li>
                   <li>Size = ${cart.size}</li>

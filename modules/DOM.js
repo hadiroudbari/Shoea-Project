@@ -83,3 +83,16 @@ export const applyShipping = document.querySelector('#apply__shipping');
 // CHECKOUT -- PAYMENT
 export const paymentContainer = document.querySelector('#payment__container');
 export const applyPayment = document.querySelector('#apply__payment');
+
+// CONFIRM
+export const confirmForm = document.querySelector('#form');
+export const confirmFormBtn = document.querySelector('#confirm');
+export const confirmInputPassword = document.querySelector('#password');
+export const confirmOverlay = document.querySelector('#overlay');
+export const finishModalSuccess = document.querySelector(
+  '#finish__modal--success'
+);
+export const finishModalUnsuccess = document.querySelector(
+  '#finish__modal--unsuccess'
+);
+export const wrongPassword = document.querySelector('#wrong__password');

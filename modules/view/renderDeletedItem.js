@@ -35,7 +35,6 @@ const renderDeletedItem = async ID => {
                 ></li>
                 <div class="flex items-center gap-2">
                   <li>${
-                    cartProduct.colorName === 'undefined' ||
                     !cartProduct.colorName
                       ? lightOrDark(cartProduct.color)
                       : cartProduct.colorName

@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="../assets/img/logo/logo.svg" />
     <link href="/dist/css/output.css" rel="stylesheet" />
-    <script src="../dist/js/confirm.js" defer></script>
+    <script type="module" src="../dist/js/confirm.js" defer></script>
     <title>Shopping Project</title>
   </head>
   <body class="relative">
-    <!-- <div class="overlay z-20"></div> -->
-    <!-- <section
-      class="absolute top-[50%] bg-white w-3/4 rounded-3xl centered z-20 overflow-hidden flex justify-center items-center p-5"
-      id="finish__modal"
+    <div id="overlay" class="overlay z-20 hidden"></div>
+    <section
+      class="absolute top-[50%] bg-white w-3/4 rounded-3xl centered z-20 overflow-hidden hidden justify-center items-center p-5"
+      id="finish__modal--success"
     >
       <article class="flex flex-col justify-center items-center text-center">
         <div class="flex justify-center items-center">
@@ -25,16 +25,19 @@
         <h3 class="text-lg font-extrabold mt-4">Order Successful!</h3>
         <p class="text-xs mt-2 mb-5">You have successfully made order</p>
         <div class="flex flex-col w-full text-xs font-bold gap-2">
-          <button class="bg-black text-white h-9 rounded-full">
+          <a
+            href="http://127.0.0.1:5500/src/orders.html"
+            class="bg-black text-white h-9 rounded-full flex justify-center items-center"
+          >
             View Order
-          </button>
+          </a>
           <button class="bg-gray-200 h-9 rounded-full">View E-Receipt</button>
         </div>
       </article>
-    </section> -->
-    <!-- <section
-      class="absolute top-[50%] bg-white w-3/4 rounded-3xl centered z-20 overflow-hidden flex justify-center items-center p-5"
-      id="finish__modal"
+    </section>
+    <section
+      class="absolute top-[50%] bg-white w-3/4 rounded-3xl centered z-20 overflow-hidden hidden justify-center items-center p-5"
+      id="finish__modal--unsuccess"
     >
       <article class="flex flex-col justify-center items-center text-center">
         <div class="flex justify-center items-center relative">
@@ -49,15 +52,27 @@
           ></ion-icon>
         </div>
         <h3 class="text-lg font-extrabold mt-4">Order Unsuccessful!</h3>
-        <p class="text-xs mt-2 mb-5">You failed to place an Order !!</p>
+        <p class="text-xs mt-2">You failed to place an Order !!</p>
+        <span
+          class="text-red-600 text-xs font-bold mt-2 mb-5"
+          id="unsuccess__alert"
+          >Lack of Account Balance</span
+        >
         <div class="flex flex-col w-full text-xs font-bold gap-2">
-          <button class="bg-black text-white h-9 rounded-full">
+          <a
+            href="http://127.0.0.1:5500/src/cart.html"
+            class="bg-black text-white h-9 rounded-full flex justify-center items-center"
+          >
             Go to Cart
-          </button>
-          <button class="bg-gray-200 h-9 rounded-full">Go to Home</button>
+          </a>
+          <a
+            href="http://127.0.0.1:5500/src/home.html"
+            class="bg-gray-200 h-9 rounded-full flex justify-center items-center"
+            >Go to Home</a
+          >
         </div>
       </article>
-    </section> -->
+    </section>
     <div class="container flex flex-col items-center py-3 px-5">
       <header class="flex flex-col items-center w-full">
         <a class="self-start" id="go__back" href="#">
@@ -80,13 +95,10 @@
           <strong class="text-2xl">Confirm</strong> Your Account to Countinue
         </h1>
       </header>
-      <form
-        id="form"
-        class="w-full h-[100vh] flex flex-col justify-between gap-5 px-2"
-      >
+      <form id="form" class="w-full flex flex-col px-2">
         <div class="flex flex-col items-center">
           <div
-            class="input__box mb-6 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent relative"
+            class="input__box mb-2 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent relative"
           >
             <ion-icon class="text-gray-500" name="lock-closed"></ion-icon>
             <input
@@ -95,16 +107,23 @@
               name="password"
               class="text-sm bg-gray-100 rounded-md w-full p-2"
               placeholder="Password"
-              minlength="8"
-              maxlength="30"
-              required
             />
             <ion-icon
               class="show text-gray-500 mr-3 cursor-pointer"
               name="eye"
             ></ion-icon>
+            <!-- minlength="8"
+            maxlength="30"
+            required -->
           </div>
         </div>
+        <p
+          id="wrong__password"
+          class="text-xs font-bold text-red-600 hidden items-center gap-1"
+        >
+          <ion-icon class="text-base" name="close-outline"></ion-icon>
+          Invalid Password, Please try again.
+        </p>
       </form>
     </div>
     <footer
@@ -114,6 +133,7 @@
         class="flex justify-between items-center py-5 px-5 border-t border-gray-200 rounded-tl-3xl rounded-tr-3xl overflow-hidden"
       >
         <button
+          form="form"
           id="confirm"
           class="bg-gray-500 text-white rounded-full py-3 flex items-center justify-center gap-3 text-sm font-extrabold shadow-xl w-full"
         >

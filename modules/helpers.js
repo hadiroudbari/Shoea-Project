@@ -72,7 +72,7 @@ export const checkProductDetails = () => {
   return {
     size: +currentSize?.textContent,
     color: currentColor?.dataset.color,
-    colorName: currentColor?.dataset.name,
+    colorName: currentColor.dataset.name ? currentColor.dataset.name : null,
   };
 };
 
@@ -94,6 +94,7 @@ export const calcTotalPrice = (container, totalBox, shipping, discount) => {
     const extractArray = element.innerHTML.match(/\d+/g);
     extractArray.splice(-1, 1);
     const extractString = extractArray.join('');
+    console.log(extractString);
     totalPrice += +numberExtractor(extractString);
   });
   if (shipping) totalPrice += +shipping;

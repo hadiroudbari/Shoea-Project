@@ -138,6 +138,7 @@ DOM.addToCartBtn.addEventListener('mouseover', e => {
 
 DOM.addToCartBtn.addEventListener('click', async e => {
   e.preventDefault();
+  const user = await getData('loggedUser');
 
   const newProduct = {
     title: product.title,
@@ -150,7 +151,7 @@ DOM.addToCartBtn.addEventListener('click', async e => {
     count: +DOM.productOrderCount.textContent,
     price: product.price,
     productId: product.id,
-    userId: 1,
+    userId: user[0].id,
   };
 
   await addToCart(newProduct);
