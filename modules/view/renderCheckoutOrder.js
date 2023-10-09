@@ -15,6 +15,7 @@ const renderCheckoutOrder = async container => {
               class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow order__cart"
             >
               <div
+                style="width:35%"
                 class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24 cart__image"
               >
                 <img
@@ -23,7 +24,7 @@ const renderCheckoutOrder = async container => {
                   alt="${checkoutOrder.title}"
                 />
               </div>
-              <div class="flex flex-col gap-2 w-3/4">
+              <div style="width:65%" class="flex flex-col gap-2 w-3/4">
                 <h3 class="font-bold text-sm">${checkoutOrder.title}</h3>
                 <div>
                 <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">

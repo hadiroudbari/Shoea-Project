@@ -44,6 +44,7 @@ const renderOrdersItem = async (active = true) => {
         class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow"
       >
         <div
+          style="width:35%"
           data-brand="${cartItem.brand}"
           class="flex justify-center items-center rounded-lg w-28 h-24 cart__image"
         >
@@ -53,7 +54,7 @@ const renderOrdersItem = async (active = true) => {
             alt="${cartItem.title}"
           />
         </div>
-        <div class="flex flex-col gap-1 w-3/4">
+        <div style="width:65%" class="flex flex-col gap-1 w-3/4">
           <h3 class="font-bold text-sm">${cartItem.title}</h3>
           <div>
           <ul class="flex items-center gap-1 text-[.6rem] text-gray-600">
@@ -75,7 +76,7 @@ const renderOrdersItem = async (active = true) => {
           </ul>
           </div>
           <span
-            class="text-[.6rem] bg-gray-200 w-fit py-1 px-2 rounded-md font-semibold my-1"
+            class="text-[.6rem] bg-gray-200 w-fit py-1 px-2 rounded-md font-semibold mt-1"
             >${order.status}</span
           >
           <div class="flex justify-between items-center font-semibold">
