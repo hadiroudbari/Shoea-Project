@@ -94,8 +94,7 @@ export const calcTotalPrice = (container, totalBox, shipping, discount) => {
     const extractArray = element.innerHTML.match(/\d+/g);
     extractArray.splice(-1, 1);
     const extractString = extractArray.join('');
-    console.log(extractString);
-    totalPrice += +numberExtractor(extractString);
+    totalPrice += +extractString;
   });
   if (shipping) totalPrice += +shipping;
 

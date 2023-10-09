@@ -110,10 +110,18 @@ DOM.checkoutPaymentBtn.addEventListener('click', () => {
   );
 });
 
+const checkCart = () => {
+  const carts = document.querySelectorAll('.order__cart');
+  if (carts.length < 1) {
+    location.assign(`http://127.0.0.1:5500/src/cart.html`);
+  }
+};
+
 const init = async () => {
   await showAddressItem();
   await renderCheckoutOrder(DOM.orderBox);
   calcTotalPrice(DOM.orderBox, DOM.priceAmount);
   await showShippingItem();
+  checkCart();
 };
 window.addEventListener('DOMContentLoaded', init);

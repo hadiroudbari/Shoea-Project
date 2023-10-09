@@ -52,11 +52,11 @@ DOM.cartBox.addEventListener('click', async e => {
   }
 });
 
-DOM.overlay.addEventListener('click', e => {
+DOM.overlay.addEventListener('click', () => {
   hideDeleteModal();
 });
 
-DOM.deleteCancelBtn.addEventListener('click', e => {
+DOM.deleteCancelBtn.addEventListener('click', () => {
   hideDeleteModal();
 });
 
@@ -66,13 +66,26 @@ DOM.deleteRemoveBtn.addEventListener('click', async () => {
   await renderCartItem();
   calcTotalPrice(DOM.cartBox, DOM.cartTotalPrice);
   hideDeleteModal();
+  checkCart();
 });
 
 DOM.checkoutBtn.addEventListener('click', () => {
   location.assign('http://127.0.0.1:5500/src/checkout.html');
 });
 
+const checkCart = () => {
+  const carts = document.querySelectorAll('.product__cart');
+  if (carts.length < 1) {
+    DOM.checkoutBtn.disabled = true;
+    DOM.checkoutBtn.classList.add('opacity-50');
+  } else {
+    DOM.checkoutBtn.disabled = false;
+    DOM.checkoutBtn.classList.add('opacity-100');
+  }
+};
+
 window.addEventListener('DOMContentLoaded', async () => {
   await renderCartItem();
   calcTotalPrice(DOM.cartBox, DOM.cartTotalPrice);
+  checkCart();
 });

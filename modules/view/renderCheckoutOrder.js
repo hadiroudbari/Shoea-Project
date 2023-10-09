@@ -12,7 +12,7 @@ const renderCheckoutOrder = async container => {
     const html = `
           <article
               data-id="${checkoutOrder.id}"
-              class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow"
+              class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow order__cart"
             >
               <div
                 class="bg-gray-100 flex justify-center items-center rounded-lg w-28 h-24 cart__image"

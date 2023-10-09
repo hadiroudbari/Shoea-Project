@@ -45,7 +45,7 @@ const renderCartItem = async () => {
     }" />
           </div>
           <div class="flex flex-col gap-2 w-3/4">
-            <div class="flex justify-between items-center">
+            <div class="flex justify-between items-center gap-2">
               <h3 class="font-bold text-sm">${cart.title}</h3>
               <a href="#">
                 <img class="w-5 h-6 delete" src="http://127.0.0.1:5500/assets/content/bin.png" alt="delete" />
