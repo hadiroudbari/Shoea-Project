@@ -4,7 +4,8 @@ import { numberFormatter } from '../../modules/model/formatter.js';
 import { changeProductBg } from '../helpers.js';
 
 const renderCheckoutOrder = async container => {
-  const checkoutOrders = await getData('', '', '', 'users/1/cart');
+  const user = await getData('loggedUser');
+  const checkoutOrders = await getData('', '', '', `users/${user[0].id}/cart`);
 
   container.innerHTML = '';
   checkoutOrders.forEach(checkoutOrder => {
@@ -32,9 +33,10 @@ const renderCheckoutOrder = async container => {
                 ></li>
                 <div class="flex items-center gap-2">
                   <li>${
-                    checkoutOrder.colorName
-                      ? checkoutOrder.colorName
-                      : lightOrDark(checkoutOrder.color)
+                    checkoutOrder.colorName === 'undefined' ||
+                    !checkoutOrder.colorName
+                      ? lightOrDark(checkoutOrder.color)
+                      : checkoutOrder.colorName
                   }</li>
                   <li>|</li>
                   <li>Size = ${checkoutOrder.size}</li>

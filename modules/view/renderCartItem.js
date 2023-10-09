@@ -5,7 +5,8 @@ import { numberFormatter } from '../../modules/model/formatter.js';
 import { changeProductBg } from '../helpers.js';
 
 const renderCartItem = async () => {
-  const cartProducts = await getData('', '', '', 'users/1/cart');
+  const user = await getData('loggedUser');
+  const cartProducts = await getData('', '', '', `users/${user[0].id}/cart`);
 
   if (cartProducts.length < 1) {
     DOM.cartBox.innerHTML = `
@@ -58,7 +59,9 @@ const renderCartItem = async () => {
                 ></li>
                 <div class="flex items-center gap-2">
                   <li>${
-                    cart.colorName ? cart.colorName : lightOrDark(cart.color)
+                    cart.colorName === 'undefined' || !cart.colorName
+                      ? lightOrDark(cart.color)
+                      : cart.colorName
                   }</li>
                   <li>|</li>
                   <li>Size = ${cart.size}</li>

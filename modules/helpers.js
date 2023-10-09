@@ -109,6 +109,7 @@ export const showDeleteModal = () => {
   DOM.overlay.classList.remove('hidden');
   DOM.modal.classList.remove('hide__modal');
   DOM.modal.classList.add('shode__modal');
+  DOM.overlay.style.height = body.scrollHeight + 'px';
 };
 
 export const hideDeleteModal = () => {

@@ -1,7 +1,7 @@
 import getData from '../model/getData.js';
 
 const renderCheckoutAddress = async (container, id) => {
-  const user = await getData('users', 'id', 1);
+  const user = await getData('loggedUser');
   const addresses = user[0].addresses;
 
   container.innerHTML = '';
