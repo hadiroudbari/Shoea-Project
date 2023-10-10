@@ -8,21 +8,24 @@ import { debounce } from '../../modules/helpers.js';
 // INPUT VALIDATION
 
 const changeBtnBackground = () => {
-  if (DOM.inputUsername.value !== '' && DOM.inputPassword.value !== '') {
-    DOM.formBtn.removeAttribute('disabled', 'false');
-    DOM.formBtn.classList.remove('bg-gray-500');
-    DOM.formBtn.classList.add('bg-gray-900');
+  if (
+    DOM.loginInputUsername.value !== '' &&
+    DOM.loginInputPassword.value !== ''
+  ) {
+    DOM.loginFormBtn.removeAttribute('disabled', 'false');
+    DOM.loginFormBtn.classList.remove('bg-gray-500');
+    DOM.loginFormBtn.classList.add('bg-gray-900');
   } else {
-    DOM.formBtn.setAttribute('disabled', 'true');
-    DOM.formBtn.classList.remove('bg-gray-900');
-    DOM.formBtn.classList.add('bg-gray-500');
+    DOM.loginFormBtn.setAttribute('disabled', 'true');
+    DOM.loginFormBtn.classList.remove('bg-gray-900');
+    DOM.loginFormBtn.classList.add('bg-gray-500');
   }
 };
 
-DOM.form.reset();
+DOM.loginForm.reset();
 changeBtnBackground();
 
-DOM.form.addEventListener('click', e => {
+DOM.loginForm.addEventListener('click', e => {
   const currentInput = e.target.closest('.input__box')?.querySelector('input');
 
   if (e.target.classList.contains('show')) {
@@ -38,21 +41,21 @@ DOM.form.addEventListener('click', e => {
   }
 });
 
-DOM.inputs.forEach(input =>
+DOM.loginInputs.forEach(input =>
   input.addEventListener('focus', e => {
     const parentEl = e.target.closest('.input__box');
     parentEl.classList.add('register__input--focus');
   })
 );
 
-DOM.inputs.forEach(input =>
+DOM.loginInputs.forEach(input =>
   input.addEventListener('blur', e => {
     const parentEl = e.target.closest('.input__box');
     parentEl.classList.remove('register__input--focus');
   })
 );
 
-DOM.inputs.forEach(input => {
+DOM.loginInputs.forEach(input => {
   input.addEventListener('input', e => {
     const parentEl = e.target.closest('.input__box');
     const ionIcons = parentEl.querySelectorAll('ion-icon');
@@ -75,10 +78,10 @@ DOM.inputs.forEach(input => {
 
 // LOGIN
 
-DOM.form.addEventListener('submit', async e => {
+DOM.loginForm.addEventListener('submit', async e => {
   e.preventDefault();
 
-  const formData = Object.fromEntries(new FormData(DOM.form).entries());
+  const formData = Object.fromEntries(new FormData(DOM.loginForm).entries());
   const users = await getData('users');
 
   const currentUser = users.find(
@@ -90,7 +93,7 @@ DOM.form.addEventListener('submit', async e => {
 
   if (currentUser) {
     await editData('users', currentUser.id, {
-      remember: DOM.checkBoxRemember.checked,
+      remember: DOM.loginCheckBoxRemember.checked,
     });
     await postData('loggedUser', currentUser);
     showToast(
@@ -113,50 +116,50 @@ const checkRemember = async () => {
   const users = await getData('users');
   const currentUser = users.find(
     user =>
-      user.username === DOM.inputUsername.value ||
-      user.email === DOM.inputUsername.value
+      user.username === DOM.loginInputUsername.value ||
+      user.email === DOM.loginInputUsername.value
   );
 
-  if (DOM.inputUsername.value === '') {
-    DOM.findPassword.classList.remove('flex');
-    DOM.findPassword.classList.add('hidden');
+  if (DOM.loginInputUsername.value === '') {
+    DOM.loginFindPassword.classList.remove('flex');
+    DOM.loginFindPassword.classList.add('hidden');
   }
 
   if (!currentUser) {
-    DOM.inputPassword.value = '';
+    DOM.loginInputPassword.value = '';
     const html = `
                 <ion-icon name="information-circle"></ion-icon>
                 <p id="text" class="text-xs">
                   Username NOT found (for remember password)
                 </p>
       `;
-    DOM.findPassword.innerHTML = html;
+    DOM.loginFindPassword.innerHTML = html;
   } else {
     if (currentUser.remember === true) {
-      DOM.inputPassword.value = currentUser.password;
+      DOM.loginInputPassword.value = currentUser.password;
       const html = `
                 <ion-icon name="checkmark"></ion-icon>
                 <p id="text" class="text-xs">
                   Your Account has been saved
                 </p>
       `;
-      DOM.findPassword.innerHTML = html;
+      DOM.loginFindPassword.innerHTML = html;
       const ionIcons = document.querySelectorAll('ion-icon');
       ionIcons.forEach(icon => {
         icon.classList.remove('text-gray-500');
         icon.classList.add('text-gray-900');
       });
-      DOM.checkBoxRemember.checked = true;
+      DOM.loginCheckBoxRemember.checked = true;
       changeBtnBackground();
     } else if (currentUser.remember === false) {
-      DOM.inputPassword.value = '';
+      DOM.loginInputPassword.value = '';
       const html = `
                 <ion-icon name="close"></ion-icon>
                 <p id="text" class="text-xs">
                   Your Account was NOT saved
                 </p>
       `;
-      DOM.findPassword.innerHTML = html;
+      DOM.loginFindPassword.innerHTML = html;
       const ionIcons = document.querySelectorAll('ion-icon');
       ionIcons.forEach(icon => {
         icon.classList.remove('text-gray-900');
@@ -168,15 +171,15 @@ const checkRemember = async () => {
 };
 const checkUser = debounce(checkRemember, 500);
 
-DOM.inputUsername.addEventListener('input', async e => {
+DOM.loginInputUsername.addEventListener('input', async e => {
   const html = `
       <span class="loader"></span>
       <p id="text" class="text-xs">
         Finding password if your account saved
       </p>
     `;
-  DOM.findPassword.innerHTML = html;
-  DOM.findPassword.classList.remove('hidden');
-  DOM.findPassword.classList.add('flex');
+  DOM.loginFindPassword.innerHTML = html;
+  DOM.loginFindPassword.classList.remove('hidden');
+  DOM.loginFindPassword.classList.add('flex');
   checkUser();
 });

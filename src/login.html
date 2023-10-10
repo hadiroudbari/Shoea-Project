@@ -32,6 +32,22 @@
           transform: rotate(360deg);
         }
       }
+
+      #register span {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: #000;
+        bottom: 0;
+        left: 0;
+        border-radius: 50%;
+        transition: all 0.4s ease-in-out;
+        transform: scale(0);
+      }
+
+      #register:hover span {
+        transform: scale(1);
+      }
     </style>
   </head>
   <body>
@@ -53,7 +69,13 @@
             fill="black"
           />
         </svg>
-        <h1 class="text-3xl font-bold mb-10">Login to Your Account</h1>
+        <h1 class="text-3xl font-bold mb-2">Login to Your Account</h1>
+        <a
+          id="register"
+          class="text-xs font-bold mb-10 pb-1 relative"
+          href="http://127.0.0.1:5500/src/register.html"
+          >Or Create a New One <span></span
+        ></a>
       </header>
       <form
         id="form"
@@ -116,14 +138,16 @@
             >
           </div>
         </div>
-        <button
-          type="submit"
-          id="login"
-          name="login"
-          class="text-white bg-gray-500 font-semibold rounded-full text-sm w-full px-5 py-2 text-center my-5"
-        >
-          Login
-        </button>
+        <div class="flex flex-col items-center">
+          <button
+            type="submit"
+            id="login"
+            name="login"
+            class="text-white bg-gray-500 font-semibold rounded-full text-sm w-full px-5 py-2 text-center my-3"
+          >
+            Login
+          </button>
+        </div>
       </form>
     </div>
 

@@ -3,9 +3,14 @@ import getData from '../../modules/model/getData.js';
 import renderProducts from '../../modules/view/renderProducts.js';
 import renderFilters from '../../modules/view/renderFilters.js';
 import renderBrands from '../../modules/view/renderBrands.js';
+import deleteData from '../../modules/model/deleteData.js';
 
 const showUserInfo = async () => {
   const currnetUser = await getData('loggedUser');
+
+  if (currnetUser.length < 1) {
+    location.assign('http://127.0.0.1:5500/src/login.html');
+  }
 
   DOM.userImage.src = currnetUser[0].userImage;
   DOM.userFullname.textContent = `${currnetUser[0].firstName} ${currnetUser[0].lastName}`;
@@ -59,6 +64,14 @@ DOM.filterBox.addEventListener('click', async e => {
       await renderProducts(DOM.homeProducts);
     }
   }
+});
+
+DOM.exitUser.addEventListener('click', async e => {
+  e.preventDefault();
+  const currnetUser = await getData('loggedUser');
+
+  await deleteData('loggedUser', currnetUser[0].id);
+  location.assign('http://127.0.0.1:5500/src/login.html');
 });
 
 const init = async () => {

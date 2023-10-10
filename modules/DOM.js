@@ -1,11 +1,27 @@
 // LOGIN
-export const form = document.querySelector('#form');
-export const formBtn = document.querySelector('#login');
-export const inputs = document.querySelectorAll('.input__box input');
-export const inputUsername = document.querySelector('#username');
-export const inputPassword = document.querySelector('#password');
-export const checkBoxRemember = document.querySelector('#remember');
-export const findPassword = document.querySelector('#find__password');
+export const loginForm = document.querySelector('#form');
+export const loginFormBtn = document.querySelector('#login');
+export const loginInputs = document.querySelectorAll('.input__box input');
+export const loginInputUsername = document.querySelector('#username');
+export const loginInputPassword = document.querySelector('#password');
+export const loginCheckBoxRemember = document.querySelector('#remember');
+export const loginFindPassword = document.querySelector('#find__password');
+
+// REGISTER
+export const registerForm = document.querySelector('#form');
+export const registerFormBtn = document.querySelector('#register');
+export const registerInputs = document.querySelectorAll('.input__box input');
+export const registerInputUsername = document.querySelector('#username');
+export const registerInputFirstname = document.querySelector('#firstname');
+export const registerInputLastname = document.querySelector('#lastname');
+export const registerInputEmail = document.querySelector('#email');
+export const registerInputPassword = document.querySelector('#password');
+export const registerInputPasswordRepeat =
+  document.querySelector('#password__second');
+export const registerCheckBoxRemember = document.querySelector('#conditions');
+export const registerWarningPass = document.querySelector(
+  '.warning__register--password'
+);
 
 // HOME
 export const userImage = document.querySelector('#user__image');
@@ -14,6 +30,7 @@ export const inputSearch = document.querySelector('#input__search');
 export const brandsBox = document.querySelector('#brands__box');
 export const filterBox = document.querySelector('#filter__box');
 export const homeProducts = document.querySelector('#home__products');
+export const exitUser = document.querySelector('#exit__user');
 
 // HOME -- BRAND
 export const brandTitle = document.querySelector('#brand__title');

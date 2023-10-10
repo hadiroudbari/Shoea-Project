@@ -190,6 +190,9 @@ DOM.addToCartBtn.addEventListener('click', async e => {
 
 const checkUrlDetails = async () => {
   const cartItem = await getCartQuery();
+
+  if (!cartItem) return;
+
   const colorItems = Array.from(document.querySelectorAll('.product__color '));
   const colorItem = colorItems.find(
     color => color.dataset.color === cartItem.color
