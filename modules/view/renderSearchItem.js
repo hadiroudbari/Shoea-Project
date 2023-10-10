@@ -40,7 +40,7 @@ const renderSearchItem = async query => {
             <a
               href="http://127.0.0.1:5500/src/product-details.html?id=${
                 item.id
-              }"
+              }&search=true"
               class="w-40 h-40 flex justify-center items-center rounded-3xl overflow-hidden cart__image"
             >
               <img

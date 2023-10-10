@@ -1,5 +1,5 @@
 import * as DOM from '../../modules/DOM.js';
-import { numberExtractor, numberFormatter } from './model/formatter.js';
+import { numberFormatter } from './model/formatter.js';
 
 // Debounce
 export const debounce = (cb, delay = 1000) => {
@@ -18,6 +18,21 @@ export const getProductID = () => {
   return ProductID;
 };
 
+// Get Product ID
+export const getSearchQuery = () => {
+  const url = new URL(window.location.href);
+  let searchQuery = url.searchParams.get('search');
+
+  if (searchQuery === 'true') {
+    searchQuery = true;
+  } else {
+    searchQuery = false;
+  }
+
+  return searchQuery;
+};
+
+// Color Detector
 export const lightOrDark = color => {
   // Check the format of the color, HEX or RGB?
   let r, g, b;

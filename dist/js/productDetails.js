@@ -1,5 +1,9 @@
 import * as DOM from '../../modules/DOM.js';
-import { getProductID } from '../../modules/helpers.js';
+import {
+  getProductID,
+  checkProductDetails,
+  getSearchQuery,
+} from '../../modules/helpers.js';
 import getData from '../../modules/model/getData.js';
 import renderProductDetails from '../../modules/view/renderProductDetails.js';
 import renderProductSize from '../../modules/view/renderProductSize.js';
@@ -9,10 +13,11 @@ import { selectProductSizeOption } from '../../modules/view/renderProductSize.js
 import { numberFormatter } from '../../modules/model/formatter.js';
 import addToCart from '../../modules/model/addToCart.js';
 import editData from '../../modules/model/editData.js';
-import { checkProductDetails } from '../../modules/helpers.js';
 import showToast from '../../modules/model/showToast.js';
+import addToSearch from '../../modules/model/addToSearch.js';
 
 const productID = getProductID();
+if (getSearchQuery()) addToSearch(getProductID());
 let product;
 
 const showProductDetails = async () => {
