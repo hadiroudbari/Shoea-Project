@@ -22,6 +22,18 @@ export const registerCheckBoxRemember = document.querySelector('#conditions');
 export const registerWarningPass = document.querySelector(
   '.warning__register--password'
 );
+export const registerUsernameAlert = document.querySelector(
+  '#input__alert--username'
+);
+export const registerEmailAlert = document.querySelector(
+  '#input__alert--email'
+);
+export const registerInvalidEmail = document.querySelector('#invalid__email');
+export const registerInputBoxUsername = document.querySelector(
+  '#input__box--username'
+);
+export const registerInputBoxEmail =
+  document.querySelector('#input__box--email');
 
 // HOME
 export const userImage = document.querySelector('#user__image');

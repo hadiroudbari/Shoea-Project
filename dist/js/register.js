@@ -38,7 +38,7 @@ const changeBtnBackground = () => {
   }
 };
 
-DOM.registerForm.reset();
+// DOM.registerForm.reset();
 changeBtnBackground();
 
 DOM.registerCheckBoxRemember.addEventListener('change', () => {
@@ -169,6 +169,77 @@ DOM.registerInputPassword.addEventListener('blur', () => {
 
 // REGISTER
 
-DOM.registerForm.addEventListener('submit', e => {
+DOM.registerForm.addEventListener('submit', async e => {
   e.preventDefault();
+
+  const formData = Object.fromEntries(new FormData(DOM.loginForm).entries());
+  const users = await getData('users');
+  const loggedUser = await getData('loggedUser');
+
+  const checkDuplicateUsername = users.find(
+    user => user.username === formData.username
+  );
+  const checkDuplicateEmail = users.find(user => user.email === formData.email);
+
+  if (checkDuplicateUsername) {
+    DOM.registerUsernameAlert.classList.remove('hidden');
+    DOM.registerUsernameAlert.classList.add('flex');
+    DOM.registerInputBoxUsername.classList.add('mb-8');
+    return;
+  } else {
+    DOM.registerUsernameAlert.classList.add('hidden');
+    DOM.registerInputBoxUsername.classList.remove('mb-8');
+  }
+
+  if (checkDuplicateEmail) {
+    DOM.registerEmailAlert.classList.remove('hidden');
+    DOM.registerEmailAlert.classList.add('flex');
+    DOM.registerInvalidEmail.innerHTML = 'Email is already exists.';
+    DOM.registerInputBoxEmail.classList.add('mb-8');
+    return;
+  } else {
+    DOM.registerEmailAlert.classList.add('hidden');
+    DOM.registerInputBoxEmail.classList.remove('mb-8');
+  }
+
+  const emailValidation = formData.email.split('@')[1].split('.');
+
+  if (
+    (emailValidation[0] === 'gmail' || emailValidation[0] === 'yahoo') &&
+    emailValidation[1] === 'com'
+  ) {
+    DOM.registerInputBoxEmail.classList.remove('mb-8');
+    DOM.registerEmailAlert.classList.add('hidden');
+
+    const newUser = {
+      username: formData.username,
+      firstName: formData.firstname,
+      lastName: formData.lastname,
+      email: formData.email,
+      password: formData.password,
+      remember: false,
+      userImage: formData.image,
+      addresses: [],
+      payments: [],
+      searchHistory: [],
+    };
+
+    await postData('users', newUser);
+    if (loggedUser.length < 1) {
+      await postData('loggedUser', newUser);
+    }
+
+    DOM.registerForm.reset();
+    showToast(
+      'Your Account Successfully Created',
+      1,
+      'http://127.0.0.1:5500/src/home.html',
+      'linear-gradient(to right, #00b09b, #96c93d)'
+    );
+  } else {
+    DOM.registerEmailAlert.classList.remove('hidden');
+    DOM.registerEmailAlert.classList.add('flex');
+    DOM.registerInputBoxEmail.classList.add('mb-8');
+    DOM.registerInvalidEmail.innerHTML = 'Invalid Email Address.';
+  }
 });

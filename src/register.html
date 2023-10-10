@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="../assets/img/logo/logo.svg" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <link href="/dist/css/output.css" rel="stylesheet" />
     <script type="module" src="../dist/js/register.js" defer></script>
     <title>Shopping Project</title>
@@ -123,6 +128,7 @@
       >
         <div class="flex flex-col items-center">
           <div
+            id="input__box--username"
             class="input__box mb-6 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent relative"
           >
             <ion-icon class="text-gray-500" name="person"></ion-icon>
@@ -136,11 +142,10 @@
               maxlength="30"
               required
             />
-            <span class="input__alert text-xs hidden items-center gap-1"
-              ><ion-icon
-                class="text-green-500 text-sm"
-                name="checkmark"
-              ></ion-icon>
+            <span
+              id="input__alert--username"
+              class="input__alert text-xs hidden items-center gap-1"
+              ><ion-icon class="text-red-500 text-sm" name="close"></ion-icon>
               Username is already exists.</span
             >
           </div>
@@ -182,6 +187,7 @@
             />
           </div>
           <div
+            id="input__box--email"
             class="input__box mb-6 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent relative"
           >
             <ion-icon class="text-gray-500" name="mail"></ion-icon>
@@ -195,10 +201,13 @@
               maxlength="50"
               required
             />
-            <span class="input__alert text-xs hidden items-center gap-1"
-              ><ion-icon class="text-red-500 text-sm" name="close"></ion-icon>
-              Email is already exists.</span
+            <p
+              id="input__alert--email"
+              class="input__alert text-xs hidden items-center gap-1"
             >
+              <ion-icon class="text-red-500 text-sm" name="close"></ion-icon>
+              <span id="invalid__email">Email is already exists.</span>
+            </p>
           </div>
           <div
             class="input__box mb-6 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent"
@@ -283,6 +292,10 @@
         history.back();
       });
     </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

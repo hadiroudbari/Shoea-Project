@@ -15,7 +15,7 @@ const renderCartItem = async () => {
         class="flex flex-col items-center justify-center my-20 text-sm text-center gap-2"
       >
         <img
-          class="w-48 h-48 mb-5"
+          class="w-40 h-40 mb-5"
           src="../assets/content/notfound.png"
           alt="notfound"
         />
