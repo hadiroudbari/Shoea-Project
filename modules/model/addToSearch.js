@@ -15,7 +15,9 @@ const addToSearch = async id => {
 
   user.searchHistory.push({
     words: product.title,
-    id: user.searchHistory.length + 1,
+    id: user.searchHistory[user.searchHistory.length - 1]
+      ? user.searchHistory[user.searchHistory.length - 1].id + 1
+      : 1,
   });
 
   await editData('users', user.id, user);
