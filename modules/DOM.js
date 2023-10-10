@@ -103,6 +103,9 @@ export const ordersActive = document.querySelector('#orders__active');
 export const ordersCompleted = document.querySelector('#orders__completed');
 
 // SEARCH
+export const searchInput = document.querySelector('#search__input');
+export const searchBox = document.querySelector('#search__box');
+export const keyboardBox = document.querySelector('#keyboard__box');
 export const searchBoxRecentIcon = document.querySelector(
   '#search__box--recent'
 );

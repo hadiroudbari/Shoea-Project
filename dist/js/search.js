@@ -9,10 +9,6 @@ import {
 import getData from '../../modules/model/getData.js';
 import editData from '../../modules/model/editData.js';
 
-const searchInput = document.getElementById('search__input');
-const searchBox = document.getElementById('search__box');
-const keyboardBox = document.querySelector('#keyboard__box');
-
 const debounceRendering = debounce(renderSearchItem, 500);
 
 DOM.searchBoxRecentIcon.addEventListener('click', async () => {
@@ -21,18 +17,18 @@ DOM.searchBoxRecentIcon.addEventListener('click', async () => {
     await renderSearchRecent();
   } else {
     showSearchBox();
-    debounceRendering(searchInput.value);
+    debounceRendering(DOM.searchInput.value);
   }
 });
 
-searchInput.addEventListener('input', async () => {
-  if (searchInput.value) {
+DOM.searchInput.addEventListener('input', async () => {
+  if (DOM.searchInput.value) {
     DOM.searchFoundBox.innerHTML = '';
-    searchBox.querySelector('svg').style.fill = '#000';
+    DOM.searchBox.querySelector('svg').style.fill = '#000';
     showSearchBox();
-    debounceRendering(searchInput.value);
+    debounceRendering(DOM.searchInput.value);
   } else {
-    searchBox.querySelector('svg').style.fill = '#6b7280';
+    DOM.searchBox.querySelector('svg').style.fill = '#6b7280';
     showRecentBox();
   }
 });
@@ -56,11 +52,11 @@ DOM.searchRecent.addEventListener('click', async e => {
   }
 
   if (e.target.closest('.recent__words')) {
-    searchInput.value = e.target.closest('.recent__words').textContent;
+    DOM.searchInput.value = e.target.closest('.recent__words').textContent;
     DOM.searchFoundBox.innerHTML = '';
-    searchBox.querySelector('svg').style.fill = '#000';
+    DOM.searchBox.querySelector('svg').style.fill = '#000';
     showSearchBox();
-    debounceRendering(searchInput.value);
+    debounceRendering(DOM.searchInput.value);
   }
 });
 
@@ -75,10 +71,11 @@ DOM.searchHeaderClear.addEventListener('click', async () => {
 
 window.addEventListener('DOMContentLoaded', async () => {
   await renderSearchRecent();
-  searchInput.value = '';
-  searchBox.classList.add('active__searchbox');
-  searchInput.focus();
-  keyboardBox.style.transform = 'translateY(0)';
+  DOM.searchInput.value = '';
+  DOM.searchBox.classList.add('active__searchbox');
+  DOM.keyboardBox.style.transform = 'translateY(0)';
+  DOM.searchInput.focus();
+  handleLock();
 });
 
 // Keyboard
@@ -88,11 +85,11 @@ body.addEventListener('click', e => {
     !e.target.closest('#search__box') &&
     !e.target.closest('#keyboard__box')
   ) {
-    searchBox.classList.remove('active__searchbox');
-    keyboardBox.style.transform = 'translateY(200px)';
+    DOM.searchBox.classList.remove('active__searchbox');
+    DOM.keyboardBox.style.transform = 'translateY(200px)';
   } else {
-    keyboardBox.style.transform = 'translateY(0)';
-    searchBox.classList.add('active__searchbox');
+    DOM.keyboardBox.style.transform = 'translateY(0)';
+    DOM.searchBox.classList.add('active__searchbox');
   }
 });
 
@@ -103,42 +100,68 @@ const myKeyboard = new Keyboard({
   onKeyPress: button => onKeyPress(button),
   layout: {
     default: [
+      'q w e r t y u i o p',
+      'a s d f g h j k l',
+      '{lock} z x c v b n m {bksp}',
+      '{shift} {space} {enter}',
+    ],
+    lock: [
       'Q W E R T Y U I O P',
       'A S D F G H J K L',
-      '{shift} Z X C V B N M {bksp}',
-      '@ {space} {enter}',
+      '{lock} Z X C V B N M {bksp}',
+      '{shift} {space} {enter}',
     ],
     shift: [
       '1 2 3 4 5 6 7 8 9 0',
-      '~ ! @ # $ % ^ & * ( ) _ +',
-      '{shift} : { } | < > ? " {bksp}',
-      '.com {space} @',
+      '~ / * # $ % ^ & * ( ) - +',
+      '_ ; : { } | < > " ! ? {bksp}',
+      '{shift} {space} @',
     ],
   },
   display: {
     '{bksp}': '<ion-icon class="text-xl" name="backspace-outline"></ion-icon>',
     '{space}': 'space',
-    '{shift}': 'shift',
+    '{lock}':
+      '<img width="25px" height="15px" src="../assets/img/icons/Capslock-4.png" alt="Capslock">',
     '{enter}': 'return',
+    '{shift}': '123',
   },
   buttonTheme: [
     {
       class: 'keyboard__bg--gray text-white',
       buttons: '{bksp}',
     },
+    {
+      class: 'keyboard__bg--gray text-white',
+      buttons: '{shift}',
+    },
+    {
+      class: 'space__width',
+      buttons: '{space}',
+    },
   ],
 });
 
 function onChange(input) {
-  searchInput.value = input;
+  DOM.searchInput.value = input;
   DOM.searchFoundBox.innerHTML = '';
-  searchBox.querySelector('svg').style.fill = '#000';
+  DOM.searchBox.querySelector('svg').style.fill = '#000';
   showSearchBox();
-  debounceRendering(searchInput.value);
+  debounceRendering(DOM.searchInput.value);
 }
 
 function onKeyPress(button) {
-  if (button === '{shift}' || button === '{lock}') handleShift();
+  if (button === '{shift}') handleShift();
+  if (button === '{lock}') handleLock();
+}
+
+function handleLock() {
+  let currentLayout = myKeyboard.options.layoutName;
+  let lockToggle = currentLayout === 'default' ? 'lock' : 'default';
+
+  myKeyboard.setOptions({
+    layoutName: lockToggle,
+  });
 }
 
 function handleShift() {
