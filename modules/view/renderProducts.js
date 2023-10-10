@@ -3,6 +3,29 @@ import { textFormatter, numberFormatter } from '../model/formatter.js';
 
 const renderProducts = async (container, products) => {
   if (!products) products = await getData('products');
+
+  if (products.length < 1) {
+    container.innerHTML = `
+    <section id="no__orders" style="grid-column: 1/span2">
+      <div
+        class="flex flex-col items-center justify-center my-20 text-sm text-center gap-2"
+      >
+        <img
+          class="w-40 h-40 mb-5"
+          src="../assets/content/notfound.png"
+          alt="notfound"
+        />
+        <h3 class="font-bold text-lg">This Brand is empty !</h3>
+        <p class="text-sm px-7">
+          You can search for other Brands.
+        </p>
+      </div>
+    </section>
+    `;
+
+    return;
+  }
+
   container.innerHTML = '';
   products.forEach(product => {
     const html = `
