@@ -16,6 +16,7 @@ const renderDeletedItem = async ID => {
           class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow"
         >
           <div
+            style="width:35%"
             data-brand="${cartProduct.brand}"
             class="flex justify-center items-center rounded-lg w-28 h-24 cart__image"
           >
@@ -23,7 +24,7 @@ const renderDeletedItem = async ID => {
               cartProduct.imgSrc
             }" alt="${cartProduct.title}" />
           </div>
-          <div class="flex flex-col gap-2 w-3/4">
+          <div style="width:65%" class="flex flex-col gap-2 w-3/4">
             <div class="flex justify-between">
               <h3 class="font-bold text-sm">${cartProduct.title}</h3>
             </div>

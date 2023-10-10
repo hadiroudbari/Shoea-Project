@@ -1,5 +1,12 @@
 import getData from '../model/getData.js';
 
+const date = new Date();
+let options = {
+  month: 'long',
+  day: 'numeric',
+};
+const dateStr = new Intl.DateTimeFormat('en-US', options).format(date);
+
 const renderCheckoutShipping = async (container, id) => {
   let shipping;
   if (id) {
@@ -26,13 +33,17 @@ const renderCheckoutShipping = async (container, id) => {
               ${shipping[0].name}
             </h4>
             <p class="text-[.6rem] text-gray-600">
-              Estimated Arrival, Dec 20-22
+              Estimated Arrival, ${dateStr.split(' ')[0].slice(0, 3)} ${
+      dateStr.split(' ')[1]
+    }-${+dateStr.split(' ')[1] + shipping[0].time}
             </p>
           </div>
         </div>
         <div class="flex items-center gap-4">
           <div>
-            <span id="shipping__price" data-price="${shipping[0].price}" class="text-sm font-bold">$${shipping[0].price}</span>
+            <span id="shipping__price" data-price="${
+              shipping[0].price
+            }" class="text-sm font-bold">$${shipping[0].price}</span>
           </div>
           <img
             class="w-4 h-5 checkout__shipping--selection cursor-pointer"
@@ -64,7 +75,9 @@ const renderCheckoutShipping = async (container, id) => {
               ${shipping.name}
             </h4>
             <p class="text-[.6rem] text-gray-600">
-              Estimated Arrival, Dec 20-23
+              Estimated Arrival, ${dateStr.split(' ')[0].slice(0, 3)} ${
+      dateStr.split(' ')[1]
+    }-${+dateStr.split(' ')[1] + shipping.time}
             </p>
           </div>
         </div>
