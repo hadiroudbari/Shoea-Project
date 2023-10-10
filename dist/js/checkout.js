@@ -50,6 +50,7 @@ DOM.checkoutBody.addEventListener('click', e => {
   }
 
   if (e.target.id === 'discount__close') {
+    DOM.discountBtn.innerHTML = '+';
     DOM.discountItem.classList.add('hidden');
     DOM.discountInput.classList.remove('hidden');
     DOM.pricePromoBox.classList.add('hidden');
@@ -71,6 +72,7 @@ DOM.discountForm.addEventListener('submit', async e => {
   );
 
   if (discountCheck) {
+    DOM.discountBtn.innerHTML = '<ion-icon name="checkmark"></ion-icon>';
     DOM.discountInput.classList.add('hidden');
     DOM.discountAlert.classList.add('hidden');
     DOM.discountItem.classList.remove('hidden');
@@ -94,6 +96,8 @@ DOM.discountForm.addEventListener('submit', async e => {
       shippingPriceItem.dataset.price,
       discountAmount
     );
+
+    DOM.discountForm.reset();
   } else {
     DOM.discountAlert.classList.remove('hidden');
     DOM.discountAlert.classList.add('block');
