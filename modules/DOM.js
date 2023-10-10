@@ -26,6 +26,9 @@ export const homePopularProducts = document.querySelector(
   '#home__popular--products'
 );
 
+// WISH
+export const wishProducts = document.querySelector('#wish__products');
+
 // PAGE -- DETAILS
 export const detailsContainer = document.querySelector('#details__container');
 export const detailsMainBox = document.querySelector('#product__details--main');
