@@ -39,7 +39,10 @@ const renderCartItem = async () => {
           data-id="${cart.id}"
           class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow product__cart"
         >
-          <div
+          <a
+            href="http://127.0.0.1:5500/src/product-details.html?id=${
+              cart.productId
+            }&cartId=${cart.id}"
             style="width:35%"
             data-brand="${cart.brand}"
             class="flex justify-center items-center rounded-lg w-28 h-24 cart__image"
@@ -47,7 +50,7 @@ const renderCartItem = async () => {
             <img class="w-24 h-16 rounded-xl" src="${cart.imgSrc}" alt="${
       cart.title
     }" />
-          </div>
+          </a>
           <div style="width:65%" class="flex flex-col gap-2 w-3/4">
             <div class="flex justify-between items-center gap-2">
               <h3 class="font-bold text-sm">${cart.title}</h3>

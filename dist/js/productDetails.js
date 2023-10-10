@@ -1,8 +1,9 @@
 import * as DOM from '../../modules/DOM.js';
 import {
-  getProductID,
   checkProductDetails,
+  getProductID,
   getSearchQuery,
+  getCartQuery,
 } from '../../modules/helpers.js';
 import getData from '../../modules/model/getData.js';
 import renderProductDetails from '../../modules/view/renderProductDetails.js';
@@ -106,7 +107,6 @@ DOM.detailsMainBox.addEventListener('click', e => {
       DOM.stockAlert.classList.add('text-red-500');
       DOM.stockAlert.textContent = 'First, You should choose a size';
     } else if (DOM.stockAlert.dataset.count > 0) {
-      console.log(e.target);
       if (e.target.id === 'product__order--plus') {
         if (
           +DOM.productOrderCount.textContent === +DOM.stockAlert.dataset.count
@@ -144,6 +144,26 @@ DOM.addToCartBtn.addEventListener('mouseover', e => {
 DOM.addToCartBtn.addEventListener('click', async e => {
   e.preventDefault();
   const user = await getData('loggedUser');
+  const cartItem = await getCartQuery();
+
+  if (cartItem) {
+    await editData('cart', cartItem.id, {
+      imgSrc: product.images[swiper.activeIndex].imgSrc,
+      stock: +DOM.stockAlert.dataset.count,
+      size: checkProductDetails().size,
+      color: checkProductDetails().color,
+      colorName: checkProductDetails().colorName,
+      count: +DOM.productOrderCount.textContent,
+    });
+
+    showToast(
+      'Product Successfully edited in your Cart',
+      1,
+      'http://127.0.0.1:5500/src/cart.html',
+      'linear-gradient(to right, #00b09b, #96c93d)'
+    );
+    return;
+  }
 
   const newProduct = {
     title: product.title,
@@ -168,8 +188,37 @@ DOM.addToCartBtn.addEventListener('click', async e => {
   );
 });
 
+const checkUrlDetails = async () => {
+  const cartItem = await getCartQuery();
+  const colorItems = Array.from(document.querySelectorAll('.product__color '));
+  const colorItem = colorItems.find(
+    color => color.dataset.color === cartItem.color
+  );
+
+  renderProductColor(product, +colorItem.dataset.id);
+  renderProductImage(product, +colorItem.dataset.id);
+  renderProductSize(product, cartItem.color, +colorItem.dataset.id);
+
+  const sizeItems = Array.from(document.querySelectorAll('.product__size  '));
+  const sizeItem = sizeItems.find(size => +size.innerHTML === cartItem.size);
+
+  selectProductSizeOption(
+    product,
+    sizeItem,
+    +sizeItem.dataset.id,
+    +sizeItem.dataset.size
+  );
+
+  DOM.productOrderCount.textContent = cartItem.count;
+  DOM.productDetailsPrice.textContent = numberFormatter(
+    cartItem.price,
+    DOM.productOrderCount.textContent
+  );
+};
+
 const init = async () => {
   await showProductDetails();
+  await checkUrlDetails();
   checkProductDetails();
 };
 window.addEventListener('DOMContentLoaded', init);

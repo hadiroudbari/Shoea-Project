@@ -1,5 +1,6 @@
 import * as DOM from '../../modules/DOM.js';
 import { numberFormatter } from './model/formatter.js';
+import getData from './model/getData.js';
 
 // Debounce
 export const debounce = (cb, delay = 1000) => {
@@ -30,6 +31,17 @@ export const getSearchQuery = () => {
   }
 
   return searchQuery;
+};
+
+// Get Product ID
+export const getCartQuery = async () => {
+  const url = new URL(window.location.href);
+  const cartID = url.searchParams.get('cartId');
+  const cart = await getData('cart', 'id', cartID);
+
+  if (cart) {
+    return cart[0];
+  }
 };
 
 // Color Detector
