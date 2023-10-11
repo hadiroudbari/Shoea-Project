@@ -1,9 +1,10 @@
 import * as DOM from '../../modules/DOM.js';
 import { numberFormatter } from './model/formatter.js';
 import getData from './model/getData.js';
+import { TO_SECOND } from './config.js';
 
 // Debounce
-export const debounce = (cb, delay = 1000) => {
+export const debounce = (cb, delay = TO_SECOND) => {
   let timeout;
   return (...args) => {
     clearTimeout(timeout);
@@ -19,7 +20,7 @@ export const getProductID = () => {
   return ProductID;
 };
 
-// Get Product ID
+// Get Product Search ID
 export const getSearchQuery = () => {
   const url = new URL(window.location.href);
   let searchQuery = url.searchParams.get('search');
@@ -33,7 +34,7 @@ export const getSearchQuery = () => {
   return searchQuery;
 };
 
-// Get Product ID
+// Get Product Cart ID
 export const getCartQuery = async () => {
   const url = new URL(window.location.href);
   const cartID = url.searchParams.get('cartId');
@@ -44,7 +45,7 @@ export const getCartQuery = async () => {
   }
 };
 
-// Color Detector
+// COLOR DETECTOR
 export const lightOrDark = color => {
   // Check the format of the color, HEX or RGB?
   let r, g, b;
@@ -77,6 +78,7 @@ export const lightOrDark = color => {
   }
 };
 
+// RETURN PRODUCTS DETAILS FROM CURRENT PAGE
 export const checkProductDetails = () => {
   const sizes = Array.from(document.querySelectorAll('.product__size'));
   const colors = Array.from(document.querySelectorAll('.product__color'));
@@ -103,6 +105,7 @@ export const checkProductDetails = () => {
   };
 };
 
+// CHANGE IAMGE BG BASED ON BRAND
 export const changeProductBg = (container, brand) => {
   if (brand === 'nike') {
     container.classList.add('bg-gray-100');
@@ -113,6 +116,7 @@ export const changeProductBg = (container, brand) => {
   }
 };
 
+// CALCULATE TOTAL PRICE FROM PAGE
 export const calcTotalPrice = (container, totalBox, shipping, discount) => {
   const productCartPrice = container.querySelectorAll('.cart__price');
 
@@ -132,6 +136,7 @@ export const calcTotalPrice = (container, totalBox, shipping, discount) => {
   return totalPrice;
 };
 
+// SHOW DELETE MODAL IN CART
 export const showDeleteModal = () => {
   DOM.overlay.classList.remove('hidden');
   DOM.modal.classList.remove('hide__modal');
@@ -139,14 +144,16 @@ export const showDeleteModal = () => {
   DOM.overlay.style.height = body.scrollHeight + 'px';
 };
 
+// HIDE DELETE MODAL IN CART
 export const hideDeleteModal = () => {
   DOM.overlay.classList.add('hidden');
   DOM.modal.classList.add('hide__modal');
   DOM.modal.classList.remove('shode__modal');
 };
 
-// Search
+// SEARCH PAGE
 
+// SHOW RECENT IN SEARCH
 export const showRecentBox = () => {
   DOM.searchNotFoundBox.classList.add('hidden');
   DOM.searchFoundBox.classList.add('hidden');
@@ -158,6 +165,7 @@ export const showRecentBox = () => {
   DOM.searchHeaderFound.classList.add('hidden');
 };
 
+// SHOW SEARCHBOX IN SEARCH
 export const showSearchBox = () => {
   DOM.searchNotFoundBox.classList.add('hidden');
   DOM.searchRecent.classList.add('hidden');

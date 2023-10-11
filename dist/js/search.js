@@ -8,8 +8,9 @@ import {
 } from '../../modules/helpers.js';
 import getData from '../../modules/model/getData.js';
 import editData from '../../modules/model/editData.js';
+import { SEARCH_DEBOUNCE_TIME } from '../../modules/config.js';
 
-const debounceRendering = debounce(renderSearchItem, 500);
+const debounceRendering = debounce(renderSearchItem, SEARCH_DEBOUNCE_TIME);
 
 DOM.searchBoxRecentIcon.addEventListener('click', async () => {
   if (DOM.searchBoxRecentIcon.classList.contains('opacity-60')) {

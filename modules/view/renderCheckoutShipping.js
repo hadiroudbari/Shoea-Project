@@ -1,11 +1,5 @@
 import getData from '../model/getData.js';
-
-const date = new Date();
-let options = {
-  month: 'long',
-  day: 'numeric',
-};
-const dateStr = new Intl.DateTimeFormat('en-US', options).format(date);
+import { DATE_STRING } from '../config.js';
 
 const renderCheckoutShipping = async (container, id) => {
   let shipping;
@@ -33,9 +27,9 @@ const renderCheckoutShipping = async (container, id) => {
               ${shipping[0].name}
             </h4>
             <p class="text-[.6rem] text-gray-600">
-              Estimated Arrival, ${dateStr.split(' ')[0].slice(0, 3)} ${
-      +dateStr.split(' ')[1] + shipping[0].time
-    }-${+dateStr.split(' ')[1] + shipping[0].time + shipping[0].duration}
+              Estimated Arrival, ${DATE_STRING.split(' ')[0].slice(0, 3)} ${
+      +DATE_STRING.split(' ')[1] + shipping[0].time
+    }-${+DATE_STRING.split(' ')[1] + shipping[0].time + shipping[0].duration}
             </p>
           </div>
         </div>
@@ -75,9 +69,9 @@ const renderCheckoutShipping = async (container, id) => {
               ${shipping.name}
             </h4>
             <p class="text-[.6rem] text-gray-600">
-              Estimated Arrival, ${dateStr.split(' ')[0].slice(0, 3)} ${
-      +dateStr.split(' ')[1] + shipping.time
-    }-${+dateStr.split(' ')[1] + shipping.time + shipping.duration}
+              Estimated Arrival, ${DATE_STRING.split(' ')[0].slice(0, 3)} ${
+      +DATE_STRING.split(' ')[1] + shipping.time
+    }-${+DATE_STRING.split(' ')[1] + shipping.time + shipping.duration}
             </p>
           </div>
         </div>

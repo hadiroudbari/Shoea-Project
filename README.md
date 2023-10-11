@@ -1,15 +1,14 @@
 //
 
-Handle E receipt
 Add New Address
 Add New Payment Method
 Handle Checkout 3dot btn
-Track Order
 
 REFACTOR CODES
 
 // DONE
 
+Handle E receipt
 Fix dbJSON data & add more products
 login multiple users handle (exit user)
 order search

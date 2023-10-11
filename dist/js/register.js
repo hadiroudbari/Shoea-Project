@@ -1,7 +1,6 @@
 import * as DOM from '../../modules/DOM.js';
 import getData from '../../modules/model/getData.js';
 import showToast from '../../modules/model/showToast.js';
-import editData from '../../modules/model/editData.js';
 import postData from '../../modules/model/postData.js';
 
 // INPUT VALIDATION
@@ -213,8 +212,12 @@ DOM.registerForm.addEventListener('submit', async e => {
 
     const newUser = {
       username: formData.username,
-      firstName: formData.firstname,
-      lastName: formData.lastname,
+      firstName:
+        formData.firstname.split('')[0].toUpperCase() +
+        formData.firstname.slice(1),
+      lastName:
+        formData.lastname.split('')[0].toUpperCase() +
+        formData.lastname.slice(1),
       email: formData.email,
       password: formData.password,
       remember: false,

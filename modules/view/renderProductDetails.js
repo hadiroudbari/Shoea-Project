@@ -3,6 +3,7 @@ import renderProductSize from './renderProductSize.js';
 import renderProductColor from './renderProductColor.js';
 import renderProductImage from './renderProductImage.js';
 import { changeProductBg } from '../helpers.js';
+import { DIGITS_NUMBER } from '../config.js';
 
 const renderProductDetails = async (container, product) => {
   // Fix Background Image for UI
@@ -39,7 +40,9 @@ const renderProductDetails = async (container, product) => {
   detailsInfoBoxReviews.textContent =
     product.rating +
     ' (' +
-    new Intl.NumberFormat().format((product.soldCount / 2).toFixed(0)) +
+    new Intl.NumberFormat().format(
+      (product.soldCount / DIGITS_NUMBER).toFixed(0)
+    ) +
     ' reviews)';
 
   // Render Main

@@ -16,6 +16,7 @@ import addToCart from '../../modules/model/addToCart.js';
 import editData from '../../modules/model/editData.js';
 import showToast from '../../modules/model/showToast.js';
 import addToSearch from '../../modules/model/addToSearch.js';
+import { BASE_COUNT } from '../../modules/config.js';
 
 const productID = getProductID();
 if (getSearchQuery()) addToSearch(getProductID());
@@ -28,7 +29,7 @@ const showProductDetails = async () => {
 };
 
 swiper.on('slideChange', function () {
-  renderProductColor(product, swiper.activeIndex + 1);
+  renderProductColor(product, swiper.activeIndex + BASE_COUNT);
   renderProductSize(
     product,
     product.images[swiper.activeIndex].color,
@@ -113,11 +114,11 @@ DOM.detailsMainBox.addEventListener('click', e => {
         )
           return;
         DOM.productOrderCount.textContent =
-          +DOM.productOrderCount.textContent + 1;
+          +DOM.productOrderCount.textContent + BASE_COUNT;
       } else if (e.target.id === 'product__order--minus') {
-        if (+DOM.productOrderCount.textContent === 1) return;
+        if (+DOM.productOrderCount.textContent === BASE_COUNT) return;
         DOM.productOrderCount.textContent =
-          +DOM.productOrderCount.textContent - 1;
+          +DOM.productOrderCount.textContent - BASE_COUNT;
       }
     }
     DOM.productDetailsPrice.textContent = numberFormatter(

@@ -1,7 +1,9 @@
+import { TO_SECOND } from '../config.js';
+
 const showToast = (message, time, target, color) => {
   Toastify({
     text: message,
-    duration: time * 1000,
+    duration: time * TO_SECOND,
     close: true,
     gravity: 'top',
     position: 'center',
