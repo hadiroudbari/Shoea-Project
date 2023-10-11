@@ -69,7 +69,7 @@ const renderCheckoutAddress = async (container, id) => {
               ? `<a class="delete__icon" data-id="${address.id}" href="#">
           <img class="w-5 h-6 delete" src="http://127.0.0.1:5500/assets/content/bin.png" alt="delete" />
         </a>`
-              : ''
+              : `<p class="w-5 h-6 delete__icon" data-id="${address.id}"></p>`
           }
           <ion-icon class="text-xl icon" name="radio-button-${
             i === 0 ? 'on' : 'off'
