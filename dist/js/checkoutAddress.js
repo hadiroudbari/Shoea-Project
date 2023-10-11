@@ -14,9 +14,17 @@ DOM.addressContainer.addEventListener('click', e => {
 });
 
 DOM.applyAddress.addEventListener('click', () => {
-  location.assign(
-    `http://127.0.0.1:5500/src/checkout.html?addressID=${DOM.applyAddress.dataset.id}`
-  );
+  const url = new URL(window.location.href);
+  const queryID = url.searchParams.get('shippingID');
+  if (queryID) {
+    location.assign(
+      `http://127.0.0.1:5500/src/checkout.html?addressID=${DOM.applyAddress.dataset.id}&shippingID=${queryID}`
+    );
+  } else {
+    location.assign(
+      `http://127.0.0.1:5500/src/checkout.html?addressID=${DOM.applyAddress.dataset.id}`
+    );
+  }
 });
 
 const init = async () => {

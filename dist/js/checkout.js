@@ -28,8 +28,18 @@ const showShippingItem = async () => {
 
 DOM.checkoutBody.addEventListener('click', e => {
   // Address
-  if (e.target.classList.contains('checkout__address--selection')) {
-    location.assign('http://127.0.0.1:5500/src/checkout-address.html');
+  const addressItem = e.target.closest('.checkout__address--selection');
+
+  if (addressItem) {
+    const url = new URL(window.location.href);
+    const queryID = url.searchParams.get('shippingID');
+    if (queryID) {
+      location.assign(
+        `http://127.0.0.1:5500/src/checkout-address.html?shippingID=${queryID}`
+      );
+    } else {
+      location.assign(`http://127.0.0.1:5500/src/checkout-address.html`);
+    }
   }
 
   // Shipping
@@ -51,6 +61,7 @@ DOM.checkoutBody.addEventListener('click', e => {
 
   if (e.target.id === 'discount__close') {
     DOM.discountBtn.innerHTML = '+';
+    DOM.discountBtn.disabled = false;
     DOM.discountItem.classList.add('hidden');
     DOM.discountInput.classList.remove('hidden');
     DOM.pricePromoBox.classList.add('hidden');
@@ -73,6 +84,7 @@ DOM.discountForm.addEventListener('submit', async e => {
 
   if (discountCheck) {
     DOM.discountBtn.innerHTML = '<ion-icon name="checkmark"></ion-icon>';
+    DOM.discountBtn.disabled = true;
     DOM.discountInput.classList.add('hidden');
     DOM.discountAlert.classList.add('hidden');
     DOM.discountItem.classList.remove('hidden');
@@ -97,7 +109,7 @@ DOM.discountForm.addEventListener('submit', async e => {
       discountAmount
     );
 
-    DOM.discountForm.reset();
+    // DOM.discountForm.reset();
   } else {
     DOM.discountAlert.classList.remove('hidden');
     DOM.discountAlert.classList.add('block');

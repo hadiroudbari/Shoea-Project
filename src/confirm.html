@@ -7,6 +7,24 @@
     <link href="/dist/css/output.css" rel="stylesheet" />
     <script type="module" src="../dist/js/confirm.js" defer></script>
     <title>Shopping Project</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid white;
+        border-collapse: collapse;
+      }
+      td {
+        text-align: center;
+      }
+      #receipt__modal::-webkit-scrollbar {
+        display: none;
+      }
+      #receipt__modal {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
   </head>
   <body class="relative">
     <div id="overlay" class="overlay z-20 hidden"></div>
@@ -31,7 +49,9 @@
           >
             View Order
           </a>
-          <button class="bg-gray-200 h-9 rounded-full">View E-Receipt</button>
+          <button id="receipt__show--btn" class="bg-gray-200 h-9 rounded-full">
+            View E-Receipt
+          </button>
         </div>
       </article>
     </section>
@@ -72,6 +92,88 @@
           >
         </div>
       </article>
+    </section>
+    <section
+      id="receipt__modal"
+      class="absolute top-[50%] bg-white w-[90%] rounded-3xl centered z-20 overflow-y-scroll h-[90vh] overflow-hidden hidden items-center flex-col p-5 shadow-lg border border-gray-300"
+    >
+      <article
+        class="flex flex-col items-center border-b border-dashed border-black w-full h-fit pb-5"
+      >
+        <div
+          class="bg-green-300 w-16 h-16 rounded-full flex justify-center items-center"
+        >
+          <div
+            class="bg-green-600 w-10 h-10 rounded-full flex justify-center items-center"
+          >
+            <ion-icon class="text-white text-2xl" name="checkmark"></ion-icon>
+          </div>
+        </div>
+        <h2 class="font-bold text-lg mt-3 mb-1">Payment Success!</h2>
+        <p id="receipt__price" class="font-extrabold text-3xl">$1,100.00</p>
+      </article>
+      <article
+        class="flex flex-col items-start border-b border-dashed border-black w-full h-fit py-5"
+      >
+        <table id="receipt__table" class="text-xs w-full font-semibold">
+          <tr class="h-10">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th>Count</th>
+            <th>Price</th>
+          </tr>
+        </table>
+      </article>
+      <article
+        class="flex flex-col items-start border-b border-dashed border-black w-full h-fit py-5"
+      >
+        <ul class="flex flex-col gap-2 w-full text-sm font-semibold">
+          <li class="flex justify-between">
+            <p>Tracking Code</p>
+            <p id="receipt__tracking" class="font-bold">1697009732329</p>
+          </li>
+          <li class="flex justify-between">
+            <p>Payment Time</p>
+            <p id="receipt__time" class="font-bold">25-02-2024, 13:32:56</p>
+          </li>
+          <li class="flex justify-between">
+            <p>Payment Method</p>
+            <p id="receipt__payment" class="font-bold">My Wallet</p>
+          </li>
+          <li class="flex justify-between">
+            <p>Sender Name</p>
+            <p id="receipt__username" class="font-bold">Hadi Roudbari</p>
+          </li>
+          <li class="flex justify-between">
+            <p>Shipping Address</p>
+            <p id="receipt__address" class="font-bold"></p>
+          </li>
+          <li class="flex justify-between">
+            <p>Shipping Method</p>
+            <p id="receipt__shipping" class="font-bold"></p>
+          </li>
+        </ul>
+      </article>
+      <article class="flex flex-col items-start w-full h-fit py-5">
+        <ul class="flex flex-col gap-2 w-full text-sm font-semibold">
+          <li class="flex justify-between">
+            <p>Amount</p>
+            <p id="receipt__amount" class="font-extrabold">$1,100.00</p>
+          </li>
+          <li class="flex justify-between">
+            <p>Discount</p>
+            <p id="receipt__discount" class="font-extrabold">$223.00</p>
+          </li>
+        </ul>
+      </article>
+      <a
+        href="http://127.0.0.1:5500/src/orders.html"
+        class="bg-black text-white rounded-full py-2 flex items-center justify-center gap-3 text-sm font-extrabold shadow-xl w-full mt-5"
+      >
+        View Order
+      </a>
     </section>
     <div class="container flex flex-col items-center py-3 px-5">
       <header class="flex flex-col items-center w-full">

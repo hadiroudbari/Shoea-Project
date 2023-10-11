@@ -6,6 +6,7 @@ import postData from '../../modules/model/postData.js';
 import {
   numberExtractor,
   numberFormatter,
+  textFormatter,
 } from '../../modules/model/formatter.js';
 
 const urlCheck = () => {
@@ -80,6 +81,8 @@ DOM.confirmForm.addEventListener('submit', async e => {
       return;
     }
 
+    const date = new Date();
+
     const newOrder = {
       cart: userCart,
       userId: user.id,
@@ -88,6 +91,8 @@ DOM.confirmForm.addEventListener('submit', async e => {
       payment: user.payments[+urlCheck().payment - 1].name,
       totalPrice: urlCheck().totalPrice,
       discount: urlCheck().discount,
+      trackingCode: date.getTime(),
+      date: date,
       status: 'In Delivery',
       active: true,
     };
@@ -106,18 +111,68 @@ DOM.confirmForm.addEventListener('submit', async e => {
       );
       selectedSize.stockCount -= cart.count;
 
-      await editData('products', selectedProduct.id, selectedProduct);
-      await deleteData('cart', cart.id);
+      setTimeout(async () => {
+        await deleteData('cart', +cart.id);
+      }, 3000);
+      setTimeout(async () => {
+        await editData('products', +selectedProduct.id, selectedProduct);
+      }, 5000);
     });
 
     DOM.confirmOverlay.classList.remove('hidden');
     DOM.finishModalSuccess.classList.remove('hidden');
     DOM.finishModalSuccess.classList.add('flex');
+    DOM.receiptModal.dataset.trackId = date.getTime();
     DOM.confirmForm.reset();
   } else {
     DOM.wrongPassword.classList.remove('hidden');
     DOM.wrongPassword.classList.add('flex');
   }
+});
+
+DOM.receiptShowBtn.addEventListener('click', async () => {
+  DOM.receiptModal.classList.remove('hidden');
+  DOM.receiptModal.classList.add('flex');
+
+  const order = await getData('orders');
+  const user = await getData('loggedUser');
+  const trackId = +DOM.receiptModal.dataset.trackId;
+
+  const currentOrder = order.find(order => order.trackingCode === trackId);
+
+  DOM.receiptPrice.innerHTML = currentOrder.totalPrice;
+
+  currentOrder.cart.forEach((item, i) => {
+    const html = `
+          <tr class="h-7">
+            <td>${i + 1}.</td>
+            <td>${textFormatter(item.title, 14)}</td>
+            <td class="flex justify-center items-center">
+              <p
+                class="w-3 h-3 rounded-full mt-[7px]"
+                style="background: ${item.color}"
+              ></p>
+            </td>
+            <td>${item.size}</td>
+            <td>${item.count}</td>
+            <td>${numberFormatter(item.price, item.count)}</td>
+          </tr>
+    `;
+
+    DOM.receiptTable.insertAdjacentHTML('beforeend', html);
+  });
+
+  DOM.receiptTracking.innerHTML = currentOrder.trackingCode;
+  DOM.receiptTime.innerHTML =
+    currentOrder.date.split('T')[0] +
+    ', ' +
+    currentOrder.date.split('T')[1].split('.')[0];
+  DOM.receiptPayment.innerHTML = currentOrder.payment;
+  DOM.receiptUsername.innerHTML = user[0].firstName + ' ' + user[0].lastName;
+  DOM.receiptAddress.innerHTML = currentOrder.address;
+  DOM.receiptShipping.innerHTML = currentOrder.shipping;
+  DOM.receiptAmount.innerHTML = currentOrder.totalPrice;
+  DOM.receiptDiscount.innerHTML = currentOrder.discount;
 });
 
 window.addEventListener('DOMContentLoaded', urlCheck);

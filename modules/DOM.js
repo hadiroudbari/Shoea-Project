@@ -160,3 +160,18 @@ export const searchHeaderClear = document.querySelector(
 );
 export const searchNotFoundBox = document.querySelector('#not__found');
 export const searchFoundBox = document.querySelector('#search__found');
+
+// RECEIPT
+
+export const receiptShowBtn = document.querySelector('#receipt__show--btn');
+export const receiptModal = document.querySelector('#receipt__modal');
+export const receiptPrice = document.querySelector('#receipt__price');
+export const receiptTable = document.querySelector('#receipt__table');
+export const receiptTracking = document.querySelector('#receipt__tracking');
+export const receiptTime = document.querySelector('#receipt__time');
+export const receiptPayment = document.querySelector('#receipt__payment');
+export const receiptUsername = document.querySelector('#receipt__username');
+export const receiptAddress = document.querySelector('#receipt__address');
+export const receiptShipping = document.querySelector('#receipt__shipping');
+export const receiptAmount = document.querySelector('#receipt__amount');
+export const receiptDiscount = document.querySelector('#receipt__discount');

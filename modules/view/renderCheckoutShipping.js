@@ -34,8 +34,8 @@ const renderCheckoutShipping = async (container, id) => {
             </h4>
             <p class="text-[.6rem] text-gray-600">
               Estimated Arrival, ${dateStr.split(' ')[0].slice(0, 3)} ${
-      dateStr.split(' ')[1]
-    }-${+dateStr.split(' ')[1] + shipping[0].time}
+      +dateStr.split(' ')[1] + shipping[0].time
+    }-${+dateStr.split(' ')[1] + shipping[0].time + shipping[0].duration}
             </p>
           </div>
         </div>
@@ -76,8 +76,8 @@ const renderCheckoutShipping = async (container, id) => {
             </h4>
             <p class="text-[.6rem] text-gray-600">
               Estimated Arrival, ${dateStr.split(' ')[0].slice(0, 3)} ${
-      dateStr.split(' ')[1]
-    }-${+dateStr.split(' ')[1] + shipping.time}
+      +dateStr.split(' ')[1] + shipping.time
+    }-${+dateStr.split(' ')[1] + shipping.time + shipping.duration}
             </p>
           </div>
         </div>
