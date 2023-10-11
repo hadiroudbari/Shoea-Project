@@ -39,9 +39,9 @@ const renderOrdersItem = async (active = true) => {
     order.cart.forEach(cartItem => {
       const html = `
       <article
-        data-orderId="${order.id}"
+        data-order="${order.id}"
         data-id="${cartItem.id}"
-        class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow"
+        class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow order__item"
       >
         <a
           href="http://127.0.0.1:5500/src/product-details.html?id=${
@@ -88,6 +88,7 @@ const renderOrdersItem = async (active = true) => {
               cartItem.count
             )}</span>
             <button
+              data-active="${order.active ? true : false}"
               class="bg-black text-white rounded-full py-1 px-4 text-xs font-semibold"
             >
               ${order.active ? 'Track Order' : 'Buy Again'}
