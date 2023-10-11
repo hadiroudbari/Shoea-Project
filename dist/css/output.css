@@ -1361,6 +1361,10 @@ input,
   margin-top: 7px;
 }
 
+.mb-4{
+  margin-bottom: 1rem;
+}
+
 .block{
   display: block;
 }
@@ -1383,6 +1387,10 @@ input,
 
 .grid{
   display: grid;
+}
+
+.contents{
+  display: contents;
 }
 
 .hidden{
@@ -2134,6 +2142,10 @@ input,
 
 .pt-5{
   padding-top: 1.25rem;
+}
+
+.pb-28{
+  padding-bottom: 7rem;
 }
 
 .text-left{

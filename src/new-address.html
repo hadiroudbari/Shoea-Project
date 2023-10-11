@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo/logo.svg" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <link href="/dist/css/output.css" rel="stylesheet" />
+    <script type="module" src="../dist/js/newAddress.js" defer></script>
+    <title>Shopping Project</title>
+    <style>
+      #map {
+        height: 250px;
+      }
+    </style>
+  </head>
+  <body class="relative">
+    <div class="container py-3 px-5">
+      <header class="flex justify-between items-center">
+        <div class="flex items-center gap-4">
+          <a id="go__back" href="#">
+            <ion-icon class="text-xl" name="arrow-back-outline"></ion-icon>
+          </a>
+          <h2 class="font-bold text-lg">New Address</h2>
+        </div>
+      </header>
+
+      <div class="my-5 rounded-xl" id="map"></div>
+      <form id="address__form">
+        <div
+          class="input__box mb-4 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent"
+        >
+          <ion-icon name="location"></ion-icon>
+          <input
+            type="text"
+            id="address__data"
+            name="address__data"
+            class="text-sm bg-gray-100 rounded-md p-2 w-full"
+            placeholder="Your Address"
+            minlength="20"
+            required
+          />
+        </div>
+        <div
+          class="input__box mb-2 bg-gray-100 flex items-center pl-3 w-full rounded-md transition-all duration-200 ease-in-out border-2 border-transparent"
+        >
+          <ion-icon name="navigate"></ion-icon>
+          <input
+            type="text"
+            id="address__name"
+            name="address__name"
+            class="text-sm bg-gray-100 rounded-md p-2 w-full"
+            placeholder="Your Address Name"
+            minlength="4"
+            required
+          />
+        </div>
+        <p
+          id="address__name--alert"
+          class="text-xs text-red-600 hidden items-center"
+        >
+          <ion-icon class="text-base" name="close"></ion-icon> This address name
+          is already exists.
+        </p>
+      </form>
+    </div>
+
+    <footer
+      class="w-full fixed pb-3 bottom-0 bg-white z-10 rounded-tl-3xl rounded-tr-3xl"
+    >
+      <div
+        class="flex justify-between items-center py-5 px-5 border-t border-gray-200 rounded-tl-3xl rounded-tr-3xl overflow-hidden"
+      >
+        <button
+          form="address__form"
+          data-id="1"
+          id="apply__address--new"
+          class="bg-black text-white rounded-full py-3 flex items-center justify-center gap-3 text-sm font-extrabold shadow-xl w-full"
+        >
+          Apply
+        </button>
+      </div>
+    </footer>
+    <script>
+      document.getElementById('go__back').addEventListener('click', e => {
+        e.preventDefault();
+        history.back();
+      });
+    </script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </body>
+</html>

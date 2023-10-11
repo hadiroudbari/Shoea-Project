@@ -175,3 +175,10 @@ export const receiptAddress = document.querySelector('#receipt__address');
 export const receiptShipping = document.querySelector('#receipt__shipping');
 export const receiptAmount = document.querySelector('#receipt__amount');
 export const receiptDiscount = document.querySelector('#receipt__discount');
+
+// NEW ADDRESS
+
+export const addressForm = document.querySelector('#address__form');
+export const addressData = document.querySelector('#address__data');
+export const addressName = document.querySelector('#address__name');
+export const addressNameAlert = document.querySelector('#address__name--alert');

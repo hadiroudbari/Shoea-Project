@@ -214,10 +214,10 @@ DOM.registerForm.addEventListener('submit', async e => {
       username: formData.username,
       firstName:
         formData.firstname.split('')[0].toUpperCase() +
-        formData.firstname.slice(1),
+        formData.firstname.slice(1).join(''),
       lastName:
         formData.lastname.split('')[0].toUpperCase() +
-        formData.lastname.slice(1),
+        formData.lastname.slice(1).join(''),
       email: formData.email,
       password: formData.password,
       remember: false,
