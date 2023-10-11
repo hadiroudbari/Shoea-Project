@@ -24,6 +24,11 @@ const showShippingItem = async () => {
   calcTotalPrice(DOM.orderBox, DOM.priceTotal, shippingPriceItem.dataset.price);
   DOM.checkoutPaymentBtn.disabled = false;
   DOM.checkoutPaymentBtn.classList.remove('opacity-50');
+  DOM.discountInput.disabled = false;
+  DOM.discountInput.classList.remove('opacity-50');
+  DOM.discountInput.placeholder = 'Enter Promo Code';
+  DOM.discountBtn.disabled = false;
+  DOM.discountBtn.innerHTML = '+';
 };
 
 DOM.checkoutBody.addEventListener('click', e => {

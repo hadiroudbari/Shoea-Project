@@ -55,11 +55,12 @@
           <article>
             <form id="discount__form" class="flex items-center gap-4">
               <input
-                class="w-5/6 h-9 bg-discount_box rounded-xl text-xs pl-3"
+                disabled
+                class="w-5/6 h-9 bg-discount_box rounded-xl text-xs pl-3 opacity-50"
                 type="text"
                 name="discount"
                 id="discount__input"
-                placeholder="Enter Promo Code"
+                placeholder="First, You Should Choose Shipping"
               />
               <div
                 id="discount__item"
@@ -73,11 +74,12 @@
                 ></ion-icon>
               </div>
               <button
+                disabled
                 class="w-9 h-9 bg-black rounded-full flex justify-center items-center text-white text-xl"
                 type="submit"
                 id="discount__btn"
               >
-                +
+                <ion-icon class="text-sm" name="close"></ion-icon>
               </button>
             </form>
             <span id="discount__alert" class="text-red-600 text-xs mt-2 hidden"
