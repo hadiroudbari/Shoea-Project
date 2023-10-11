@@ -3,6 +3,8 @@ module.exports = {
   content: [
     './src/**/*.{html,js}',
     './dist/js/**/*.{html,js}',
+    './modules/model/**/*.{html,js}',
+    './modules/view/**/*.{html,js}',
     './node_modules/flowbite/**/*.js',
   ],
   theme: {

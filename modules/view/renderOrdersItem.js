@@ -43,7 +43,10 @@ const renderOrdersItem = async (active = true) => {
         data-id="${cartItem.id}"
         class="flex items-center gap-3 p-4 bg-white rounded-xl my-5 shadow"
       >
-        <div
+        <a
+          href="http://127.0.0.1:5500/src/product-details.html?id=${
+            cartItem.productId
+          }"
           style="width:35%"
           data-brand="${cartItem.brand}"
           class="flex justify-center items-center rounded-lg w-28 h-24 cart__image"
@@ -53,7 +56,7 @@ const renderOrdersItem = async (active = true) => {
             src="${cartItem.imgSrc}"
             alt="${cartItem.title}"
           />
-        </div>
+        </a>
         <div style="width:65%" class="flex flex-col gap-1 w-3/4">
           <h3 class="font-bold text-sm">${cartItem.title}</h3>
           <div>
