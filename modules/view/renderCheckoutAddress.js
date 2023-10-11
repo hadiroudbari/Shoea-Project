@@ -44,7 +44,7 @@ const renderCheckoutAddress = async (container, id) => {
         data-id="${address.id}"
         class="p-4 bg-white rounded-xl flex items-center justify-between my-5 shadow cursor-pointer address__item"
       >
-        <div class="flex gap-3">
+        <div class="flex gap-3 w-4/5">
           <img
             class="w-10 h-10"
             src="../assets/content/location.png"
@@ -63,7 +63,14 @@ const renderCheckoutAddress = async (container, id) => {
             </p>
           </div>
         </div>
-        <div>
+        <div class="flex items-center gap-3 w-1/5">
+          ${
+            i !== 0
+              ? `<a class="delete__icon" data-id="${address.id}" href="#">
+          <img class="w-5 h-6 delete" src="http://127.0.0.1:5500/assets/content/bin.png" alt="delete" />
+        </a>`
+              : ''
+          }
           <ion-icon class="text-xl icon" name="radio-button-${
             i === 0 ? 'on' : 'off'
           }"></ion-icon>

@@ -88,7 +88,7 @@ DOM.addressForm.addEventListener('submit', async e => {
   }
 
   userAddress.push({
-    address: DOM.addressData.value,
+    address: DOM.addressData.value.split(',').reverse().join(),
     name:
       DOM.addressName.value.split('')[0].toUpperCase() +
       DOM.addressName.value.split('').slice(1).join(''),
@@ -99,4 +99,6 @@ DOM.addressForm.addEventListener('submit', async e => {
 
   await editData('users', user[0].id, user[0]);
   await editData('loggedUser', user[0].id, user[0]);
+
+  location.assign('http://127.0.0.1:5500/src/checkout-address.html');
 });
