@@ -47,8 +47,6 @@ DOM.cartBox.addEventListener('click', async e => {
   if (e.target.classList.contains('delete')) {
     showDeleteModal();
     await renderDeletedItem(productCart.dataset.id);
-    console.log(body.scrollHeight);
-    console.log(overlay.style.height);
   }
 });
 

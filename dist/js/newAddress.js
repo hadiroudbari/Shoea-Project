@@ -23,7 +23,6 @@ function onLocationFound(e) {
     function (data) {
       const address = data.display_name.split(',');
       address.splice(4, 4);
-      // console.log(address.reverse().join());
       DOM.addressData.value = address.join();
     }
   );
@@ -65,7 +64,6 @@ map.on('click', e => {
     function (data) {
       const address = data.display_name.split(',');
       address.splice(4, 4);
-      // console.log(address.reverse().join());
       DOM.addressData.value = address.join();
     }
   );
