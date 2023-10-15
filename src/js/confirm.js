@@ -8,6 +8,7 @@ import {
   numberFormatter,
   textFormatter,
 } from '../../modules/model/formatter.js';
+import { SEARCH_DEBOUNCE_TIME } from '../../modules/config.js';
 
 const urlCheck = () => {
   // URL INFORMATION
@@ -41,6 +42,9 @@ DOM.confirmForm.addEventListener('submit', async e => {
   e.preventDefault();
   const userArray = await getData('loggedUser');
   const user = userArray[0];
+  const currentAddress = userArray[0].addresses.find(
+    address => address.id === +urlCheck().address
+  );
 
   if (DOM.confirmInputPassword.value === user.password) {
     const userCart = await getData('', '', '', `users/${user.id}/cart`);
@@ -86,7 +90,7 @@ DOM.confirmForm.addEventListener('submit', async e => {
     const newOrder = {
       cart: userCart,
       userId: user.id,
-      address: user.addresses[+urlCheck().address - 1].name,
+      address: currentAddress.name,
       shipping: shippingList[+urlCheck().shipping - 1].name,
       payment: user.payments[+urlCheck().payment - 1].name,
       totalPrice: urlCheck().totalPrice,
@@ -99,24 +103,25 @@ DOM.confirmForm.addEventListener('submit', async e => {
 
     await postData('orders', newOrder);
 
-    userCart.forEach(async cart => {
-      const selectedProduct = products.find(
-        product => product.id === cart.productId
-      );
-      const selectedColor = selectedProduct.sizeStock.find(
-        stock => stock.color === cart.color
-      );
-      const selectedSize = selectedColor.stock.find(
-        item => item.size === cart.size
-      );
-      selectedSize.stockCount -= cart.count;
+    let requestInterval = 0;
+    userCart.forEach(cart => {
+      setTimeout(async () => {
+        const selectedProduct = products.find(
+          product => product.id === cart.productId
+        );
+        const selectedColor = selectedProduct.sizeStock.find(
+          stock => stock.color === cart.color
+        );
+        const selectedSize = selectedColor.stock.find(
+          item => item.size === cart.size
+        );
+        selectedSize.stockCount -= cart.count;
 
-      setTimeout(async () => {
         await deleteData('cart', +cart.id);
-      }, 3000);
-      setTimeout(async () => {
         await editData('products', +selectedProduct.id, selectedProduct);
-      }, 5000);
+      }, requestInterval);
+
+      requestInterval += SEARCH_DEBOUNCE_TIME;
     });
 
     DOM.confirmOverlay.classList.remove('hidden');

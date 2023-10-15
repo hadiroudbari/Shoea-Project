@@ -3,24 +3,25 @@ import getData from '../model/getData.js';
 const renderCheckoutAddress = async (container, id) => {
   const user = await getData('loggedUser');
   const addresses = user[0].addresses;
+  const currentAddress = addresses.find(address => address.id === +id);
 
   container.innerHTML = '';
   if (id) {
     const html = `
         <article
-        data-id="${addresses[id - 1].id}"
+        data-id="${currentAddress.id}"
         class="p-4 bg-white rounded-xl flex items-center justify-between shadow address__item""
       >
         <div class="flex gap-3">
           <img
             class="w-10 h-10"
             src="../assets/content/location.png"
-            alt="${addresses[id - 1].name}"
+            alt="${currentAddress.name}"
           />
           <div class="flex flex-col gap-2">
-            <h4 class="text-xs font-bold">${addresses[id - 1].name}</h4>
+            <h4 class="text-xs font-bold">${currentAddress.name}</h4>
             <p class="text-[.6rem] text-gray-600">
-            ${addresses[id - 1].address}
+            ${currentAddress.address}
             </p>
           </div>
         </div>
