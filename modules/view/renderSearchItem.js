@@ -4,11 +4,12 @@ import { textFormatter, numberFormatter } from '../model/formatter.js';
 import { changeProductBg } from '../helpers.js';
 
 const renderSearchItem = async query => {
-  const products = await getData('products');
-
-  const searchResult = products.filter(product => {
-    return product.title.toLowerCase().includes(query.toLowerCase());
-  });
+  const searchResult = await getData(
+    '',
+    '',
+    '',
+    `products?title_like=${query.toLowerCase()}`
+  );
 
   DOM.searchNotFoundBox.innerHTML = '';
   if (searchResult.length < 1) {
