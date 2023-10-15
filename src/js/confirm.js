@@ -64,7 +64,12 @@ DOM.confirmForm.addEventListener('submit', async e => {
         .filter(item => item !== ',')
         .join('')
     );
-    const totalPrice = numberExtractor(urlCheck().totalPrice);
+    const totalPrice = numberExtractor(
+      urlCheck()
+        .totalPrice.split('')
+        .filter(item => item !== ',')
+        .join('')
+    );
 
     if (userCardStock > totalPrice) {
       const newUserStock = numberFormatter(userCardStock - totalPrice);
