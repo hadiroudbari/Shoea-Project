@@ -43,6 +43,7 @@ export const brandsBox = document.querySelector('#brands__box');
 export const filterBox = document.querySelector('#filter__box');
 export const homeProducts = document.querySelector('#home__products');
 export const exitUser = document.querySelector('#exit__user');
+export const spinner = document.querySelector('#spinner');
 
 // HOME -- BRAND
 export const brandTitle = document.querySelector('#brand__title');

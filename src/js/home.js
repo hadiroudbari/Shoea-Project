@@ -79,6 +79,7 @@ const init = async () => {
   await renderBrands();
   await renderFilters();
   await renderProducts(DOM.homeProducts);
+  DOM.spinner.classList.add('hidden');
 };
 
 window.addEventListener('DOMContentLoaded', init);

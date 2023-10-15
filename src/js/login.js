@@ -114,6 +114,7 @@ DOM.loginForm.addEventListener('submit', async e => {
 
 const checkRemember = async () => {
   const users = await getData('users');
+  const ionIcons = document.querySelectorAll('ion-icon');
   const currentUser = users.find(
     user =>
       user.username === DOM.loginInputUsername.value ||
@@ -123,6 +124,12 @@ const checkRemember = async () => {
   if (DOM.loginInputUsername.value === '') {
     DOM.loginFindPassword.classList.remove('flex');
     DOM.loginFindPassword.classList.add('hidden');
+
+    ionIcons.forEach(icon => {
+      icon.classList.add('text-gray-500');
+      icon.classList.remove('text-gray-900');
+    });
+    DOM.loginCheckBoxRemember.checked = false;
   }
 
   if (!currentUser) {
@@ -134,6 +141,16 @@ const checkRemember = async () => {
                 </p>
       `;
     DOM.loginFindPassword.innerHTML = html;
+    const ionIcons = DOM.loginInputPassword
+      .closest('.input__box')
+      .querySelectorAll('ion-icon');
+
+    ionIcons.forEach(icon => {
+      icon.classList.add('text-gray-500');
+      icon.classList.remove('text-gray-900');
+    });
+    DOM.loginCheckBoxRemember.checked = false;
+    changeBtnBackground();
   } else {
     if (currentUser.remember === true) {
       DOM.loginInputPassword.value = currentUser.password;
@@ -144,7 +161,6 @@ const checkRemember = async () => {
                 </p>
       `;
       DOM.loginFindPassword.innerHTML = html;
-      const ionIcons = document.querySelectorAll('ion-icon');
       ionIcons.forEach(icon => {
         icon.classList.remove('text-gray-500');
         icon.classList.add('text-gray-900');
@@ -160,18 +176,22 @@ const checkRemember = async () => {
                 </p>
       `;
       DOM.loginFindPassword.innerHTML = html;
-      const ionIcons = document.querySelectorAll('ion-icon');
+      const ionIcons = DOM.loginInputPassword
+        .closest('.input__box')
+        .querySelectorAll('ion-icon');
+
       ionIcons.forEach(icon => {
-        icon.classList.remove('text-gray-900');
         icon.classList.add('text-gray-500');
+        icon.classList.remove('text-gray-900');
       });
+      DOM.loginCheckBoxRemember.checked = false;
       changeBtnBackground();
     }
   }
 };
 const checkUser = debounce(checkRemember, 500);
 
-DOM.loginInputUsername.addEventListener('input', async e => {
+DOM.loginInputUsername.addEventListener('input', async () => {
   const html = `
       <span class="loader"></span>
       <p id="text" class="text-xs">
