@@ -214,16 +214,55 @@ DOM.registerForm.addEventListener('submit', async e => {
       username: formData.username,
       firstName:
         formData.firstname.split('')[0].toUpperCase() +
-        formData.firstname.slice(1).join(''),
+        formData.firstname.split('').slice(1).join(''),
       lastName:
         formData.lastname.split('')[0].toUpperCase() +
-        formData.lastname.slice(1).join(''),
+        formData.lastname.split('').slice(1).join(''),
       email: formData.email,
       password: formData.password,
       remember: false,
       userImage: formData.image,
-      addresses: [],
-      payments: [],
+      addresses: [
+        {
+          id: 1,
+          name: 'Home',
+          address: '61480 Sunbrook Park, PC 5679',
+        },
+      ],
+      payments: [
+        {
+          id: 1,
+          name: 'My Wallet',
+          imgSrc: 'http://127.0.0.1:5500/assets/content/Payments/Wallet.png',
+          stock: '$40,000',
+        },
+        {
+          id: 2,
+          name: 'Paypal',
+          imgSrc: 'http://127.0.0.1:5500/assets/content/Payments/Paypal.png',
+          stock: '$30,000',
+        },
+        {
+          id: 3,
+          name: 'Google Pay',
+          imgSrc: 'http://127.0.0.1:5500/assets/content/Payments/Google.png',
+          stock: '$20,000',
+        },
+        {
+          id: 4,
+          name: 'Apple Pay',
+          imgSrc: 'http://127.0.0.1:5500/assets/content/Payments/Apple.png',
+          stock: '$10,000',
+        },
+        {
+          id: 5,
+          name: 'Mastercard',
+          imgSrc:
+            'http://127.0.0.1:5500/assets/content/Payments/Mastercard.png',
+          stock: '$0',
+          card: '**** **** **** 0141',
+        },
+      ],
       searchHistory: [],
     };
 
